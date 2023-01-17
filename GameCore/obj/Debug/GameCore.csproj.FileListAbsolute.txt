@@ -1,0 +1,12 @@
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\bin\Debug\GameCore.exe.config
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\bin\Debug\GameCore.exe
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\bin\Debug\GameCore.pdb
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.SuggestedBindingRedirects.cache
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.GameCoreApp.resources
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaRegistro.resources
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.Properties.Resources.resources
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.GenerateResource.cache
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CoreCompileInputs.cache
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
+E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb

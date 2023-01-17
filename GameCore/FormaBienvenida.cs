@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GameCore
 {
-    public partial class GameCoreApp : Form
+    public partial class FormaBienvenida : Form
     {
-        public GameCoreApp()
+        public FormaBienvenida()
         {
             InitializeComponent();
         }
