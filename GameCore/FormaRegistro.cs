@@ -28,6 +28,7 @@ namespace GameCore
         private void button_registrar_Click(object sender, EventArgs e)
         {
             //string sql = "INSERT INTO usuarios (nombre_usuario,password) VALUES " + textBox_nomUsuario.Text + 
+            //commit
         }
     }
 }

@@ -10,3 +10,23 @@ E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\G
 E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CoreCompileInputs.cache
 E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 E:\2DAM\Desarrollo de interfaces\GameCore\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\GameCore.exe.config
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\GameCore.exe
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\GameCore.pdb
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.dll
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.SQLite.dll
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.xml
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.SQLite.xml
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.GameCoreApp.resources
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaRegistro.resources
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.Properties.Resources.resources
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.GenerateResource.cache
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CoreCompileInputs.cache
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CopyComplete
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
