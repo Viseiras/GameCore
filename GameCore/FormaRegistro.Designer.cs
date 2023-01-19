@@ -49,7 +49,7 @@
             this.label_nombreUsuario.Location = new System.Drawing.Point(57, 101);
             this.label_nombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nombreUsuario.Name = "label_nombreUsuario";
-            this.label_nombreUsuario.Size = new System.Drawing.Size(164, 23);
+            this.label_nombreUsuario.Size = new System.Drawing.Size(139, 19);
             this.label_nombreUsuario.TabIndex = 0;
             this.label_nombreUsuario.Text = "Nombre de usuario";
             // 
@@ -59,7 +59,7 @@
             this.label_contraseña.Location = new System.Drawing.Point(58, 210);
             this.label_contraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_contraseña.Name = "label_contraseña";
-            this.label_contraseña.Size = new System.Drawing.Size(99, 23);
+            this.label_contraseña.Size = new System.Drawing.Size(84, 19);
             this.label_contraseña.TabIndex = 1;
             this.label_contraseña.Text = "Contraseña";
             // 
@@ -68,9 +68,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.label2.Location = new System.Drawing.Point(97, 23);
+            this.label2.Location = new System.Drawing.Point(118, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 46);
+            this.label2.Size = new System.Drawing.Size(179, 37);
             this.label2.TabIndex = 2;
             this.label2.Text = "Crear cuenta";
             // 
@@ -114,7 +114,7 @@
             this.label_repetirContraseña.Location = new System.Drawing.Point(57, 316);
             this.label_repetirContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_repetirContraseña.Name = "label_repetirContraseña";
-            this.label_repetirContraseña.Size = new System.Drawing.Size(99, 23);
+            this.label_repetirContraseña.Size = new System.Drawing.Size(84, 19);
             this.label_repetirContraseña.TabIndex = 5;
             this.label_repetirContraseña.Text = "Contraseña";
             // 
@@ -123,9 +123,9 @@
             this.checkBox_mostrarContraseña.AutoSize = true;
             this.checkBox_mostrarContraseña.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox_mostrarContraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox_mostrarContraseña.Location = new System.Drawing.Point(176, 388);
+            this.checkBox_mostrarContraseña.Location = new System.Drawing.Point(204, 386);
             this.checkBox_mostrarContraseña.Name = "checkBox_mostrarContraseña";
-            this.checkBox_mostrarContraseña.Size = new System.Drawing.Size(185, 27);
+            this.checkBox_mostrarContraseña.Size = new System.Drawing.Size(157, 23);
             this.checkBox_mostrarContraseña.TabIndex = 7;
             this.checkBox_mostrarContraseña.Text = "Mostrar Contraseña";
             this.checkBox_mostrarContraseña.UseVisualStyleBackColor = true;
@@ -162,9 +162,9 @@
             // label_yaTienesCuenta
             // 
             this.label_yaTienesCuenta.AutoSize = true;
-            this.label_yaTienesCuenta.Location = new System.Drawing.Point(118, 629);
+            this.label_yaTienesCuenta.Location = new System.Drawing.Point(132, 627);
             this.label_yaTienesCuenta.Name = "label_yaTienesCuenta";
-            this.label_yaTienesCuenta.Size = new System.Drawing.Size(171, 23);
+            this.label_yaTienesCuenta.Size = new System.Drawing.Size(144, 19);
             this.label_yaTienesCuenta.TabIndex = 10;
             this.label_yaTienesCuenta.Text = "Ya tengo una cuenta";
             // 
@@ -173,15 +173,15 @@
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(147, 662);
+            this.label1.Location = new System.Drawing.Point(157, 663);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 23);
+            this.label1.Size = new System.Drawing.Size(89, 19);
             this.label1.TabIndex = 11;
             this.label1.Text = "Inicia sesión";
             // 
             // FormaRegistro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 726);
             this.Controls.Add(this.label1);
@@ -198,7 +198,7 @@
             this.Controls.Add(this.label_nombreUsuario);
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormaInicioSesion";
