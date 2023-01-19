@@ -29,6 +29,7 @@ namespace GameCore
         {
             //string sql = "INSERT INTO usuarios (nombre_usuario,password) VALUES " + textBox_nomUsuario.Text + 
             //commit
+            
         }
     }
 }
