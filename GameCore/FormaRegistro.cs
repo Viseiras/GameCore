@@ -30,5 +30,19 @@ namespace GameCore
             //string sql = "INSERT INTO usuarios (nombre_usuario,password) VALUES " + textBox_nomUsuario.Text + 
             //commit
         }
+
+        private void FormaRegistro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_iniciar_sesion_Click(object sender, EventArgs e)
+        {
+            FormaInicioSesion formaInicioSesion = new FormaInicioSesion();
+            if (formaInicioSesion.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

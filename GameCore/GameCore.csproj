@@ -127,6 +127,12 @@
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen_fondo_forma_inicioSesion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoDescripcion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

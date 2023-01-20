@@ -16,5 +16,14 @@ namespace GameCore
         {
             InitializeComponent();
         }
+
+        private void button_registrarse_Click(object sender, EventArgs e)
+        {
+            FormaRegistro formaRegistro = new FormaRegistro();
+            if(formaRegistro.ShowDialog()==DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

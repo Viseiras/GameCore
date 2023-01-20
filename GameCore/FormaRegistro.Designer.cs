@@ -30,7 +30,7 @@
         {
             this.label_nombreUsuario = new System.Windows.Forms.Label();
             this.label_contraseña = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_Crear_Cuenta = new System.Windows.Forms.Label();
             this.textBox_nomUsuario = new System.Windows.Forms.TextBox();
             this.textBox_contraseña = new System.Windows.Forms.TextBox();
             this.textBox_repetirContraseña = new System.Windows.Forms.TextBox();
@@ -39,7 +39,10 @@
             this.button_registrar = new System.Windows.Forms.Button();
             this.button_cancelar_registro = new System.Windows.Forms.Button();
             this.label_yaTienesCuenta = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_iniciar_sesion = new System.Windows.Forms.Label();
+            this.barra_separadora_horizontal1 = new System.Windows.Forms.Panel();
+            this.barra_separadora_horizontal2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label_nombreUsuario
@@ -63,20 +66,20 @@
             this.label_contraseña.TabIndex = 1;
             this.label_contraseña.Text = "Contraseña";
             // 
-            // label2
+            // label_Crear_Cuenta
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.label2.Location = new System.Drawing.Point(118, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 37);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Crear cuenta";
+            this.label_Crear_Cuenta.AutoSize = true;
+            this.label_Crear_Cuenta.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Crear_Cuenta.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.label_Crear_Cuenta.Location = new System.Drawing.Point(118, 21);
+            this.label_Crear_Cuenta.Name = "label_Crear_Cuenta";
+            this.label_Crear_Cuenta.Size = new System.Drawing.Size(179, 37);
+            this.label_Crear_Cuenta.TabIndex = 2;
+            this.label_Crear_Cuenta.Text = "Crear cuenta";
             // 
             // textBox_nomUsuario
             // 
-            this.textBox_nomUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_nomUsuario.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_nomUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_nomUsuario.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBox_nomUsuario.Location = new System.Drawing.Point(61, 127);
@@ -88,7 +91,7 @@
             // 
             // textBox_contraseña
             // 
-            this.textBox_contraseña.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_contraseña.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_contraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_contraseña.Location = new System.Drawing.Point(61, 236);
             this.textBox_contraseña.Multiline = true;
@@ -99,7 +102,7 @@
             // 
             // textBox_repetirContraseña
             // 
-            this.textBox_repetirContraseña.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox_repetirContraseña.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_repetirContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_repetirContraseña.Location = new System.Drawing.Point(61, 342);
             this.textBox_repetirContraseña.Multiline = true;
@@ -168,23 +171,51 @@
             this.label_yaTienesCuenta.TabIndex = 10;
             this.label_yaTienesCuenta.Text = "Ya tengo una cuenta";
             // 
-            // label1
+            // label_iniciar_sesion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(157, 663);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 19);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Inicia sesión";
+            this.label_iniciar_sesion.AutoSize = true;
+            this.label_iniciar_sesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_iniciar_sesion.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label_iniciar_sesion.Location = new System.Drawing.Point(157, 663);
+            this.label_iniciar_sesion.Name = "label_iniciar_sesion";
+            this.label_iniciar_sesion.Size = new System.Drawing.Size(89, 19);
+            this.label_iniciar_sesion.TabIndex = 11;
+            this.label_iniciar_sesion.Text = "Inicia sesión";
+            this.label_iniciar_sesion.Click += new System.EventHandler(this.label_iniciar_sesion_Click);
+            // 
+            // barra_separadora_horizontal1
+            // 
+            this.barra_separadora_horizontal1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.barra_separadora_horizontal1.Location = new System.Drawing.Point(62, 157);
+            this.barra_separadora_horizontal1.Name = "barra_separadora_horizontal1";
+            this.barra_separadora_horizontal1.Size = new System.Drawing.Size(295, 3);
+            this.barra_separadora_horizontal1.TabIndex = 16;
+            // 
+            // barra_separadora_horizontal2
+            // 
+            this.barra_separadora_horizontal2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.barra_separadora_horizontal2.Location = new System.Drawing.Point(62, 265);
+            this.barra_separadora_horizontal2.Name = "barra_separadora_horizontal2";
+            this.barra_separadora_horizontal2.Size = new System.Drawing.Size(295, 3);
+            this.barra_separadora_horizontal2.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(62, 373);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(295, 3);
+            this.panel1.TabIndex = 18;
             // 
             // FormaRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 726);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.barra_separadora_horizontal2);
+            this.Controls.Add(this.barra_separadora_horizontal1);
+            this.Controls.Add(this.label_iniciar_sesion);
             this.Controls.Add(this.label_yaTienesCuenta);
             this.Controls.Add(this.button_cancelar_registro);
             this.Controls.Add(this.button_registrar);
@@ -193,7 +224,7 @@
             this.Controls.Add(this.label_repetirContraseña);
             this.Controls.Add(this.textBox_contraseña);
             this.Controls.Add(this.textBox_nomUsuario);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_Crear_Cuenta);
             this.Controls.Add(this.label_contraseña);
             this.Controls.Add(this.label_nombreUsuario);
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,6 +233,7 @@
             this.Name = "FormaRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormaInicioSesion";
+            this.Load += new System.EventHandler(this.FormaRegistro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,7 +243,7 @@
 
         private System.Windows.Forms.Label label_nombreUsuario;
         private System.Windows.Forms.Label label_contraseña;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_Crear_Cuenta;
         private System.Windows.Forms.TextBox textBox_nomUsuario;
         private System.Windows.Forms.TextBox textBox_contraseña;
         private System.Windows.Forms.TextBox textBox_repetirContraseña;
@@ -220,6 +252,9 @@
         private System.Windows.Forms.Button button_registrar;
         private System.Windows.Forms.Button button_cancelar_registro;
         private System.Windows.Forms.Label label_yaTienesCuenta;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_iniciar_sesion;
+        private System.Windows.Forms.Panel barra_separadora_horizontal1;
+        private System.Windows.Forms.Panel barra_separadora_horizontal2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
