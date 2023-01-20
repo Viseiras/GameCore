@@ -21,19 +21,19 @@ BLOB 	-- imagen, video. musica, pdf...
 
 NULL 	-- valor nulo
 
----------TRUCOS--------------
+-------------------TIPS/TRUCOS---------------------
 Para salir del prompt ...> poner ; + enter
 
 
----------------SINTAXIS---------------------------
+---------------SINTAXIS----------------------------
 
-.quit 		 -- salir del intérprete
-.databases 	 -- lista todas las bases de datos
-.open 'nombreBD' -- crea una base de datos, el nombre sin comillas simples
-.tables 	 -- muestra una lista con las tablas de la base de datos
+.quit 		       -- salir del intérprete
+.databases 	     -- lista todas las bases de datos
+.open 'nombreBD' -- crea o abre una base de datos, el nombre va sin las comillas simples
+.tables 	       -- muestra una lista con las tablas de la base de datos abierta
 
 
--------EJEMPLOS------
+------------------------EJEMPLOS-------------------
 CREATE TABLE videojuegos (id integer primary key, titulo text, desarrollador text, descripcion text, plataformas_disponibles text);
 INSERT INTO videojuegos (id,titulo,descripcion,plataformas_disponibles) VALUES (1,"Dark Souls","Videojuego acción rpg de fantasía oscura","Pc, Playstation, Xbox");
 CREATE TABLE usuarios (usuario text primary key,contraseña text);
