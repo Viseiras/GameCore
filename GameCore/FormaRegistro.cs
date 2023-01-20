@@ -13,22 +13,12 @@ namespace GameCore
 {
     public partial class FormaRegistro : Form
     {
+        SQLiteConnection conexion;
         public FormaRegistro()
         {
             InitializeComponent();
-
-            //iniciamos la conexión con la base de datos
-            using (SQLiteConnection conexion = new SQLiteConnection("Data Source=usuarios.db"))
-            {
-                conexion.Open();
-                
-            }
-        }
-
-        private void button_registrar_Click(object sender, EventArgs e)
-        {
-            //string sql = "INSERT INTO usuarios (nombre_usuario,password) VALUES " + textBox_nomUsuario.Text + 
-            //commit
+            SQLiteConnection.CreateFile("gamecore.db");
+            
         }
 
         private void FormaRegistro_Load(object sender, EventArgs e)
@@ -36,6 +26,39 @@ namespace GameCore
 
         }
 
+        private void button_registrar_Click(object sender, EventArgs e)
+        {
+            bool validarUsuario = false;
+
+            string nombreUsuario = textBox_nomUsuario.Text;
+            string contraseña = textBox_contraseña.Text;
+            string repetirContraseña = textBox_repetirContraseña.Text;
+            if(contraseña.Equals(repetirContraseña))
+            {
+                //iniciamos la conexión con la base de datos al iniciar la forma registro
+                using (conexion = new SQLiteConnection(@"Data Source=Databases\\gamecore.db"))
+                {
+                    conexion.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(conexion))
+                    {
+                        //consulta parametrizada para evitar inyección SQL en la base de datos
+                        command.CommandText = "INSERT INTO usuarios (usuario,contraseña) VALUES (@nombre, @contraseña)";
+                        command.Parameters.AddWithValue("@nombre", nombreUsuario);
+                        command.Parameters.AddWithValue("@contraseña", contraseña);
+                        command.ExecuteNonQuery();
+                    }
+
+                }      
+               
+            }
+            else
+            {
+                MessageBox.Show("Las contraseñas no coinciden, asegúrate de introducir la misma contraseña en los dos campos");
+            }
+
+        }  
+
+        //si ya tienes una cuenta el label de iniciar sesion te devuelve a la forma de Inicio de Sesion
         private void label_iniciar_sesion_Click(object sender, EventArgs e)
         {
             FormaInicioSesion formaInicioSesion = new FormaInicioSesion();
@@ -43,6 +66,12 @@ namespace GameCore
             {
 
             }
+        }
+
+        //boton cancelar oculta la forma
+        private void button_cancelar_registro_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

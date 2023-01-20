@@ -15,6 +15,14 @@ namespace GameCore
         public FormaInicioSesion()
         {
             InitializeComponent();
+            //comprobación para cambiar el color de las letras a blanco si hay una imagen de fondo
+            if(this.BackgroundImage!=null)
+            {
+                label_Inicio_Sesion.ForeColor = Color.White;
+                label_nombreUsuario.ForeColor = Color.White;
+                label_Contraseña.ForeColor = Color.White;
+                label_no_tienes_cuenta.ForeColor = Color.White;
+            }
         }
 
         private void button_registrarse_Click(object sender, EventArgs e)
@@ -25,5 +33,7 @@ namespace GameCore
 
             }
         }
+
+        
     }
 }
