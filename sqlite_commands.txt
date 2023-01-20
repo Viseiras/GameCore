@@ -1,0 +1,46 @@
+SQLite particularidades:
+No existe un servidor independiente que gestione la base de datos. 
+Una aplicación interactúa con el motor de la base de datos mediante 
+llamadas a funciones, no enviando mensajes a un hilo independiente. 
+
+En SQLite los datatypes no son estrictos por lo que se puede introducir
+una cadena de 200 caracteres en un campo de varchar(50), un boolean puede
+introducirse como 1 (TRUE) o 0 (FALSE) y los campos de fecha pueden almacenarse
+como strings o enteros. 
+
+Documentación: https://www.sqlite.org/lang.html
+
+------------TIPOS DE DATOS EN SQLITE--------------
+INTEGER -- 1, -1, 10000
+
+REAL 	-- 3.14, 1.2345, -0.123
+
+TEXT 	-- 'hello' 'ADIOS'
+
+BLOB 	-- imagen, video. musica, pdf...
+
+NULL 	-- valor nulo
+
+---------TRUCOS--------------
+Para salir del prompt ...> poner ; + enter
+
+
+---------------SINTAXIS---------------------------
+
+.quit 		 -- salir del intérprete
+.databases 	 -- lista todas las bases de datos
+.open 'nombreBD' -- crea una base de datos, el nombre sin comillas simples
+.tables 	 -- muestra una lista con las tablas de la base de datos
+
+
+-------EJEMPLOS------
+CREATE TABLE videojuegos (id integer primary key, titulo text, desarrollador text, descripcion text, plataformas_disponibles text);
+INSERT INTO videojuegos (id,titulo,descripcion,plataformas_disponibles) VALUES (1,"Dark Souls","Videojuego acción rpg de fantasía oscura","Pc, Playstation, Xbox");
+CREATE TABLE usuarios (usuario text primary key,contraseña text);
+SELECT * FROM videojuegos;
+DELETE FROM usuarios; -- en sqlite no se necesita usar el * ya que al no indicar el where sqlite entiende que se borra todo el contenido de la tabla
+
+-----DÓNDE COLOCAR LA BASE DE DATOS EN EL PROYECTO DE VISUAL STUDIO-----
+Video: https://youtu.be/qh5LhpaKC-c
+Básicamente clic derecho en el nombre del proyecto GameCore y open folder in explorer
+Ruta:  C:\Users\samu2\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\Databases
