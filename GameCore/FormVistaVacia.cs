@@ -43,5 +43,31 @@ namespace GameCore
 
             flVistaVacia.Controls.Add(flp); 
         }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormVistaVacia_Load(object sender, EventArgs e)
+        {
+            FlowLayoutPanel flp = new FlowLayoutPanel();
+            PictureBox pb = new PictureBox();
+            TextBox tb = new TextBox();
+
+            flVistaVacia.Controls.Add(flp);
+        }
+
+        private void esconder_click(object sender, EventArgs e)
+        {
+            panelLateral.Visible = false;
+            tsMenuCerrado.Visible = true;
+        }
+
+        private void desplegar_click(object sender, EventArgs e)
+        {
+            panelLateral.Visible = true;
+            tsMenuCerrado.Visible = false;
+        }
     }
 }
