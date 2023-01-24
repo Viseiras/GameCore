@@ -29,7 +29,6 @@ namespace GameCore
         /// </summary>
         private void InitializeComponent()
         {
-            this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLateral = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tslblSettings = new System.Windows.Forms.ToolStripLabel();
@@ -42,22 +41,11 @@ namespace GameCore
             this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLateral.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tsMenuCerrado.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flVistaVacia
-            // 
-            this.flVistaVacia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flVistaVacia.AutoScroll = true;
-            this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flVistaVacia.Location = new System.Drawing.Point(198, 29);
-            this.flVistaVacia.Name = "flVistaVacia";
-            this.flVistaVacia.Size = new System.Drawing.Size(610, 416);
-            this.flVistaVacia.TabIndex = 0;
             // 
             // panelLateral
             // 
@@ -177,6 +165,18 @@ namespace GameCore
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
+            // 
+            // flVistaVacia
+            // 
+            this.flVistaVacia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flVistaVacia.AutoScroll = true;
+            this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flVistaVacia.Location = new System.Drawing.Point(198, 29);
+            this.flVistaVacia.Name = "flVistaVacia";
+            this.flVistaVacia.Size = new System.Drawing.Size(610, 416);
+            this.flVistaVacia.TabIndex = 0;
             // 
             // FormVistaVacia
             // 

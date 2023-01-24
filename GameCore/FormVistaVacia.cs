@@ -37,6 +37,7 @@ namespace GameCore
             pb.Width = 120;
             tb.Width = 120;
             pb.Height = 160;
+            tb.TextAlign = HorizontalAlignment.Center;
             flp.Controls.Add(pb);
             flp.Controls.Add(tb);
 
@@ -54,6 +55,18 @@ namespace GameCore
             FlowLayoutPanel flp = new FlowLayoutPanel();
             PictureBox pb = new PictureBox();
             TextBox tb = new TextBox();
+            tb.Text = "Añadir";
+            tb.TextAlign = HorizontalAlignment.Center;
+            tb.Enabled = false;
+            pb.Image = (Image)new Bitmap(@".\\..\\..\\Resources\\SUMA.png"); //C: \Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\Resources\SUMA.png
+
+            flp.Height = 200;
+            flp.Width = 130;
+            pb.Width = 120;
+            tb.Width = 120;
+            pb.Height = 160;
+            flp.Controls.Add(pb);
+            flp.Controls.Add(tb);
 
             flVistaVacia.Controls.Add(flp);
         }
