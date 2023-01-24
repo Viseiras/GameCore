@@ -43,6 +43,7 @@
             this.barra_separadora_horizontal1 = new System.Windows.Forms.Panel();
             this.barra_separadora_horizontal2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_aviso_errores = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_nombreUsuario
@@ -52,7 +53,7 @@
             this.label_nombreUsuario.Location = new System.Drawing.Point(57, 101);
             this.label_nombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nombreUsuario.Name = "label_nombreUsuario";
-            this.label_nombreUsuario.Size = new System.Drawing.Size(164, 23);
+            this.label_nombreUsuario.Size = new System.Drawing.Size(139, 19);
             this.label_nombreUsuario.TabIndex = 0;
             this.label_nombreUsuario.Text = "Nombre de usuario";
             // 
@@ -62,7 +63,7 @@
             this.label_contraseña.Location = new System.Drawing.Point(58, 210);
             this.label_contraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_contraseña.Name = "label_contraseña";
-            this.label_contraseña.Size = new System.Drawing.Size(99, 23);
+            this.label_contraseña.Size = new System.Drawing.Size(84, 19);
             this.label_contraseña.TabIndex = 1;
             this.label_contraseña.Text = "Contraseña";
             // 
@@ -73,7 +74,7 @@
             this.label_Crear_Cuenta.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.label_Crear_Cuenta.Location = new System.Drawing.Point(118, 21);
             this.label_Crear_Cuenta.Name = "label_Crear_Cuenta";
-            this.label_Crear_Cuenta.Size = new System.Drawing.Size(217, 45);
+            this.label_Crear_Cuenta.Size = new System.Drawing.Size(179, 37);
             this.label_Crear_Cuenta.TabIndex = 2;
             this.label_Crear_Cuenta.Text = "Crear cuenta";
             // 
@@ -117,7 +118,7 @@
             this.label_repetirContraseña.Location = new System.Drawing.Point(57, 316);
             this.label_repetirContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_repetirContraseña.Name = "label_repetirContraseña";
-            this.label_repetirContraseña.Size = new System.Drawing.Size(99, 23);
+            this.label_repetirContraseña.Size = new System.Drawing.Size(84, 19);
             this.label_repetirContraseña.TabIndex = 5;
             this.label_repetirContraseña.Text = "Contraseña";
             // 
@@ -128,10 +129,11 @@
             this.checkBox_mostrarContraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox_mostrarContraseña.Location = new System.Drawing.Point(204, 386);
             this.checkBox_mostrarContraseña.Name = "checkBox_mostrarContraseña";
-            this.checkBox_mostrarContraseña.Size = new System.Drawing.Size(185, 27);
+            this.checkBox_mostrarContraseña.Size = new System.Drawing.Size(157, 23);
             this.checkBox_mostrarContraseña.TabIndex = 7;
             this.checkBox_mostrarContraseña.Text = "Mostrar Contraseña";
             this.checkBox_mostrarContraseña.UseVisualStyleBackColor = true;
+            this.checkBox_mostrarContraseña.CheckedChanged += new System.EventHandler(this.checkBox_mostrarContraseña_CheckedChanged);
             // 
             // button_registrar
             // 
@@ -168,7 +170,7 @@
             this.label_yaTienesCuenta.AutoSize = true;
             this.label_yaTienesCuenta.Location = new System.Drawing.Point(132, 627);
             this.label_yaTienesCuenta.Name = "label_yaTienesCuenta";
-            this.label_yaTienesCuenta.Size = new System.Drawing.Size(171, 23);
+            this.label_yaTienesCuenta.Size = new System.Drawing.Size(144, 19);
             this.label_yaTienesCuenta.TabIndex = 10;
             this.label_yaTienesCuenta.Text = "Ya tengo una cuenta";
             // 
@@ -179,7 +181,7 @@
             this.label_iniciar_sesion.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.label_iniciar_sesion.Location = new System.Drawing.Point(157, 663);
             this.label_iniciar_sesion.Name = "label_iniciar_sesion";
-            this.label_iniciar_sesion.Size = new System.Drawing.Size(105, 23);
+            this.label_iniciar_sesion.Size = new System.Drawing.Size(89, 19);
             this.label_iniciar_sesion.TabIndex = 11;
             this.label_iniciar_sesion.Text = "Inicia sesión";
             this.label_iniciar_sesion.Click += new System.EventHandler(this.label_iniciar_sesion_Click);
@@ -208,11 +210,26 @@
             this.panel1.Size = new System.Drawing.Size(295, 3);
             this.panel1.TabIndex = 18;
             // 
+            // label_aviso_errores
+            // 
+            this.label_aviso_errores.AutoSize = true;
+            this.label_aviso_errores.ForeColor = System.Drawing.Color.Red;
+            this.label_aviso_errores.Location = new System.Drawing.Point(48, 417);
+            this.label_aviso_errores.MaximumSize = new System.Drawing.Size(309, 0);
+            this.label_aviso_errores.MinimumSize = new System.Drawing.Size(308, 0);
+            this.label_aviso_errores.Name = "label_aviso_errores";
+            this.label_aviso_errores.Size = new System.Drawing.Size(308, 19);
+            this.label_aviso_errores.TabIndex = 19;
+            this.label_aviso_errores.Text = "Error";
+            this.label_aviso_errores.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_aviso_errores.Visible = false;
+            // 
             // FormaRegistro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 726);
+            this.Controls.Add(this.label_aviso_errores);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barra_separadora_horizontal2);
             this.Controls.Add(this.barra_separadora_horizontal1);
@@ -234,7 +251,6 @@
             this.Name = "FormaRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormaInicioSesion";
-            this.Load += new System.EventHandler(this.FormaRegistro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +273,6 @@
         private System.Windows.Forms.Panel barra_separadora_horizontal1;
         private System.Windows.Forms.Panel barra_separadora_horizontal2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_aviso_errores;
     }
 }

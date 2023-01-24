@@ -35,8 +35,9 @@ namespace GameCore
             string repetirContraseña = textBox_repetirContraseña.Text;
             if(contraseña.Equals(repetirContraseña))
             {
+
                 //iniciamos la conexión con la base de datos al iniciar la forma registro
-                using (conexion = new SQLiteConnection(@"Data Source=Databases\\gamecore.db"))
+                using (conexion = new SQLiteConnection(@"Data Source=.\BaseDeDatos\gamecore.db")) 
                 {
                     conexion.Open();
                     using (SQLiteCommand command = new SQLiteCommand(conexion))
@@ -53,7 +54,11 @@ namespace GameCore
             }
             else
             {
-                MessageBox.Show("Las contraseñas no coinciden, asegúrate de introducir la misma contraseña en los dos campos");
+                //hacer visible la label
+                label_aviso_errores.Text = "Las contraseñas no coinciden";
+                label_aviso_errores.Size = new Size(309, 10);
+                label_aviso_errores.TextAlign = ContentAlignment.MiddleCenter;
+                label_aviso_errores.Visible = true;
             }
 
         }  
@@ -72,6 +77,21 @@ namespace GameCore
         private void button_cancelar_registro_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void checkBox_mostrarContraseña_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_mostrarContraseña.Checked)
+            {
+                textBox_contraseña.UseSystemPasswordChar = true;
+                textBox_repetirContraseña.UseSystemPasswordChar = true;
+                
+            }
+            else
+            {
+                textBox_contraseña.UseSystemPasswordChar = false;
+                textBox_repetirContraseña.UseSystemPasswordChar = false;
+            }
         }
     }
 }
