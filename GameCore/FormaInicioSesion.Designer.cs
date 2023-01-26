@@ -69,11 +69,14 @@
             // 
             // textBox1
             // 
+            this.textBox1.AcceptsReturn = true;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(96, 178);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(445, 15);
+            this.textBox1.Size = new System.Drawing.Size(445, 25);
             this.textBox1.TabIndex = 1;
             // 
             // label_nombreUsuario
@@ -105,10 +108,12 @@
             // textBox_Contraseña
             // 
             this.textBox_Contraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_Contraseña.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Contraseña.Location = new System.Drawing.Point(96, 292);
             this.textBox_Contraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Contraseña.Multiline = true;
             this.textBox_Contraseña.Name = "textBox_Contraseña";
-            this.textBox_Contraseña.Size = new System.Drawing.Size(445, 15);
+            this.textBox_Contraseña.Size = new System.Drawing.Size(445, 22);
             this.textBox_Contraseña.TabIndex = 10;
             // 
             // button_registrar

@@ -89,6 +89,7 @@
     <Compile Include="FormaRegistro.Designer.cs">
       <DependentUpon>FormaRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="MetodosSqlite.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

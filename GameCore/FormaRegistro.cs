@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace GameCore
 
         private void button_registrar_Click(object sender, EventArgs e)
         {
+            //variables donde almaceno los datos que introduce el usuario y los paso a minúsculas para introducirlos en la BD
             string nombreUsuario = textBox_nomUsuario.Text;
             nombreUsuario = nombreUsuario.Trim().ToLower();
             string contraseña = textBox_contraseña.Text;
@@ -35,42 +37,38 @@ namespace GameCore
             string repetirContraseña = textBox_repetirContraseña.Text;
             repetirContraseña = repetirContraseña.Trim();
 
-            if(contraseña.Equals(repetirContraseña))
+            if (contraseña.Equals(repetirContraseña))
             {
+                //PENDIENTE comprobar si el archivo de la base de datos está en la aplicación
 
                 //iniciamos la conexión con la base de datos al iniciar la forma registro
-                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db")) 
+                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                 {
                     conexion.Open();
-                    
+
                     using (SQLiteCommand command = new SQLiteCommand(conexion))
                     {
-                        //hago una consulta básica para comprobar si existe un usuario con ese nombre en la base de datos
-                        SQLiteDataReader lector;
-                        SQLiteCommand select = conexion.CreateCommand();
-                        select.CommandText = "SELECT * FROM usuarios WHERE usuario = \"" + nombreUsuario+"\"";
-                        lector = select.ExecuteReader();
-                        
                         //si me devuelve false es que no hay usuario con ese nombre, por lo tanto lo inserto en la base de datos
-                        if(!lector.Read())
+                        if (!MetodosSqlite.CompruebaUsuario(nombreUsuario))
                         {
                             //consulta parametrizada para evitar inyección SQL en la base de datos
                             command.CommandText = "INSERT INTO usuarios (usuario,contraseña) VALUES (@nombre, @contraseña)";
                             command.Parameters.AddWithValue("@nombre", nombreUsuario);
                             command.Parameters.AddWithValue("@contraseña", contraseña);
                             command.ExecuteNonQuery();
+                            MessageBox.Show("Has sido registrado en la aplicación");
                         }
                         //si devuelve true le aviso al usuario de que ya hay un usuario con ese nombre
                         else
                         {
                             MessageBox.Show("Ese usuarios ya existe");
                         }
-     
+
                     }
 
-                }      
-               
+                }
             }
+               
             else
             {
                 //hacer visible la label
@@ -85,17 +83,13 @@ namespace GameCore
         //si ya tienes una cuenta el label de iniciar sesion te devuelve a la forma de Inicio de Sesion
         private void label_iniciar_sesion_Click(object sender, EventArgs e)
         {
-            FormaInicioSesion formaInicioSesion = new FormaInicioSesion();
-            if (formaInicioSesion.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            this.Close();
         }
 
         //boton cancelar oculta la forma
         private void button_cancelar_registro_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void checkBox_mostrarContraseña_CheckedChanged(object sender, EventArgs e)
