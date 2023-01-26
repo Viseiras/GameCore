@@ -214,7 +214,7 @@
             // 
             this.label_aviso_errores.AutoSize = true;
             this.label_aviso_errores.ForeColor = System.Drawing.Color.Red;
-            this.label_aviso_errores.Location = new System.Drawing.Point(48, 417);
+            this.label_aviso_errores.Location = new System.Drawing.Point(53, 422);
             this.label_aviso_errores.MaximumSize = new System.Drawing.Size(309, 0);
             this.label_aviso_errores.MinimumSize = new System.Drawing.Size(308, 0);
             this.label_aviso_errores.Name = "label_aviso_errores";

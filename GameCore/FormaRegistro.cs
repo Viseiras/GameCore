@@ -17,7 +17,7 @@ namespace GameCore
         public FormaRegistro()
         {
             InitializeComponent();
-            SQLiteConnection.CreateFile("gamecore.db");
+            //SQLiteConnection.CreateFile("gamecore.db");
             
         }
 
@@ -28,25 +28,44 @@ namespace GameCore
 
         private void button_registrar_Click(object sender, EventArgs e)
         {
-            bool validarUsuario = false;
-
             string nombreUsuario = textBox_nomUsuario.Text;
+            nombreUsuario = nombreUsuario.Trim().ToLower();
             string contraseña = textBox_contraseña.Text;
+            contraseña = contraseña.Trim();
             string repetirContraseña = textBox_repetirContraseña.Text;
+            repetirContraseña = repetirContraseña.Trim();
+
             if(contraseña.Equals(repetirContraseña))
             {
 
                 //iniciamos la conexión con la base de datos al iniciar la forma registro
-                using (conexion = new SQLiteConnection(@"Data Source=.\BaseDeDatos\gamecore.db")) 
+                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db")) 
                 {
                     conexion.Open();
+                    
                     using (SQLiteCommand command = new SQLiteCommand(conexion))
                     {
-                        //consulta parametrizada para evitar inyección SQL en la base de datos
-                        command.CommandText = "INSERT INTO usuarios (usuario,contraseña) VALUES (@nombre, @contraseña)";
-                        command.Parameters.AddWithValue("@nombre", nombreUsuario);
-                        command.Parameters.AddWithValue("@contraseña", contraseña);
-                        command.ExecuteNonQuery();
+                        //hago una consulta básica para comprobar si existe un usuario con ese nombre en la base de datos
+                        SQLiteDataReader lector;
+                        SQLiteCommand select = conexion.CreateCommand();
+                        select.CommandText = "SELECT * FROM usuarios WHERE usuario = \"" + nombreUsuario+"\"";
+                        lector = select.ExecuteReader();
+                        
+                        //si me devuelve false es que no hay usuario con ese nombre, por lo tanto lo inserto en la base de datos
+                        if(!lector.Read())
+                        {
+                            //consulta parametrizada para evitar inyección SQL en la base de datos
+                            command.CommandText = "INSERT INTO usuarios (usuario,contraseña) VALUES (@nombre, @contraseña)";
+                            command.Parameters.AddWithValue("@nombre", nombreUsuario);
+                            command.Parameters.AddWithValue("@contraseña", contraseña);
+                            command.ExecuteNonQuery();
+                        }
+                        //si devuelve true le aviso al usuario de que ya hay un usuario con ese nombre
+                        else
+                        {
+                            MessageBox.Show("Ese usuarios ya existe");
+                        }
+     
                     }
 
                 }      
