@@ -31,16 +31,16 @@ namespace GameCore
         {
             this.panelLateral = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tslblSettings = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslblexit = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.btnAnadir = new System.Windows.Forms.Button();
             this.tsMenuCerrado = new System.Windows.Forms.ToolStrip();
             this.tslblDeplegar = new System.Windows.Forms.ToolStripLabel();
-            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLateral.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -76,6 +76,16 @@ namespace GameCore
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "Menu";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
+            // 
             // tslblSettings
             // 
             this.tslblSettings.AutoToolTip = true;
@@ -98,6 +108,17 @@ namespace GameCore
             this.tslblexit.Size = new System.Drawing.Size(64, 22);
             this.tslblexit.Text = "Esconder";
             this.tslblexit.Click += new System.EventHandler(this.esconder_click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.BackgroundImage = global::GameCore.Properties.Resources.img_92255;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
             // 
             // btnAnadir
             // 
@@ -131,10 +152,6 @@ namespace GameCore
             this.tslblDeplegar.Text = "Desplegar";
             this.tslblDeplegar.Click += new System.EventHandler(this.desplegar_click);
             // 
-            // sqLiteCommand1
-            // 
-            this.sqLiteCommand1.CommandText = null;
-            // 
             // tsbtnRegresa
             // 
             this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
@@ -145,26 +162,9 @@ namespace GameCore
             this.tsbtnRegresa.Size = new System.Drawing.Size(23, 22);
             this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
             // 
-            // toolStripButton1
+            // sqLiteCommand1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.BackgroundImage = global::GameCore.Properties.Resources.img_92255;
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
+            this.sqLiteCommand1.CommandText = null;
             // 
             // flVistaVacia
             // 
