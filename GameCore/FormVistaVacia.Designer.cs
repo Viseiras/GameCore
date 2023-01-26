@@ -29,34 +29,81 @@ namespace GameCore
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelLateral = new System.Windows.Forms.Panel();
+            this.tsMenuCerrado = new System.Windows.Forms.ToolStrip();
+            this.tslblDeplegar = new System.Windows.Forms.ToolStripLabel();
+            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
+            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
+            this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAnadir = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tslblSettings = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslblexit = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.btnAnadir = new System.Windows.Forms.Button();
-            this.tsMenuCerrado = new System.Windows.Forms.ToolStrip();
-            this.tslblDeplegar = new System.Windows.Forms.ToolStripLabel();
-            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
-            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
-            this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelLateral.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.panelLateral = new System.Windows.Forms.Panel();
             this.tsMenuCerrado.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.panelLateral.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelLateral
+            // tsMenuCerrado
             // 
-            this.panelLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelLateral.Controls.Add(this.toolStrip1);
-            this.panelLateral.Controls.Add(this.btnAnadir);
-            this.panelLateral.Location = new System.Drawing.Point(1, 29);
-            this.panelLateral.Name = "panelLateral";
-            this.panelLateral.Size = new System.Drawing.Size(191, 416);
-            this.panelLateral.TabIndex = 1;
+            this.tsMenuCerrado.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tsMenuCerrado.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsMenuCerrado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslblDeplegar,
+            this.tsbtnRegresa});
+            this.tsMenuCerrado.Location = new System.Drawing.Point(0, 422);
+            this.tsMenuCerrado.Name = "tsMenuCerrado";
+            this.tsMenuCerrado.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.tsMenuCerrado.Size = new System.Drawing.Size(820, 25);
+            this.tsMenuCerrado.TabIndex = 2;
+            this.tsMenuCerrado.Text = "Desplegar ";
+            this.tsMenuCerrado.Visible = false;
+            // 
+            // tslblDeplegar
+            // 
+            this.tslblDeplegar.Name = "tslblDeplegar";
+            this.tslblDeplegar.Size = new System.Drawing.Size(59, 22);
+            this.tslblDeplegar.Text = "Desplegar";
+            this.tslblDeplegar.Click += new System.EventHandler(this.desplegar_click);
+            // 
+            // tsbtnRegresa
+            // 
+            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
+            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.Name = "tsbtnRegresa";
+            this.tsbtnRegresa.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
+            // 
+            // sqLiteCommand1
+            // 
+            this.sqLiteCommand1.CommandText = null;
+            // 
+            // flVistaVacia
+            // 
+            this.flVistaVacia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flVistaVacia.AutoScroll = true;
+            this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flVistaVacia.Location = new System.Drawing.Point(198, 29);
+            this.flVistaVacia.Name = "flVistaVacia";
+            this.flVistaVacia.Size = new System.Drawing.Size(610, 416);
+            this.flVistaVacia.TabIndex = 0;
+            // 
+            // btnAnadir
+            // 
+            this.btnAnadir.Location = new System.Drawing.Point(44, 18);
+            this.btnAnadir.Name = "btnAnadir";
+            this.btnAnadir.Size = new System.Drawing.Size(98, 23);
+            this.btnAnadir.TabIndex = 0;
+            this.btnAnadir.Text = "Añadir Juego";
+            this.btnAnadir.UseVisualStyleBackColor = true;
+            this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
             // 
             // toolStrip1
             // 
@@ -120,63 +167,16 @@ namespace GameCore
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
             // 
-            // btnAnadir
+            // panelLateral
             // 
-            this.btnAnadir.Location = new System.Drawing.Point(44, 18);
-            this.btnAnadir.Name = "btnAnadir";
-            this.btnAnadir.Size = new System.Drawing.Size(98, 23);
-            this.btnAnadir.TabIndex = 0;
-            this.btnAnadir.Text = "Añadir Juego";
-            this.btnAnadir.UseVisualStyleBackColor = true;
-            this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
-            // 
-            // tsMenuCerrado
-            // 
-            this.tsMenuCerrado.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tsMenuCerrado.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tsMenuCerrado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tslblDeplegar,
-            this.tsbtnRegresa});
-            this.tsMenuCerrado.Location = new System.Drawing.Point(0, 422);
-            this.tsMenuCerrado.Name = "tsMenuCerrado";
-            this.tsMenuCerrado.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsMenuCerrado.Size = new System.Drawing.Size(820, 25);
-            this.tsMenuCerrado.TabIndex = 2;
-            this.tsMenuCerrado.Text = "Desplegar ";
-            this.tsMenuCerrado.Visible = false;
-            // 
-            // tslblDeplegar
-            // 
-            this.tslblDeplegar.Name = "tslblDeplegar";
-            this.tslblDeplegar.Size = new System.Drawing.Size(59, 22);
-            this.tslblDeplegar.Text = "Desplegar";
-            this.tslblDeplegar.Click += new System.EventHandler(this.desplegar_click);
-            // 
-            // tsbtnRegresa
-            // 
-            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
-            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.Name = "tsbtnRegresa";
-            this.tsbtnRegresa.Size = new System.Drawing.Size(23, 22);
-            this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
-            // 
-            // sqLiteCommand1
-            // 
-            this.sqLiteCommand1.CommandText = null;
-            // 
-            // flVistaVacia
-            // 
-            this.flVistaVacia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flVistaVacia.AutoScroll = true;
-            this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flVistaVacia.Location = new System.Drawing.Point(198, 29);
-            this.flVistaVacia.Name = "flVistaVacia";
-            this.flVistaVacia.Size = new System.Drawing.Size(610, 416);
-            this.flVistaVacia.TabIndex = 0;
+            this.panelLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelLateral.Controls.Add(this.toolStrip1);
+            this.panelLateral.Controls.Add(this.btnAnadir);
+            this.panelLateral.Location = new System.Drawing.Point(1, 29);
+            this.panelLateral.Name = "panelLateral";
+            this.panelLateral.Size = new System.Drawing.Size(191, 416);
+            this.panelLateral.TabIndex = 1;
             // 
             // FormVistaVacia
             // 
@@ -191,12 +191,12 @@ namespace GameCore
             this.Name = "FormVistaVacia";
             this.Text = "Vista Vacía ";
             this.Load += new System.EventHandler(this.FormVistaVacia_Load);
-            this.panelLateral.ResumeLayout(false);
-            this.panelLateral.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.tsMenuCerrado.ResumeLayout(false);
             this.tsMenuCerrado.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.panelLateral.ResumeLayout(false);
+            this.panelLateral.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +205,10 @@ namespace GameCore
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flVistaVacia;
-        private System.Windows.Forms.Panel panelLateral;
+        private System.Windows.Forms.ToolStrip tsMenuCerrado;
+        private System.Windows.Forms.ToolStripLabel tslblDeplegar;
+        private System.Windows.Forms.ToolStripButton tsbtnRegresa;
+        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
         private System.Windows.Forms.Button btnAnadir;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -213,10 +216,7 @@ namespace GameCore
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel tslblexit;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStrip tsMenuCerrado;
-        private System.Windows.Forms.ToolStripLabel tslblDeplegar;
-        private System.Windows.Forms.ToolStripButton tsbtnRegresa;
-        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
+        private System.Windows.Forms.Panel panelLateral;
     }
 }
 

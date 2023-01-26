@@ -64,7 +64,7 @@ namespace GameCore
             tb.Text = "Añadir";
             tb.TextAlign = HorizontalAlignment.Center;
             tb.Enabled = false;
-            pb.Image = (Image)new Bitmap(@".\\..\\..\\Resources\\SUMA.png"); //C: \Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\Resources\SUMA.png
+            pb.Image = (Image)new Bitmap(@".\\..\\..\\Resources\\SUMA.png");
 
             flp.Height = 200;
             flp.Width = 130;
@@ -76,6 +76,7 @@ namespace GameCore
             flp.Controls.Add(tb);
 
             flVistaVacia.Controls.Add(flp);
+            pb.DoubleClick += btnAnadir_Click;
         }
 
         private void FormVistaVacia_Load(object sender, EventArgs e)
@@ -85,8 +86,8 @@ namespace GameCore
 
         private void esconder_click(object sender, EventArgs e)
         {
-            flVistaVacia.Location = new Point(1, 29);
-            flVistaVacia.Width = 807;
+            flVistaVacia.Location = new Point(48, 29);
+            flVistaVacia.Width = 763;
             panelLateral.Visible = false;
             tsMenuCerrado.Visible = true;
         }
@@ -97,6 +98,7 @@ namespace GameCore
             flVistaVacia.Width = 610;
             panelLateral.Visible = true;
             tsMenuCerrado.Visible = false;
+        
         }
     }
 }
