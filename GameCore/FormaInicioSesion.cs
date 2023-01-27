@@ -34,6 +34,31 @@ namespace GameCore
             }
         }
 
-        
+        private void button_registrar_Click(object sender, EventArgs e)
+        {
+            string nombreUsuario = textBox_nombreUsuario.Text;
+            string contraseña = textBox_Contraseña.Text;
+            //si existe el  usuario en la base de datos
+            if(MetodosSqlite.CompruebaUsuario(nombreUsuario))
+            {
+                //compruebo si la contraseña introducida es correcta
+                if (MetodosSqlite.CompruebaContraseña(nombreUsuario).Equals(contraseña))
+                {
+                    //vamos a la forma de vista vacia
+                    MessageBox.Show("Has iniciado sesión");
+                }
+                else
+                {
+                    MessageBox.Show("La contraseña introducida no es correcta");
+                }
+            }
+            //el usuario no existe en la BD
+            else
+            {
+                MessageBox.Show("El nombre de usuario que has introducido no es correcto");
+            }
+
+            
+        }
     }
 }

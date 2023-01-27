@@ -32,5 +32,24 @@ namespace GameCore
             }
         }
 
+        public static string CompruebaContraseña(string usuario)
+        {
+            using(SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+            {
+                conexion.Open();
+                SQLiteDataReader lector;
+                SQLiteCommand select = conexion.CreateCommand();
+                select.CommandText = "SELECT contraseña FROM usuarios WHERE usuario = \"" + usuario + "\"";
+                lector = select.ExecuteReader();
+                string resultado = "";
+                if (lector.Read())
+                {
+                    resultado = lector["contraseña"].ToString();
+
+                }
+                return resultado;
+            }
+        }
+
     }
 }
