@@ -21,8 +21,6 @@ C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.S
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.xml
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.SQLite.xml
-C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
-C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.GameCoreApp.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaRegistro.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.Properties.Resources.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.GenerateResource.cache
@@ -53,3 +51,5 @@ C:\Users\samu2\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj
 C:\Users\samu2\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CopyComplete
 C:\Users\samu2\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 C:\Users\samu2\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
+C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
+C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
