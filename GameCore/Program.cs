@@ -17,7 +17,7 @@ namespace GameCore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormVistaVacia());
+            Application.Run(new FormaInicioSesion());
         }
     }
 }
