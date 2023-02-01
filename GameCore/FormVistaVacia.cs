@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,8 @@ namespace GameCore
     public partial class FormVistaVacia : Form
     {
         private int cont;
+        SQLiteConnection conexion;
+        private int pkUsuario;
         public FormVistaVacia()
         {
             InitializeComponent();
@@ -32,7 +36,7 @@ namespace GameCore
                 pb.Image = (Image)new Bitmap(opd.FileName);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            tb.Text = "Ejemplo";
+            tb.Text = "Titulo del videojuego";
 
 
             flp.Height = 200;
@@ -48,7 +52,27 @@ namespace GameCore
              * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
              * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
              * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))
-             */
+             
+
+            using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+            {
+                conexion.Open();
+
+                byte[] portada = System.IO.File.ReadAllBytes(opd.FileName);
+
+                //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
+                using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
+                {
+                    command.Parameters.AddWithValue("@titulo", "Titulo juego");
+                    command.Parameters.AddWithValue("@descripcion", "Descripcion de prueba del videojuego");
+                    command.Parameters.AddWithValue("@desarrolladores", "Nintendo");
+                    command.Parameters.AddWithValue("@portada", imageBytes);
+                    command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.GetPkUsuario());
+                    //command.Parameters.AddWithValue("@fk_usuario", 1);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Juego insertado en la BD.");
+                }
+            }*/
 
 
             flVistaVacia.Controls.Add(flp);

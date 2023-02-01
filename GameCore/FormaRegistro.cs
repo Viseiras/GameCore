@@ -18,7 +18,6 @@ namespace GameCore
         public FormaRegistro()
         {
             InitializeComponent();
-            //SQLiteConnection.CreateFile("gamecore.db");
             
         }
 
@@ -57,6 +56,7 @@ namespace GameCore
                             command.Parameters.AddWithValue("@contraseña", contraseña);
                             command.ExecuteNonQuery();
                             MessageBox.Show("Has sido registrado en la aplicación");
+                            conexion.Close();
                         }
                         //si devuelve true le aviso al usuario de que ya hay un usuario con ese nombre
                         else
@@ -86,7 +86,7 @@ namespace GameCore
             this.Close();
         }
 
-        //boton cancelar oculta la forma
+        //boton cancelar cierra la forma
         private void button_cancelar_registro_Click(object sender, EventArgs e)
         {
             this.Close();

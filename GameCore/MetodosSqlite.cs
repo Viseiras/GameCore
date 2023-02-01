@@ -50,5 +50,27 @@ namespace GameCore
             }
         }
 
+        public static int GetPkUsuario()
+        {
+            FormaInicioSesion inicioSesion = new FormaInicioSesion();
+            string usuario = inicioSesion.nombreUsuario;
+
+            using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+            {
+                conexion.Open();
+                SQLiteDataReader lector;
+                SQLiteCommand select = conexion.CreateCommand();
+                select.CommandText = "SELECT id FROM usuarios WHERE nombre_usuario = \"" + usuario + "\"";
+                lector = select.ExecuteReader();
+                int resultado = 0;
+                if (lector.Read())
+                {
+                    resultado = lector.GetInt32(0);
+
+                }
+                return resultado;
+            }
+        }
+
     }
 }

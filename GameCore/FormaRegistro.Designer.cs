@@ -135,7 +135,7 @@
             this.checkBox_mostrarContraseña.UseVisualStyleBackColor = true;
             this.checkBox_mostrarContraseña.CheckedChanged += new System.EventHandler(this.checkBox_mostrarContraseña_CheckedChanged);
             // 
-            // button_registrar
+            // button_iniciarSesion
             // 
             this.button_registrar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.button_registrar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -143,7 +143,7 @@
             this.button_registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_registrar.ForeColor = System.Drawing.Color.White;
             this.button_registrar.Location = new System.Drawing.Point(52, 455);
-            this.button_registrar.Name = "button_registrar";
+            this.button_registrar.Name = "button_iniciarSesion";
             this.button_registrar.Size = new System.Drawing.Size(309, 56);
             this.button_registrar.TabIndex = 8;
             this.button_registrar.Text = "REGISTRAR";
