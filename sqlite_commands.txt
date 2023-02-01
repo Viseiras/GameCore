@@ -34,9 +34,9 @@ Para salir del prompt ...> poner ; + enter
 
 
 ------------------------EJEMPLOS-------------------
-CREATE TABLE videojuegos (id integer primary key, titulo text, desarrollador text, descripcion text, plataformas_disponibles text);
-INSERT INTO videojuegos (id,titulo,descripcion,plataformas_disponibles) VALUES (1,"Dark Souls","Videojuego acción rpg de fantasía oscura","Pc, Playstation, Xbox");
-CREATE TABLE usuarios (usuario text primary key,contraseña text);
+CREATE TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id));
+CREATE TABLE usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre_usuario TEXT UNIQUE NOT NULL, contraseña TEXT NOT NULL);
+INSERT INTO usuarios (nombre_usuario,contraseña) VALUES ("samuel", "admin");
 SELECT * FROM videojuegos;
 DELETE FROM usuarios; -- en sqlite no se necesita usar el * ya que al no indicar el where sqlite entiende que se borra todo el contenido de la tabla
 

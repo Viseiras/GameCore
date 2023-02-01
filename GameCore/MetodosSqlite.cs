@@ -21,7 +21,7 @@ namespace GameCore
                 //creamos la sentencia o comando, llamado select
                 SQLiteCommand select = conexion.CreateCommand();
                 //le asignamos la consulta
-                select.CommandText = "SELECT * FROM usuarios WHERE usuario = \"" + nombre + "\"";
+                select.CommandText = "SELECT * FROM usuarios WHERE nombre_usuario = \"" + nombre + "\"";
                 lector = select.ExecuteReader();
 
                 //si el lector detecta un usuario devuelve true
@@ -38,7 +38,7 @@ namespace GameCore
                 conexion.Open();
                 SQLiteDataReader lector;
                 SQLiteCommand select = conexion.CreateCommand();
-                select.CommandText = "SELECT contraseña FROM usuarios WHERE usuario = \"" + usuario + "\"";
+                select.CommandText = "SELECT contraseña FROM usuarios WHERE nombre_usuario = \"" + usuario + "\"";
                 lector = select.ExecuteReader();
                 string resultado = "";
                 if (lector.Read())

@@ -44,6 +44,12 @@ namespace GameCore
             flp.Controls.Add(pb);
             flp.Controls.Add(tb);
 
+            /*
+             * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
+             * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
+             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))
+             */
+
 
             flVistaVacia.Controls.Add(flp);
             flVistaVacia.Controls.RemoveAt(cont);
