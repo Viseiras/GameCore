@@ -26,8 +26,12 @@ namespace GameCore
 
                 //si el lector detecta un usuario devuelve true
                 if(lector.Read())
-                { return true; }
+                {
+                    lector.Dispose();
+                    return true; 
+                }
                 //si no devuelvo false
+                lector.Dispose();
                 return false;
             }
         }
@@ -46,6 +50,7 @@ namespace GameCore
                     resultado = lector["contraseña"].ToString();
 
                 }
+                lector.Dispose();
                 return resultado;
             }
         }
@@ -68,6 +73,7 @@ namespace GameCore
                     resultado = lector.GetInt32(0);
 
                 }
+                lector.Dispose();
                 return resultado;
             }
         }

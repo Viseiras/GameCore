@@ -29,11 +29,9 @@ namespace GameCore
 
         private void button_registrarse_Click(object sender, EventArgs e)
         {
-            FormaRegistro formaRegistro = new FormaRegistro();
-            if (formaRegistro.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            FormaRegistro fRegistro = new FormaRegistro();
+            fRegistro.ShowDialog();
+            
         }
 
         private void button_iniciarSesion(object sender, EventArgs e)
@@ -41,13 +39,12 @@ namespace GameCore
             nombreUsuario = textBox_nombreUsuario.Text.Trim();
             string contraseña = textBox_Contraseña.Text.Trim();
             //si existe el  usuario en la base de datos
-            if (MetodosSqlite.CompruebaUsuario(nombreUsuario))
+            /*if (MetodosSqlite.CompruebaUsuario(nombreUsuario))
             {
                 //compruebo si la contraseña introducida es correcta
                 if (MetodosSqlite.CompruebaContraseña(nombreUsuario).Equals(contraseña))
                 {
                     //vamos a la forma de vista vacia
-                    //MessageBox.Show("Has iniciado sesión");
                     this.Hide();
                     FormVistaVacia formVistaVacia = new FormVistaVacia();
                     formVistaVacia.ShowDialog();
@@ -63,7 +60,11 @@ namespace GameCore
             else
             {
                 MessageBox.Show("El nombre de usuario que has introducido no es correcto");
-            }
+            }*/
+            this.Hide();
+            FormVistaVacia formVistaVacia = new FormVistaVacia();
+            formVistaVacia.ShowDialog();
+            this.Close();
         }
     }
 }

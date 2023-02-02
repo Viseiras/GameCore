@@ -51,7 +51,7 @@ namespace GameCore
             /*
              * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
              * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
-             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))
+             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
              
 
             using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
@@ -66,13 +66,13 @@ namespace GameCore
                     command.Parameters.AddWithValue("@titulo", "Titulo juego");
                     command.Parameters.AddWithValue("@descripcion", "Descripcion de prueba del videojuego");
                     command.Parameters.AddWithValue("@desarrolladores", "Nintendo");
-                    command.Parameters.AddWithValue("@portada", imageBytes);
+                    command.Parameters.AddWithValue("@portada", portada);
                     command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.GetPkUsuario());
                     //command.Parameters.AddWithValue("@fk_usuario", 1);
                     command.ExecuteNonQuery();
                     MessageBox.Show("Juego insertado en la BD.");
                 }
-            }*/
+            }
 
 
             flVistaVacia.Controls.Add(flp);
