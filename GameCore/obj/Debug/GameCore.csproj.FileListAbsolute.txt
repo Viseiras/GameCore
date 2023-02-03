@@ -51,7 +51,6 @@ C:\Users\samu2\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj
 C:\Users\samu2\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CopyComplete
 C:\Users\samu2\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 C:\Users\samu2\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
-C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\bin\Debug\GameCore.exe.config
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\bin\Debug\GameCore.exe
