@@ -99,3 +99,4 @@ C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.cspr
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CopyComplete
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
+C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources

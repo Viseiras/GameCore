@@ -109,6 +109,9 @@
     <EmbeddedResource Include="FormAñadir.resx">
       <DependentUpon>FormAñadir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPerfil.resx">
+      <DependentUpon>FormPerfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVistaVacia.resx">
       <DependentUpon>FormVistaVacia.cs</DependentUpon>
     </EmbeddedResource>

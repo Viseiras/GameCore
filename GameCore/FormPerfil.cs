@@ -16,5 +16,17 @@ namespace GameCore
         {
             InitializeComponent();
         }
+
+        private void esconder_click(object sender, EventArgs e)
+        {
+            panelLateral.Visible = false;
+            tsMenuCerrado.Visible = true;
+        }
+
+        private void desplegar_click(object sender, EventArgs e)
+        {
+            panelLateral.Visible = true;
+            tsMenuCerrado.Visible = false;
+        }
     }
 }

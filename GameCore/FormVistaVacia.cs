@@ -89,7 +89,11 @@ namespace GameCore
 
         private void Settings_Click(object sender, EventArgs e)
         {
+            FormPerfil form = new FormPerfil();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
 
+            }
         }
 
         public void MueveAnadir()
@@ -134,16 +138,7 @@ namespace GameCore
             flVistaVacia.Width = 610;
             panelLateral.Visible = true;
             tsMenuCerrado.Visible = false;
-        
-        }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            FormPerfil form = new FormPerfil();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-               
-            }
         }
     }
 }

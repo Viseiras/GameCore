@@ -29,54 +29,37 @@ namespace GameCore
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label_usuario = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelLateral = new System.Windows.Forms.Panel();
             this.toolStrip_menuInferior = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_ajustes = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip_esconder = new System.Windows.Forms.ToolStripLabel();
-            this.toolStrip_botonFlecha = new System.Windows.Forms.ToolStripButton();
+            this.label_usuario = new System.Windows.Forms.Label();
             this.tsMenuCerrado = new System.Windows.Forms.ToolStrip();
             this.tslblDeplegar = new System.Windows.Forms.ToolStripLabel();
-            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
             this.label_idioma = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button_ajustes_por_defecto = new System.Windows.Forms.Button();
             this.boton_guardar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_botonFlecha = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelLateral.SuspendLayout();
             this.toolStrip_menuInferior.SuspendLayout();
             this.tsMenuCerrado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelLateral
             // 
-            this.panel1.Controls.Add(this.toolStrip_menuInferior);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label_usuario);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(184, 477);
-            this.panel1.TabIndex = 0;
-            // 
-            // label_usuario
-            // 
-            this.label_usuario.AutoSize = true;
-            this.label_usuario.Location = new System.Drawing.Point(35, 131);
-            this.label_usuario.Name = "label_usuario";
-            this.label_usuario.Size = new System.Drawing.Size(96, 13);
-            this.label_usuario.TabIndex = 1;
-            this.label_usuario.Text = "Nombre de usuario";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(38, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 81);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.panelLateral.Controls.Add(this.toolStrip_menuInferior);
+            this.panelLateral.Controls.Add(this.pictureBox1);
+            this.panelLateral.Controls.Add(this.label_usuario);
+            this.panelLateral.Location = new System.Drawing.Point(1, 1);
+            this.panelLateral.Name = "panelLateral";
+            this.panelLateral.Size = new System.Drawing.Size(184, 477);
+            this.panelLateral.TabIndex = 0;
             // 
             // toolStrip_menuInferior
             // 
@@ -95,15 +78,6 @@ namespace GameCore
             this.toolStrip_menuInferior.Size = new System.Drawing.Size(184, 25);
             this.toolStrip_menuInferior.TabIndex = 3;
             this.toolStrip_menuInferior.Text = "Menu";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStrip_ajustes
             // 
@@ -125,16 +99,16 @@ namespace GameCore
             this.toolStrip_esconder.Name = "toolStrip_esconder";
             this.toolStrip_esconder.Size = new System.Drawing.Size(64, 22);
             this.toolStrip_esconder.Text = "Esconder";
+            this.toolStrip_esconder.Click += new System.EventHandler(this.esconder_click);
             // 
-            // toolStrip_botonFlecha
+            // label_usuario
             // 
-            this.toolStrip_botonFlecha.BackgroundImage = global::GameCore.Properties.Resources.settings;
-            this.toolStrip_botonFlecha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStrip_botonFlecha.Image = global::GameCore.Properties.Resources.hidepanel;
-            this.toolStrip_botonFlecha.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_botonFlecha.Name = "toolStrip_botonFlecha";
-            this.toolStrip_botonFlecha.Size = new System.Drawing.Size(23, 22);
-            this.toolStrip_botonFlecha.Text = "toolStripButton3";
+            this.label_usuario.AutoSize = true;
+            this.label_usuario.Location = new System.Drawing.Point(35, 131);
+            this.label_usuario.Name = "label_usuario";
+            this.label_usuario.Size = new System.Drawing.Size(96, 13);
+            this.label_usuario.TabIndex = 1;
+            this.label_usuario.Text = "Nombre de usuario";
             // 
             // tsMenuCerrado
             // 
@@ -156,15 +130,7 @@ namespace GameCore
             this.tslblDeplegar.Name = "tslblDeplegar";
             this.tslblDeplegar.Size = new System.Drawing.Size(59, 22);
             this.tslblDeplegar.Text = "Desplegar";
-            // 
-            // tsbtnRegresa
-            // 
-            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
-            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.Name = "tsbtnRegresa";
-            this.tsbtnRegresa.Size = new System.Drawing.Size(23, 22);
+            this.tslblDeplegar.Click += new System.EventHandler(this.desplegar_click);
             // 
             // label_idioma
             // 
@@ -206,7 +172,45 @@ namespace GameCore
             this.boton_guardar.Text = "Guardar";
             this.boton_guardar.UseVisualStyleBackColor = true;
             // 
-            // FormaPerfil
+            // tsbtnRegresa
+            // 
+            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
+            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.Name = "tsbtnRegresa";
+            this.tsbtnRegresa.Size = new System.Drawing.Size(23, 22);
+            this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStrip_botonFlecha
+            // 
+            this.toolStrip_botonFlecha.BackgroundImage = global::GameCore.Properties.Resources.settings;
+            this.toolStrip_botonFlecha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStrip_botonFlecha.Image = global::GameCore.Properties.Resources.hidepanel;
+            this.toolStrip_botonFlecha.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_botonFlecha.Name = "toolStrip_botonFlecha";
+            this.toolStrip_botonFlecha.Size = new System.Drawing.Size(23, 20);
+            this.toolStrip_botonFlecha.Text = "toolStripButton3";
+            this.toolStrip_botonFlecha.Click += new System.EventHandler(this.esconder_click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(38, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(93, 81);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // FormPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -216,16 +220,16 @@ namespace GameCore
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label_idioma);
             this.Controls.Add(this.tsMenuCerrado);
-            this.Controls.Add(this.panel1);
-            this.Name = "FormaPerfil";
+            this.Controls.Add(this.panelLateral);
+            this.Name = "FormPerfil";
             this.Text = "FormaPerfil";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelLateral.ResumeLayout(false);
+            this.panelLateral.PerformLayout();
             this.toolStrip_menuInferior.ResumeLayout(false);
             this.toolStrip_menuInferior.PerformLayout();
             this.tsMenuCerrado.ResumeLayout(false);
             this.tsMenuCerrado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,7 +237,7 @@ namespace GameCore
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelLateral;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_usuario;
         private System.Windows.Forms.ToolStrip toolStrip_menuInferior;
