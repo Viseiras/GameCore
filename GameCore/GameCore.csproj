@@ -67,11 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormaBienvenida.cs">
+    <Compile Include="FormPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaBienvenida.Designer.cs">
-      <DependentUpon>FormaBienvenida.cs</DependentUpon>
+    <Compile Include="FormPerfil.Designer.cs">
+      <DependentUpon>FormPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="FormaInicioSesion.cs">
       <SubType>Form</SubType>

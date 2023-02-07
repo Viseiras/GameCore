@@ -136,5 +136,14 @@ namespace GameCore
             tsMenuCerrado.Visible = false;
         
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormPerfil form = new FormPerfil();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+               
+            }
+        }
     }
 }

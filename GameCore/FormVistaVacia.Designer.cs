@@ -42,9 +42,11 @@ namespace GameCore
             this.tslblexit = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panelLateral = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tsMenuCerrado.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panelLateral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tsMenuCerrado
@@ -97,7 +99,7 @@ namespace GameCore
             // 
             // btnAnadir
             // 
-            this.btnAnadir.Location = new System.Drawing.Point(44, 18);
+            this.btnAnadir.Location = new System.Drawing.Point(44, 126);
             this.btnAnadir.Name = "btnAnadir";
             this.btnAnadir.Size = new System.Drawing.Size(98, 23);
             this.btnAnadir.TabIndex = 0;
@@ -171,12 +173,22 @@ namespace GameCore
             // 
             this.panelLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelLateral.Controls.Add(this.pictureBox1);
             this.panelLateral.Controls.Add(this.toolStrip1);
             this.panelLateral.Controls.Add(this.btnAnadir);
             this.panelLateral.Location = new System.Drawing.Point(1, 29);
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(191, 416);
             this.panelLateral.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(44, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(98, 81);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FormVistaVacia
             // 
@@ -197,6 +209,7 @@ namespace GameCore
             this.toolStrip1.PerformLayout();
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +230,7 @@ namespace GameCore
         private System.Windows.Forms.ToolStripLabel tslblexit;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.Panel panelLateral;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
