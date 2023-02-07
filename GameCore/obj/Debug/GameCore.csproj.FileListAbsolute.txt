@@ -47,7 +47,6 @@ C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.csproj.Assem
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.csproj.SuggestedBindingRedirects.cache
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormaInicioSesion.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormaRegistro.resources
-C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.Properties.Resources.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.csproj.GenerateResource.cache
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.csproj.CoreCompileInputs.cache
@@ -100,3 +99,6 @@ C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.cspr
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources
+C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.formAñadir.resources
+C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources
+C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources

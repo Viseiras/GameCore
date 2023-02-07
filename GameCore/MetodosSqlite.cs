@@ -10,6 +10,7 @@ namespace GameCore
     //clase estática hecha para facilitar la utilización de métodos de SQLite en las demás formas del proyecto
     internal static class MetodosSqlite
     {
+        public static int pkUsuario;
         //metodo que devuelve true o false en función del parámetro que se le pase, perteneciente a un nombre de usuario en la BD
         public static bool CompruebaUsuario(string nombre)
         {
@@ -55,10 +56,10 @@ namespace GameCore
             }
         }
 
-        public static int GetPkUsuario()
+        public static void GetPkUsuario()
         {
-            FormaInicioSesion inicioSesion = new FormaInicioSesion();
-            string usuario = inicioSesion.nombreUsuario;
+            //FormaInicioSesion inicioSesion = new FormaInicioSesion();
+            string usuario = FormaInicioSesion.nombreUsuario;
 
             using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
             {
@@ -74,7 +75,7 @@ namespace GameCore
 
                 }
                 lector.Dispose();
-                return resultado;
+                pkUsuario = resultado;
             }
         }
 

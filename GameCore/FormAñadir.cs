@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
-namespace DataGridView
+namespace GameCore
 {
     //Inciamos la clase de el formulario para añadir productos
     public partial class formAñadir : Form
     {
+        private SQLiteConnection conexion;
         public Image Foto;
         public String Titulo { set; get; }
 
         public String Descripcion = " ";
+        public string rutaPortada = "";
+
         public formAñadir()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace DataGridView
                 //Convertimos a Bitmap la imagen para que se muestre visualmente en el PictureBox
                 Foto = (Image)new Bitmap(opd.FileName);
                 pictureBoxAnadir.Image = new Bitmap(opd.FileName);
+                rutaPortada = opd.FileName;
             }
         }
 
@@ -42,13 +47,29 @@ namespace DataGridView
 
             try
             {
-                //Sacamos todos los campos de los textbox y demás cajas para guardarlos como atributos y así poder usarlos en el datagridview
-                Titulo = tbTitulo.Text;
-                Descripcion = tbDescripcion.Text;
-                //Si estos dos campos están llenos (son los obligatorios no numerales) deja aceptar la operación. 
-                if (Titulo != "")
+                /*
+             * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
+             * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
+             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
+
+
+                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                 {
-                    this.DialogResult = DialogResult.OK;
+                    conexion.Open();
+
+                    byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
+
+                    //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
+                    using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
+                    {
+                        command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
+                        command.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
+                        command.Parameters.AddWithValue("@desarrolladores", cbDesarrolladores.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@portada", portada);
+                        command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.pkUsuario);
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Juego insertado en la BD.");
+                    }
                 }
             }
             catch (Exception)

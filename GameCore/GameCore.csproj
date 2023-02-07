@@ -150,6 +150,7 @@
     <None Include="Resources\imagen_fondo_iniciar_sesion.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\foto_perfil_vacia.png" />
     <Content Include="Resources\hidepanel.png" />
     <Content Include="Resources\settings.png" />
     <Content Include="Resources\showpanel.png" />

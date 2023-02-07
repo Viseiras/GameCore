@@ -13,7 +13,7 @@ namespace GameCore
     public partial class FormaInicioSesion : Form
     {
         //atributo public para conseguir el nombre de usuario y poder utilizarlo en la clase MetodosSqlite
-        public string nombreUsuario;
+        public static string nombreUsuario;
         public FormaInicioSesion()
         {
             InitializeComponent();
@@ -39,12 +39,13 @@ namespace GameCore
             nombreUsuario = textBox_nombreUsuario.Text.Trim();
             string contraseña = textBox_Contraseña.Text.Trim();
             //si existe el  usuario en la base de datos
-            /*if (MetodosSqlite.CompruebaUsuario(nombreUsuario))
+            if (MetodosSqlite.CompruebaUsuario(nombreUsuario))
             {
                 //compruebo si la contraseña introducida es correcta
                 if (MetodosSqlite.CompruebaContraseña(nombreUsuario).Equals(contraseña))
                 {
                     //vamos a la forma de vista vacia
+                    MetodosSqlite.GetPkUsuario();
                     this.Hide();
                     FormVistaVacia formVistaVacia = new FormVistaVacia();
                     formVistaVacia.ShowDialog();
@@ -60,11 +61,13 @@ namespace GameCore
             else
             {
                 MessageBox.Show("El nombre de usuario que has introducido no es correcto");
-            }*/
+            }
+
+            /* DESCOMENTAR PARA DESACTIVAR EL INICIO DE SESION
             this.Hide();
             FormVistaVacia formVistaVacia = new FormVistaVacia();
             formVistaVacia.ShowDialog();
-            this.Close();
+            this.Close();*/
         }
     }
 }

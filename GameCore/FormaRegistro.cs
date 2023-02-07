@@ -71,7 +71,7 @@ namespace GameCore
                
             else
             {
-                //hacer visible la label
+                //hacer visible la titulo
                 label_aviso_errores.Text = "Las contraseñas no coinciden";
                 label_aviso_errores.Size = new Size(309, 10);
                 label_aviso_errores.TextAlign = ContentAlignment.MiddleCenter;
@@ -80,7 +80,7 @@ namespace GameCore
 
         }  
 
-        //si ya tienes una cuenta el label de iniciar sesion te devuelve a la forma de Inicio de Sesion
+        //si ya tienes una cuenta el titulo de iniciar sesion te devuelve a la forma de Inicio de Sesion
         private void label_iniciar_sesion_Click(object sender, EventArgs e)
         {
             this.Close();

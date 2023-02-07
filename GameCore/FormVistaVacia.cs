@@ -1,5 +1,4 @@
-﻿using DataGridView;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,22 +9,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GameCore
 {
+    
     public partial class FormVistaVacia : Form
     {
         private int cont;
         SQLiteConnection conexion;
         private int pkUsuario;
+        FlowLayoutPanel flp;
+        ControlPersonalizado control;
         public FormVistaVacia()
         {
             InitializeComponent();
+
         }
 
         private void btnAnadir_Click(object sender, EventArgs e)
         {
-            FlowLayoutPanel flp = new FlowLayoutPanel();
+            flp = new FlowLayoutPanel();
             PictureBox pb = new PictureBox();
             TextBox tb = new TextBox();
 
@@ -36,15 +40,6 @@ namespace GameCore
                 tb.Text = "Titulo del videojuego";
             }
 
-            /*OpenFileDialog opd = new OpenFileDialog();
-            opd.Filter = "JPG|*.jpg;*.jpeg;*.png;*.gif";
-            if (opd.ShowDialog() == DialogResult.OK)
-            {
-                //Convertimos a Bitmap la imagen para que se muestre visualmente en el PictureBox
-                pb.Image = (Image)new Bitmap(opd.FileName);
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;
-            }*/
-
             flp.Height = 200;
             flp.Width = 130;
             pb.Width = 120;
@@ -53,32 +48,6 @@ namespace GameCore
             tb.TextAlign = HorizontalAlignment.Center;
             flp.Controls.Add(pb);
             flp.Controls.Add(tb);
-
-            /*
-             * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
-             * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
-             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
-             
-
-            using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
-            {
-                conexion.Open();
-
-                //byte[] portada = System.IO.File.ReadAllBytes(opd.FileName);
-
-                //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
-                using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
-                {
-                    command.Parameters.AddWithValue("@titulo", "Titulo juego");
-                    command.Parameters.AddWithValue("@descripcion", "Descripcion de prueba del videojuego");
-                    command.Parameters.AddWithValue("@desarrolladores", "Nintendo");
-                    //command.Parameters.AddWithValue("@portada", portada);
-                    command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.GetPkUsuario());
-                    //command.Parameters.AddWithValue("@fk_usuario", 1);
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Juego insertado en la BD.");
-                }
-            }
 
 
             flVistaVacia.Controls.Add(flp);
@@ -98,7 +67,7 @@ namespace GameCore
 
         public void MueveAnadir()
         { 
-            FlowLayoutPanel flp = new FlowLayoutPanel();
+            flp = new FlowLayoutPanel();
             PictureBox pb = new PictureBox();
             TextBox tb = new TextBox();
             tb.Text = "Añadir";
@@ -121,7 +90,50 @@ namespace GameCore
 
         private void FormVistaVacia_Load(object sender, EventArgs e)
         {
-            MueveAnadir();
+            
+            using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+            {
+                conexion.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\"", conexion))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Conseguimos los datos de la fila actual
+                            string titulo = (string)reader["titulo"];
+                            byte[] portada = (byte[])reader["portada"];
+                            Image imagen;
+                            // Convertimos el array de bytes a imagen
+                            using (MemoryStream ms = new MemoryStream(portada))
+                            {
+                                //imagen = Image.FromStream(ms);
+                                imagen = (Image)Bitmap.FromStream(ms);
+
+                                // La mostramos
+                                //pictureBox1.Image = imagen;
+                            }
+
+                            //ESTE MÉTODO FUNCIONA CUANDO SE AÑADE EL CONTROL PERSONALIZADO DEDSDE EL TOOLBOX
+                            //controlPersonalizado1.UpdateData(titulo, imagen);
+
+                            //PREGUNTAR A MIGUEL
+                            
+                            control = new ControlPersonalizado();
+                            flp = new FlowLayoutPanel();
+                            flp.Height = 200;
+                            flp.Width = 130;
+                            control.UpdateData(titulo, imagen);
+                            flp.Controls.Add(control);  
+                            flVistaVacia.Controls.Add(flp);
+                            
+                            
+                        }
+                    }
+                }
+                MueveAnadir();
+            }
         }
 
         private void esconder_click(object sender, EventArgs e)
@@ -138,7 +150,42 @@ namespace GameCore
             flVistaVacia.Width = 610;
             panelLateral.Visible = true;
             tsMenuCerrado.Visible = false;
+        }
+     
+    }
 
+    //CLASE ENCARGADA DEL CONTROL PERSONALIZADO
+    public class ControlPersonalizado : Control
+    {
+        private PictureBox portada;
+        private Label titulo;
+
+        public ControlPersonalizado()
+        {
+            // INICIAMOS LA IMAGEN
+            portada = new PictureBox();
+            portada.Width = 200;
+            portada.Height = 200;
+            //portada.Size = new System.Drawing.Size(200, 200);
+            portada.SizeMode = PictureBoxSizeMode.Zoom;
+            //portada.Image = Properties.Resources.SUMA;
+
+            // INICIAMOS EL LABEL
+            titulo = new Label();
+            titulo.BackColor = Color.White;
+            titulo.Text = "Titulo";
+            titulo.AutoSize = true;
+
+            // LOS AÑADIMOS AL CONTROL PERSONALIZADO
+            this.Controls.Add(portada);
+            this.Controls.Add(titulo);
+        }
+
+        public void UpdateData(string t, Image imagen)
+        {
+            // SE ACTUALIZA EL CONTROL EN BASE A LOS VALORES PASADOS COMO PARÁMETROS A LA FUNCIÓN
+            portada.Image = imagen;
+            titulo.Text = t;
         }
     }
 }
