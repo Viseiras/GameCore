@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataGridView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,16 +29,21 @@ namespace GameCore
             PictureBox pb = new PictureBox();
             TextBox tb = new TextBox();
 
-            OpenFileDialog opd = new OpenFileDialog();
+            
+            formAñadir form = new formAñadir();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                tb.Text = "Titulo del videojuego";
+            }
+
+            /*OpenFileDialog opd = new OpenFileDialog();
             opd.Filter = "JPG|*.jpg;*.jpeg;*.png;*.gif";
             if (opd.ShowDialog() == DialogResult.OK)
             {
                 //Convertimos a Bitmap la imagen para que se muestre visualmente en el PictureBox
                 pb.Image = (Image)new Bitmap(opd.FileName);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            tb.Text = "Titulo del videojuego";
-
+            }*/
 
             flp.Height = 200;
             flp.Width = 130;
@@ -58,7 +64,7 @@ namespace GameCore
             {
                 conexion.Open();
 
-                byte[] portada = System.IO.File.ReadAllBytes(opd.FileName);
+                //byte[] portada = System.IO.File.ReadAllBytes(opd.FileName);
 
                 //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
                 using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
@@ -66,7 +72,7 @@ namespace GameCore
                     command.Parameters.AddWithValue("@titulo", "Titulo juego");
                     command.Parameters.AddWithValue("@descripcion", "Descripcion de prueba del videojuego");
                     command.Parameters.AddWithValue("@desarrolladores", "Nintendo");
-                    command.Parameters.AddWithValue("@portada", portada);
+                    //command.Parameters.AddWithValue("@portada", portada);
                     command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.GetPkUsuario());
                     //command.Parameters.AddWithValue("@fk_usuario", 1);
                     command.ExecuteNonQuery();

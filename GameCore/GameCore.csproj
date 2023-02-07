@@ -106,6 +106,9 @@
     <EmbeddedResource Include="FormaRegistro.resx">
       <DependentUpon>FormaRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAñadir.resx">
+      <DependentUpon>FormAñadir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVistaVacia.resx">
       <DependentUpon>FormVistaVacia.cs</DependentUpon>
     </EmbeddedResource>
