@@ -140,7 +140,7 @@ namespace GameCore
         private void esconder_click(object sender, EventArgs e)
         {
             flVistaVacia.Location = new Point(48, 29);
-            flVistaVacia.Width = 763;
+            flVistaVacia.Width = flVistaVacia.Width + 60;
             panelLateral.Visible = false;
             tsMenuCerrado.Visible = true;
         }
@@ -148,7 +148,7 @@ namespace GameCore
         private void desplegar_click(object sender, EventArgs e)
         {
             flVistaVacia.Location = new Point(198, 29);
-            flVistaVacia.Width = 610;
+            flVistaVacia.Width = flVistaVacia.Width - 60;
             panelLateral.Visible = true;
             tsMenuCerrado.Visible = false;
         }
@@ -178,7 +178,7 @@ namespace GameCore
             titulo = new Label();
             titulo.BackColor = Color.Red;
             titulo.Text = "Titulo";
-            titulo.AutoSize = true;
+            titulo.Width = 200;
             titulo.Font = new Font("Nirmala UI",10,FontStyle.Bold);
             
 

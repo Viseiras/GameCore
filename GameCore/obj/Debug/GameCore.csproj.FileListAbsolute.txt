@@ -90,7 +90,6 @@ C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.S
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaInicioSesion.resources
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaRegistro.resources
-C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\DataGridView.formAñadir.resources
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.Properties.Resources.resources
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.GenerateResource.cache
@@ -103,3 +102,5 @@ C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.formAñadir.
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.formAñadir.resources
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources
