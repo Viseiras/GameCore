@@ -41,14 +41,18 @@ namespace GameCore
             this.tslblexit = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panelLateral = new System.Windows.Forms.Panel();
+            this.label_nombreUsuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
-            this.controlPersonalizado1 = new GameCore.ControlPersonalizado();
+            this.menu_VistaVacia = new System.Windows.Forms.MenuStrip();
+            this.boton_perfil_menu_strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.boton_sistema_menu_strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.boton_salir_programa_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuCerrado.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panelLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flVistaVacia.SuspendLayout();
+            this.menu_VistaVacia.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsMenuCerrado
@@ -62,7 +66,7 @@ namespace GameCore
             this.tsMenuCerrado.Location = new System.Drawing.Point(0, 561);
             this.tsMenuCerrado.Name = "tsMenuCerrado";
             this.tsMenuCerrado.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsMenuCerrado.Size = new System.Drawing.Size(1121, 27);
+            this.tsMenuCerrado.Size = new System.Drawing.Size(1500, 27);
             this.tsMenuCerrado.TabIndex = 2;
             this.tsMenuCerrado.Text = "Desplegar ";
             this.tsMenuCerrado.Visible = false;
@@ -90,6 +94,7 @@ namespace GameCore
             // 
             // btnAnadir
             // 
+            this.btnAnadir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnadir.Location = new System.Drawing.Point(947, 534);
             this.btnAnadir.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnadir.Name = "btnAnadir";
@@ -166,6 +171,7 @@ namespace GameCore
             // 
             this.panelLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelLateral.Controls.Add(this.label_nombreUsuario);
             this.panelLateral.Controls.Add(this.pictureBox1);
             this.panelLateral.Controls.Add(this.toolStrip1);
             this.panelLateral.Location = new System.Drawing.Point(1, 36);
@@ -173,6 +179,18 @@ namespace GameCore
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(255, 550);
             this.panelLateral.TabIndex = 1;
+            // 
+            // label_nombreUsuario
+            // 
+            this.label_nombreUsuario.AutoSize = true;
+            this.label_nombreUsuario.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nombreUsuario.Location = new System.Drawing.Point(71, 171);
+            this.label_nombreUsuario.MaximumSize = new System.Drawing.Size(100, 100);
+            this.label_nombreUsuario.Name = "label_nombreUsuario";
+            this.label_nombreUsuario.Size = new System.Drawing.Size(94, 50);
+            this.label_nombreUsuario.TabIndex = 4;
+            this.label_nombreUsuario.Text = "NombreUsuario";
+            this.label_nombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -188,37 +206,68 @@ namespace GameCore
             // 
             // flVistaVacia
             // 
+            this.flVistaVacia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flVistaVacia.AutoScroll = true;
             this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flVistaVacia.Controls.Add(this.controlPersonalizado1);
-            this.flVistaVacia.Location = new System.Drawing.Point(264, 36);
+            this.flVistaVacia.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.flVistaVacia.Location = new System.Drawing.Point(292, 36);
             this.flVistaVacia.Margin = new System.Windows.Forms.Padding(4);
             this.flVistaVacia.Name = "flVistaVacia";
-            this.flVistaVacia.Size = new System.Drawing.Size(814, 490);
+            this.flVistaVacia.Size = new System.Drawing.Size(786, 472);
             this.flVistaVacia.TabIndex = 0;
             // 
-            // controlPersonalizado1
+            // menu_VistaVacia
             // 
-            this.controlPersonalizado1.Location = new System.Drawing.Point(3, 3);
-            this.controlPersonalizado1.Name = "controlPersonalizado1";
-            this.controlPersonalizado1.Size = new System.Drawing.Size(159, 186);
-            this.controlPersonalizado1.TabIndex = 0;
-            this.controlPersonalizado1.Text = "controlPersonalizado1";
+            this.menu_VistaVacia.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu_VistaVacia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.boton_perfil_menu_strip,
+            this.boton_sistema_menu_strip});
+            this.menu_VistaVacia.Location = new System.Drawing.Point(0, 0);
+            this.menu_VistaVacia.Name = "menu_VistaVacia";
+            this.menu_VistaVacia.Size = new System.Drawing.Size(1111, 28);
+            this.menu_VistaVacia.TabIndex = 3;
+            this.menu_VistaVacia.Text = "menuStrip1";
+            // 
+            // boton_perfil_menu_strip
+            // 
+            this.boton_perfil_menu_strip.Name = "boton_perfil_menu_strip";
+            this.boton_perfil_menu_strip.Size = new System.Drawing.Size(56, 24);
+            this.boton_perfil_menu_strip.Text = "Perfil";
+            // 
+            // boton_sistema_menu_strip
+            // 
+            this.boton_sistema_menu_strip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.boton_salir_programa_menu});
+            this.boton_sistema_menu_strip.Name = "boton_sistema_menu_strip";
+            this.boton_sistema_menu_strip.Size = new System.Drawing.Size(75, 24);
+            this.boton_sistema_menu_strip.Text = "Sistema";
+            // 
+            // boton_salir_programa_menu
+            // 
+            this.boton_salir_programa_menu.Name = "boton_salir_programa_menu";
+            this.boton_salir_programa_menu.Size = new System.Drawing.Size(224, 26);
+            this.boton_salir_programa_menu.Text = "Salir del programa";
+            this.boton_salir_programa_menu.Click += new System.EventHandler(this.boton_salir_programa_menu_Click);
             // 
             // FormVistaVacia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1121, 588);
+            this.ClientSize = new System.Drawing.Size(1111, 588);
             this.Controls.Add(this.tsMenuCerrado);
+            this.Controls.Add(this.menu_VistaVacia);
             this.Controls.Add(this.panelLateral);
             this.Controls.Add(this.btnAnadir);
             this.Controls.Add(this.flVistaVacia);
+            this.MainMenuStrip = this.menu_VistaVacia;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(742, 478);
             this.Name = "FormVistaVacia";
             this.Text = "Vista Vacía ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormVistaVacia_Load);
             this.tsMenuCerrado.ResumeLayout(false);
             this.tsMenuCerrado.PerformLayout();
@@ -227,7 +276,8 @@ namespace GameCore
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flVistaVacia.ResumeLayout(false);
+            this.menu_VistaVacia.ResumeLayout(false);
+            this.menu_VistaVacia.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +298,11 @@ namespace GameCore
         private System.Windows.Forms.Panel panelLateral;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flVistaVacia;
-        private ControlPersonalizado controlPersonalizado1;
+        private System.Windows.Forms.Label label_nombreUsuario;
+        private System.Windows.Forms.MenuStrip menu_VistaVacia;
+        private System.Windows.Forms.ToolStripMenuItem boton_perfil_menu_strip;
+        private System.Windows.Forms.ToolStripMenuItem boton_sistema_menu_strip;
+        private System.Windows.Forms.ToolStripMenuItem boton_salir_programa_menu;
     }
 }
 

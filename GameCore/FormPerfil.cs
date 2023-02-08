@@ -28,5 +28,10 @@ namespace GameCore
             panelLateral.Visible = true;
             tsMenuCerrado.Visible = false;
         }
+
+        private void FormPerfil_Load(object sender, EventArgs e)
+        {
+            label_nombreUsuario.Text = FormaInicioSesion.nombreUsuario;
+        }
     }
 }

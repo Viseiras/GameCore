@@ -48,7 +48,7 @@ namespace GameCore
             // tbTitulo
             // 
             this.tbTitulo.Location = new System.Drawing.Point(37, 38);
-            this.tbTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitulo.Name = "tbTitulo";
             this.tbTitulo.Size = new System.Drawing.Size(273, 22);
             this.tbTitulo.TabIndex = 1;
@@ -67,7 +67,7 @@ namespace GameCore
             // tbDescripcion
             // 
             this.tbDescripcion.Location = new System.Drawing.Point(353, 38);
-            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(139, 230);
@@ -96,7 +96,7 @@ namespace GameCore
             // btnFoto
             // 
             this.btnFoto.Location = new System.Drawing.Point(128, 426);
-            this.btnFoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFoto.Margin = new System.Windows.Forms.Padding(4);
             this.btnFoto.Name = "btnFoto";
             this.btnFoto.Size = new System.Drawing.Size(100, 28);
             this.btnFoto.TabIndex = 6;
@@ -106,8 +106,8 @@ namespace GameCore
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(252, 514);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Location = new System.Drawing.Point(265, 531);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 7;
@@ -118,7 +118,7 @@ namespace GameCore
             // pictureBoxAnadir
             // 
             this.pictureBoxAnadir.Location = new System.Drawing.Point(37, 86);
-            this.pictureBoxAnadir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxAnadir.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxAnadir.Name = "pictureBoxAnadir";
             this.pictureBoxAnadir.Size = new System.Drawing.Size(275, 332);
             this.pictureBoxAnadir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -130,7 +130,7 @@ namespace GameCore
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(71, 294);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 22);
             this.textBox1.TabIndex = 0;
@@ -155,15 +155,15 @@ namespace GameCore
             "Xbox",
             "Steam"});
             this.cbDesarrolladores.Location = new System.Drawing.Point(353, 314);
-            this.cbDesarrolladores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbDesarrolladores.Margin = new System.Windows.Forms.Padding(4);
             this.cbDesarrolladores.Name = "cbDesarrolladores";
             this.cbDesarrolladores.Size = new System.Drawing.Size(133, 24);
             this.cbDesarrolladores.TabIndex = 5;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(388, 514);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Location = new System.Drawing.Point(392, 531);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 20;
@@ -189,7 +189,7 @@ namespace GameCore
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tbTitulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(531, 619);
             this.MinimumSize = new System.Drawing.Size(531, 619);
             this.Name = "formAñadir";

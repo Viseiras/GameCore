@@ -37,7 +37,7 @@ namespace GameCore
             this.toolStrip_esconder = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip_botonFlecha = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label_usuario = new System.Windows.Forms.Label();
+            this.label_nombreUsuario = new System.Windows.Forms.Label();
             this.tsMenuCerrado = new System.Windows.Forms.ToolStrip();
             this.tslblDeplegar = new System.Windows.Forms.ToolStripLabel();
             this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
@@ -55,9 +55,9 @@ namespace GameCore
             // 
             this.panelLateral.Controls.Add(this.toolStrip_menuInferior);
             this.panelLateral.Controls.Add(this.pictureBox1);
-            this.panelLateral.Controls.Add(this.label_usuario);
+            this.panelLateral.Controls.Add(this.label_nombreUsuario);
             this.panelLateral.Location = new System.Drawing.Point(1, 1);
-            this.panelLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLateral.Margin = new System.Windows.Forms.Padding(4);
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(245, 587);
             this.panelLateral.TabIndex = 0;
@@ -127,22 +127,24 @@ namespace GameCore
             // 
             this.pictureBox1.Image = global::GameCore.Properties.Resources.foto_perfil_vacia;
             this.pictureBox1.Location = new System.Drawing.Point(51, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label_usuario
+            // label_nombreUsuario
             // 
-            this.label_usuario.AutoSize = true;
-            this.label_usuario.Location = new System.Drawing.Point(53, 159);
-            this.label_usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label_usuario.Name = "label_usuario";
-            this.label_usuario.Size = new System.Drawing.Size(122, 16);
-            this.label_usuario.TabIndex = 1;
-            this.label_usuario.Text = "Nombre de usuario";
+            this.label_nombreUsuario.AutoSize = true;
+            this.label_nombreUsuario.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nombreUsuario.Location = new System.Drawing.Point(74, 148);
+            this.label_nombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_nombreUsuario.MaximumSize = new System.Drawing.Size(100, 100);
+            this.label_nombreUsuario.Name = "label_nombreUsuario";
+            this.label_nombreUsuario.Size = new System.Drawing.Size(86, 75);
+            this.label_nombreUsuario.TabIndex = 1;
+            this.label_nombreUsuario.Text = "Nombre de usuario";
             // 
             // tsMenuCerrado
             // 
@@ -196,15 +198,16 @@ namespace GameCore
             "Portugués",
             "Inglés"});
             this.comboBox1.Location = new System.Drawing.Point(414, 83);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(281, 24);
             this.comboBox1.TabIndex = 5;
             // 
             // button_ajustes_por_defecto
             // 
+            this.button_ajustes_por_defecto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_ajustes_por_defecto.Location = new System.Drawing.Point(693, 514);
-            this.button_ajustes_por_defecto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_ajustes_por_defecto.Margin = new System.Windows.Forms.Padding(4);
             this.button_ajustes_por_defecto.Name = "button_ajustes_por_defecto";
             this.button_ajustes_por_defecto.Size = new System.Drawing.Size(168, 54);
             this.button_ajustes_por_defecto.TabIndex = 6;
@@ -213,8 +216,9 @@ namespace GameCore
             // 
             // boton_guardar
             // 
+            this.boton_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.boton_guardar.Location = new System.Drawing.Point(901, 514);
-            this.boton_guardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.boton_guardar.Margin = new System.Windows.Forms.Padding(4);
             this.boton_guardar.Name = "boton_guardar";
             this.boton_guardar.Size = new System.Drawing.Size(165, 54);
             this.boton_guardar.TabIndex = 7;
@@ -232,9 +236,11 @@ namespace GameCore
             this.Controls.Add(this.label_idioma);
             this.Controls.Add(this.tsMenuCerrado);
             this.Controls.Add(this.panelLateral);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPerfil";
             this.Text = "FormaPerfil";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormPerfil_Load);
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
             this.toolStrip_menuInferior.ResumeLayout(false);
@@ -251,7 +257,7 @@ namespace GameCore
 
         private System.Windows.Forms.Panel panelLateral;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label_usuario;
+        private System.Windows.Forms.Label label_nombreUsuario;
         private System.Windows.Forms.ToolStrip toolStrip_menuInferior;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel toolStrip_ajustes;

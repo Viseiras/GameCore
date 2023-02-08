@@ -39,33 +39,41 @@ namespace GameCore
             if (contraseña.Equals(repetirContraseña))
             {
                 //PENDIENTE comprobar si el archivo de la base de datos está en la aplicación
-
-                //iniciamos la conexión con la base de datos al iniciar la forma registro
-                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                try
                 {
-                    conexion.Open();
-
-                    using (SQLiteCommand command = new SQLiteCommand(conexion))
+                    //iniciamos la conexión con la base de datos al iniciar la forma registro
+                    using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                     {
-                        //si me devuelve false es que no hay usuario con ese nombre, por lo tanto lo inserto en la base de datos
-                        if (!MetodosSqlite.CompruebaUsuario(nombreUsuario))
+                        conexion.Open();
+
+                        using (SQLiteCommand command = new SQLiteCommand(conexion))
                         {
-                            //consulta parametrizada para evitar inyección SQL en la base de datos
-                            command.CommandText = "INSERT INTO usuarios (usuario,contraseña) VALUES (@nombre, @contraseña)";
-                            command.Parameters.AddWithValue("@nombre", nombreUsuario);
-                            command.Parameters.AddWithValue("@contraseña", contraseña);
-                            command.ExecuteNonQuery();
-                            MessageBox.Show("Has sido registrado en la aplicación");
-                            conexion.Close();
-                        }
-                        //si devuelve true le aviso al usuario de que ya hay un usuario con ese nombre
-                        else
-                        {
-                            MessageBox.Show("Ese usuarios ya existe");
+                            //si me devuelve false es que no hay usuario con ese nombre, por lo tanto lo inserto en la base de datos
+                            if (!MetodosSqlite.CompruebaUsuario(nombreUsuario))
+                            {
+                                //consulta parametrizada para evitar inyección SQL en la base de datos
+                                command.CommandText = "INSERT INTO usuarios (usuario,contraseña) VALUES (@nombre, @contraseña)";
+                                command.Parameters.AddWithValue("@nombre", nombreUsuario);
+                                command.Parameters.AddWithValue("@contraseña", contraseña);
+                                command.ExecuteNonQuery();
+                                MessageBox.Show("Has sido registrado en la aplicación");
+                                conexion.Close();
+                            }
+                            //si devuelve true le aviso al usuario de que ya hay un usuario con ese nombre
+                            else
+                            {
+                                MessageBox.Show("Ese usuarios ya existe");
+                            }
+
                         }
 
                     }
-
+                }
+                
+                catch (SQLiteException ex)
+                {
+                    // Handle the exception here
+                    MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
                 }
             }
                

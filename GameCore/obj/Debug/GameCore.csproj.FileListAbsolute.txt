@@ -102,3 +102,4 @@ C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.Form
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.formAñadir.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
+C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources

@@ -90,49 +90,50 @@ namespace GameCore
 
         private void FormVistaVacia_Load(object sender, EventArgs e)
         {
-            
-            using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+            label_nombreUsuario.Text = FormaInicioSesion.nombreUsuario;
+            try
             {
-                conexion.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\"", conexion))
+                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                 {
-                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    conexion.Open();
+
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\"", conexion))
                     {
-                        while (reader.Read())
+                        using (SQLiteDataReader reader = command.ExecuteReader())
                         {
-                            // Conseguimos los datos de la fila actual
-                            string titulo = (string)reader["titulo"];
-                            byte[] portada = (byte[])reader["portada"];
-                            Image imagen;
-                            // Convertimos el array de bytes a imagen
-                            using (MemoryStream ms = new MemoryStream(portada))
+                            while (reader.Read())
                             {
-                                //imagen = Image.FromStream(ms);
-                                imagen = (Image)Bitmap.FromStream(ms);
+                                // Conseguimos los datos de la fila actual
+                                string titulo = (string)reader["titulo"];
+                                byte[] portada = (byte[])reader["portada"];
+                                Image imagen;
+                                // Convertimos el array de bytes a imagen
+                                using (MemoryStream ms = new MemoryStream(portada))
+                                {
+                                    //imagen = Image.FromStream(ms);
+                                    imagen = (Image)Bitmap.FromStream(ms);
 
-                                // La mostramos
-                                //pictureBox1.Image = imagen;
+
+                                }
+
+                                control = new ControlPersonalizado();
+                                control.Size = new Size(200, 200);
+                                control.BackColor = Color.Blue;
+                               
+                                control.UpdateData(titulo, imagen);
+                                flVistaVacia.Controls.Add(control);
+
                             }
-
-                            //ESTE MÉTODO FUNCIONA CUANDO SE AÑADE EL CONTROL PERSONALIZADO DEDSDE EL TOOLBOX
-                            //controlPersonalizado1.UpdateData(titulo, imagen);
-
-                            //PREGUNTAR A MIGUEL
-                            
-                            control = new ControlPersonalizado();
-                            flp = new FlowLayoutPanel();
-                            flp.Height = 200;
-                            flp.Width = 130;
-                            control.UpdateData(titulo, imagen);
-                            flp.Controls.Add(control);  
-                            flVistaVacia.Controls.Add(flp);
-                            
-                            
                         }
                     }
+                    MueveAnadir();
                 }
-                MueveAnadir();
+            }
+            
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
             }
         }
 
@@ -151,7 +152,11 @@ namespace GameCore
             panelLateral.Visible = true;
             tsMenuCerrado.Visible = false;
         }
-     
+
+        private void boton_salir_programa_menu_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
     //CLASE ENCARGADA DEL CONTROL PERSONALIZADO
@@ -166,19 +171,30 @@ namespace GameCore
             portada = new PictureBox();
             portada.Width = 200;
             portada.Height = 200;
-            //portada.Size = new System.Drawing.Size(200, 200);
             portada.SizeMode = PictureBoxSizeMode.Zoom;
             //portada.Image = Properties.Resources.SUMA;
 
             // INICIAMOS EL LABEL
             titulo = new Label();
-            titulo.BackColor = Color.White;
+            titulo.BackColor = Color.Red;
             titulo.Text = "Titulo";
             titulo.AutoSize = true;
+            titulo.Font = new Font("Nirmala UI",10,FontStyle.Bold);
+            
+
+            //para mostrar el texto debajo de la portada
+            titulo.Left = portada.Left;
+            titulo.Top = portada.Bottom;
+            titulo.Dock = DockStyle.Bottom;
+            portada.Dock = DockStyle.Bottom;
+            titulo.TextAlign = ContentAlignment.MiddleCenter;
 
             // LOS AÑADIMOS AL CONTROL PERSONALIZADO
             this.Controls.Add(portada);
             this.Controls.Add(titulo);
+
+            //SE CREA UN EVENTO PARA EL DOBLE CLICK
+            portada.DoubleClick += ControlPersonalizado_DobleClick;
         }
 
         public void UpdateData(string t, Image imagen)
@@ -186,6 +202,17 @@ namespace GameCore
             // SE ACTUALIZA EL CONTROL EN BASE A LOS VALORES PASADOS COMO PARÁMETROS A LA FUNCIÓN
             portada.Image = imagen;
             titulo.Text = t;
+        }
+
+        private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
+        {
+            VistaDetalle vistaDetalle = new VistaDetalle();
+            vistaDetalle.Titulo = this.titulo.Text;
+            //vistaDetalle.Portada...
+            if (vistaDetalle.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
     }
 }
