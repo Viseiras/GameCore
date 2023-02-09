@@ -16,11 +16,11 @@ namespace GameCore
     
     public partial class FormVistaVacia : Form
     {
-        private int cont;
+        private int cont=0;
         SQLiteConnection conexion;
         private int pkUsuario;
         FlowLayoutPanel flp;
-        ControlPersonalizado control;
+        ControlVideojuego control;
         public FormVistaVacia()
         {
             InitializeComponent();
@@ -36,19 +36,21 @@ namespace GameCore
                 try
                 {
                     flVistaVacia.Controls.RemoveAt(cont-1);
+                    cont--;
                     using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                     {
                         conexion.Open();
 
-                        using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\" and id = \""+cont+"\"", conexion)) //ESTO TECNICAMENTE NO ESTA MAL PERO NO DA EL NUMERO QUE DEBE YA QUE NO TIENE EN CUENTA LOS DEMÁS USUARIOS
+                        using (SQLiteCommand command = new SQLiteCommand("select * from videojuegos where fk_usuario = \"" + MetodosSqlite.pkUsuario + "\" order by id desc limit 1", conexion))
                         {
                             using (SQLiteDataReader reader = command.ExecuteReader())
                             {
-                                while (reader.Read())
+                                if(reader.Read())
                                 {
                                     // Conseguimos los datos de la fila actual
-                                    string titulo = (string)reader["titulo"];
+                                    var titulo = (string)reader["titulo"];
                                     byte[] portada = (byte[])reader["portada"];
+                                    var id = reader["id"];
                                     Image imagen;
                                     // Convertimos el array de bytes a imagen
                                     using (MemoryStream ms = new MemoryStream(portada))
@@ -59,14 +61,16 @@ namespace GameCore
 
                                     }
 
-                                    control = new ControlPersonalizado();
+                                    control = new ControlVideojuego();
                                     control.Size = new Size(200, 200);
                                     control.BackColor = Color.Blue;
 
                                     control.UpdateData(titulo, imagen);
                                     flVistaVacia.Controls.Add(control);
-
+                                    cont++;
                                 }
+                                    
+                              
                             }
                         }
                         MueveAnadir();
@@ -153,10 +157,8 @@ namespace GameCore
 
                                 }
 
-                                control = new ControlPersonalizado();
+                                control = new ControlVideojuego();
                                 control.Size = new Size(200, 200);
-                                control.BackColor = Color.Blue;
-                               
                                 control.UpdateData(titulo, imagen);
                                 flVistaVacia.Controls.Add(control);
 
@@ -194,61 +196,15 @@ namespace GameCore
         {
             Application.Exit();
         }
-    }
-
-    //CLASE ENCARGADA DEL CONTROL PERSONALIZADO
-    public class ControlPersonalizado : Control
-    {
-        private PictureBox portada;
-        private Label titulo;
-
-        public ControlPersonalizado()
-        {
-            // INICIAMOS LA IMAGEN
-            portada = new PictureBox();
-            portada.Width = 200;
-            portada.Height = 200;
-            portada.SizeMode = PictureBoxSizeMode.Zoom;
-            //portada.Image = Properties.Resources.SUMA;
-
-            // INICIAMOS EL LABEL
-            titulo = new Label();
-            titulo.BackColor = Color.Red;
-            titulo.Text = "Titulo";
-            titulo.Width = 200;
-            titulo.Font = new Font("Nirmala UI",10,FontStyle.Bold);
-            
-
-            //para mostrar el texto debajo de la portada
-            titulo.Left = portada.Left;
-            titulo.Top = portada.Bottom;
-            titulo.Dock = DockStyle.Bottom;
-            portada.Dock = DockStyle.Bottom;
-            titulo.TextAlign = ContentAlignment.MiddleCenter;
-
-            // LOS AÑADIMOS AL CONTROL PERSONALIZADO
-            this.Controls.Add(portada);
-            this.Controls.Add(titulo);
-
-            //SE CREA UN EVENTO PARA EL DOBLE CLICK
-            portada.DoubleClick += ControlPersonalizado_DobleClick;
-        }
-
-        public void UpdateData(string t, Image imagen)
-        {
-            // SE ACTUALIZA EL CONTROL EN BASE A LOS VALORES PASADOS COMO PARÁMETROS A LA FUNCIÓN
-            portada.Image = imagen;
-            titulo.Text = t;
-        }
 
         private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
         {
             VistaDetalle vistaDetalle = new VistaDetalle();
-            vistaDetalle.Titulo = this.titulo.Text;
+           // vistaDetalle.Titulo = this.titulo.Text;
             //vistaDetalle.Portada...
             if (vistaDetalle.ShowDialog() == DialogResult.OK)
             {
-                
+
             }
         }
     }

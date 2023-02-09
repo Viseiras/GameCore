@@ -52,7 +52,7 @@ namespace GameCore
                             if (!MetodosSqlite.CompruebaUsuario(nombreUsuario))
                             {
                                 //consulta parametrizada para evitar inyección SQL en la base de datos
-                                command.CommandText = "INSERT INTO usuarios (usuario,contraseña) VALUES (@nombre, @contraseña)";
+                                command.CommandText = "INSERT INTO usuarios (nombre_usuario,contraseña) VALUES (@nombre, @contraseña)";
                                 command.Parameters.AddWithValue("@nombre", nombreUsuario);
                                 command.Parameters.AddWithValue("@contraseña", contraseña);
                                 command.ExecuteNonQuery();
@@ -73,7 +73,7 @@ namespace GameCore
                 catch (SQLiteException ex)
                 {
                     // Handle the exception here
-                    MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                    MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
                 }
             }
                

@@ -32,6 +32,7 @@
             this.pbPortada = new System.Windows.Forms.PictureBox();
             this.textBoxDescripcion = new System.Windows.Forms.RichTextBox();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.boton_eliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPortada)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             this.pbPortada.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.pbPortada.Enabled = false;
             this.pbPortada.Location = new System.Drawing.Point(25, 20);
-            this.pbPortada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbPortada.Margin = new System.Windows.Forms.Padding(2);
             this.pbPortada.Name = "pbPortada";
             this.pbPortada.Size = new System.Drawing.Size(151, 200);
             this.pbPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -66,7 +67,7 @@
             // 
             this.textBoxDescripcion.Enabled = false;
             this.textBoxDescripcion.Location = new System.Drawing.Point(220, 20);
-            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.Size = new System.Drawing.Size(225, 201);
             this.textBoxDescripcion.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(312, 303);
+            this.btnEditar.Location = new System.Drawing.Point(370, 303);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 3;
@@ -82,16 +83,27 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // boton_eliminar
+            // 
+            this.boton_eliminar.Location = new System.Drawing.Point(220, 303);
+            this.boton_eliminar.Name = "boton_eliminar";
+            this.boton_eliminar.Size = new System.Drawing.Size(75, 23);
+            this.boton_eliminar.TabIndex = 4;
+            this.boton_eliminar.Text = "Eliminar";
+            this.boton_eliminar.UseVisualStyleBackColor = true;
+            this.boton_eliminar.Click += new System.EventHandler(this.boton_eliminar_Click);
+            // 
             // VistaDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 349);
+            this.Controls.Add(this.boton_eliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.pbPortada);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VistaDetalle";
             this.Text = "VistaDetalle";
             this.Load += new System.EventHandler(this.VistaDetalle_Load);
@@ -107,5 +119,6 @@
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.RichTextBox textBoxDescripcion;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button boton_eliminar;
     }
 }

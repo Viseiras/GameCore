@@ -107,3 +107,4 @@ C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.formAÃ
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\Control.Draggable.dll
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\Control.Draggable.dll

@@ -95,5 +95,31 @@ namespace GameCore
             textBoxDescripcion.Enabled = true; 
             labelTitulo.Enabled = true; 
         }
+
+        private void boton_eliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Estás seguro que quieres eliminar este videojuego?") == DialogResult.OK)
+            {
+                try
+                {
+                    using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                    {
+                        conexion.Open();
+
+                        using (SQLiteCommand command = new SQLiteCommand("DELETE FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\"and titulo = \"" + Titulo + "\"", conexion))
+                        {
+                            command.ExecuteNonQuery();
+                            
+                        }
+                    }
+                }
+                catch (SQLiteException ex)
+                {
+                    // Handle the exception here
+                    MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+                }
+
+            }
+        }
     }
 }

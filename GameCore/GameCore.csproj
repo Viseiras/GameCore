@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlVideojuego.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlVideojuego.Designer.cs">
+      <DependentUpon>ControlVideojuego.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToogleBoxCustom.cs">
       <SubType>Component</SubType>
     </Compile>
