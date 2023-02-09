@@ -44,7 +44,6 @@ namespace GameCore
         //Boton que confirma la acción de añadir o cancela insertando la información en el DataGridView del form principal
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
             try
             {
                 /*
@@ -56,7 +55,6 @@ namespace GameCore
                 using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                 {
                     conexion.Open();
-
                     byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
 
                     //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
@@ -71,6 +69,7 @@ namespace GameCore
                         MessageBox.Show("Juego insertado en la BD.");
                     }
                 }
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception)
             {
@@ -80,7 +79,15 @@ namespace GameCore
         //cuando carga el formulario pone el valor del ID del form principal 
         private void formAnadir_Load(object sender, EventArgs e)
         {
-        
+            pictureBoxAnadir.AllowDrop = true;
+            if (FormPerfil.darkmode)
+            {
+                BackColor = Color.DarkGray;
+            }
+            else
+            {
+                BackColor = Color.White;
+            }
         }
 
         //Comprobamos que el nombre no se encuentra vacío 
@@ -95,6 +102,25 @@ namespace GameCore
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void pictureBoxAnadir_DragDrop(object sender, DragEventArgs e)
+        {
+            object data = e.Data.GetData(DataFormats.FileDrop);
+            if (data != null)
+            {
+                string[] fileNames = data as string[];
+                if (fileNames.Length > 0)
+                {
+                    rutaPortada= fileNames[0];
+                    pictureBoxAnadir.Image = Image.FromFile(fileNames[0]);
+                }
+            }
+        }
+
+        private void pictureBoxAnadir_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
         }
     }
 }

@@ -29,31 +29,56 @@ namespace GameCore
 
         private void btnAnadir_Click(object sender, EventArgs e)
         {
-            flp = new FlowLayoutPanel();
-            PictureBox pb = new PictureBox();
-            TextBox tb = new TextBox();
-
-            
             formAñadir form = new formAñadir();
+            
             if (form.ShowDialog() == DialogResult.OK)
             {
-                tb.Text = "Titulo del videojuego";
+                try
+                {
+                    flVistaVacia.Controls.RemoveAt(cont-1);
+                    using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                    {
+                        conexion.Open();
+
+                        using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\" and id = \""+cont+"\"", conexion)) //ESTO TECNICAMENTE NO ESTA MAL PERO NO DA EL NUMERO QUE DEBE YA QUE NO TIENE EN CUENTA LOS DEMÁS USUARIOS
+                        {
+                            using (SQLiteDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    // Conseguimos los datos de la fila actual
+                                    string titulo = (string)reader["titulo"];
+                                    byte[] portada = (byte[])reader["portada"];
+                                    Image imagen;
+                                    // Convertimos el array de bytes a imagen
+                                    using (MemoryStream ms = new MemoryStream(portada))
+                                    {
+                                        //imagen = Image.FromStream(ms);
+                                        imagen = (Image)Bitmap.FromStream(ms);
+
+
+                                    }
+
+                                    control = new ControlPersonalizado();
+                                    control.Size = new Size(200, 200);
+                                    control.BackColor = Color.Blue;
+
+                                    control.UpdateData(titulo, imagen);
+                                    flVistaVacia.Controls.Add(control);
+
+                                }
+                            }
+                        }
+                        MueveAnadir();
+                    }
+                }
+                catch (SQLiteException ex)
+                {
+                    // Handle the exception here
+                    MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+                }
             }
-
-            flp.Height = 200;
-            flp.Width = 130;
-            pb.Width = 120;
-            tb.Width = 120;
-            pb.Height = 160;
-            tb.TextAlign = HorizontalAlignment.Center;
-            flp.Controls.Add(pb);
-            flp.Controls.Add(tb);
-
-
-            flVistaVacia.Controls.Add(flp);
-            flVistaVacia.Controls.RemoveAt(cont);
-            cont++;
-            MueveAnadir();
+            
         }
 
         private void Settings_Click(object sender, EventArgs e)
@@ -62,6 +87,16 @@ namespace GameCore
             if (form.ShowDialog() == DialogResult.OK)
             {
 
+            }
+            if(FormPerfil.darkmode)
+            {
+                BackColor = Color.DarkGray;
+                flVistaVacia.BackColor = Color.LightBlue;
+            }
+            else
+            {
+                BackColor= Color.White;
+                flVistaVacia.BackColor = Color.LightCyan;
             }
         }
 
@@ -86,6 +121,7 @@ namespace GameCore
 
             flVistaVacia.Controls.Add(flp);
             pb.DoubleClick += btnAnadir_Click;
+            cont++;
         }
 
         private void FormVistaVacia_Load(object sender, EventArgs e)
@@ -103,6 +139,7 @@ namespace GameCore
                         {
                             while (reader.Read())
                             {
+                                cont++;
                                 // Conseguimos los datos de la fila actual
                                 string titulo = (string)reader["titulo"];
                                 byte[] portada = (byte[])reader["portada"];
@@ -133,7 +170,7 @@ namespace GameCore
             catch (SQLiteException ex)
             {
                 // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
         }
 
