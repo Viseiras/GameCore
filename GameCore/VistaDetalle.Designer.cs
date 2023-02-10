@@ -32,7 +32,8 @@
             this.pbPortada = new System.Windows.Forms.PictureBox();
             this.textBoxDescripcion = new System.Windows.Forms.RichTextBox();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.boton_eliminar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.Modificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPortada)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,12 +41,11 @@
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Enabled = false;
-            this.labelTitulo.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.Location = new System.Drawing.Point(65, 240);
-            this.labelTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTitulo.MaximumSize = new System.Drawing.Size(151, 81);
+            this.labelTitulo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Location = new System.Drawing.Point(76, 292);
+            this.labelTitulo.MaximumSize = new System.Drawing.Size(201, 100);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(71, 15);
+            this.labelTitulo.Size = new System.Drawing.Size(104, 23);
             this.labelTitulo.TabIndex = 1;
             this.labelTitulo.Text = "titulo juego";
             // 
@@ -53,10 +53,10 @@
             // 
             this.pbPortada.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.pbPortada.Enabled = false;
-            this.pbPortada.Location = new System.Drawing.Point(25, 20);
-            this.pbPortada.Margin = new System.Windows.Forms.Padding(2);
+            this.pbPortada.Location = new System.Drawing.Point(33, 25);
+            this.pbPortada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbPortada.Name = "pbPortada";
-            this.pbPortada.Size = new System.Drawing.Size(151, 200);
+            this.pbPortada.Size = new System.Drawing.Size(201, 246);
             this.pbPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPortada.TabIndex = 0;
             this.pbPortada.TabStop = false;
@@ -66,44 +66,67 @@
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Enabled = false;
-            this.textBoxDescripcion.Location = new System.Drawing.Point(220, 20);
-            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxDescripcion.Location = new System.Drawing.Point(272, 25);
+            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(225, 201);
-            this.textBoxDescripcion.TabIndex = 2;
+            this.textBoxDescripcion.Size = new System.Drawing.Size(348, 246);
+            this.textBoxDescripcion.TabIndex = 1;
             this.textBoxDescripcion.Text = "";
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(370, 303);
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnEditar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(521, 346);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 3;
+            this.btnEditar.Size = new System.Drawing.Size(99, 44);
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // boton_eliminar
+            // btnEliminar
             // 
-            this.boton_eliminar.Location = new System.Drawing.Point(220, 303);
-            this.boton_eliminar.Name = "boton_eliminar";
-            this.boton_eliminar.Size = new System.Drawing.Size(75, 23);
-            this.boton_eliminar.TabIndex = 4;
-            this.boton_eliminar.Text = "Eliminar";
-            this.boton_eliminar.UseVisualStyleBackColor = true;
-            this.boton_eliminar.Click += new System.EventHandler(this.boton_eliminar_Click);
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnEliminar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(397, 346);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(104, 44);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.boton_eliminar_Click);
+            // 
+            // Modificar
+            // 
+            this.Modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.Modificar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Modificar.ForeColor = System.Drawing.Color.White;
+            this.Modificar.Location = new System.Drawing.Point(272, 346);
+            this.Modificar.Margin = new System.Windows.Forms.Padding(4);
+            this.Modificar.Name = "Modificar";
+            this.Modificar.Size = new System.Drawing.Size(104, 44);
+            this.Modificar.TabIndex = 2;
+            this.Modificar.Text = "Modificar";
+            this.Modificar.UseVisualStyleBackColor = false;
             // 
             // VistaDetalle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 349);
-            this.Controls.Add(this.boton_eliminar);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.ClientSize = new System.Drawing.Size(640, 402);
+            this.Controls.Add(this.Modificar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.pbPortada);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VistaDetalle";
             this.Text = "VistaDetalle";
             this.Load += new System.EventHandler(this.VistaDetalle_Load);
@@ -119,6 +142,7 @@
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.RichTextBox textBoxDescripcion;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button boton_eliminar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button Modificar;
     }
 }

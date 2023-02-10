@@ -47,6 +47,7 @@ namespace GameCore
                             {
                                 if(reader.Read())
                                 {
+                                    flVistaVacia.Refresh();
                                     // Conseguimos los datos de la fila actual
                                     var titulo = (string)reader["titulo"];
                                     byte[] portada = (byte[])reader["portada"];
@@ -63,8 +64,8 @@ namespace GameCore
 
                                     control = new ControlVideojuego();
                                     control.Size = new Size(200, 200);
-                                    control.BackColor = Color.Blue;
-
+                                    //ver por qué no funciona el margin
+                                    //control.Margin = new Padding(0,-15,0,0);
                                     control.UpdateData(titulo, imagen);
                                     flVistaVacia.Controls.Add(control);
                                     cont++;
@@ -174,7 +175,48 @@ namespace GameCore
                 // Handle the exception here
                 MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
+
+
+            //PORCION DE CODIGO ENCARGADA DE CARGAR LA IMAGEN DE PERFIL QUE HAYA ESTABLECIDO EL USUARIO
+            try
+            {
+                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                {
+                    conexion.Open();
+
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT avatar FROM usuarios WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                //si el lector no está vacío es que hay imagen, por lo tanto la actualizo
+                                if (reader["avatar"] != DBNull.Value)
+                                {
+                                    byte[] portada = (byte[])reader["avatar"];
+                                    Image Foto;
+                                    // Convertimos el array de bytes a imagen
+                                    using (MemoryStream ms = new MemoryStream(portada))
+                                    {
+                                        Foto = (Image)Bitmap.FromStream(ms);
+                                        pictureBox_ImagenPerfil.Image = Foto;
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+            }
+
         }
+            
 
         private void esconder_click(object sender, EventArgs e)
         {
@@ -206,6 +248,16 @@ namespace GameCore
             {
 
             }
+        }
+
+        private void label_cerrarSesion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

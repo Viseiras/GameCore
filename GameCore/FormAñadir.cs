@@ -71,9 +71,10 @@ namespace GameCore
                 }
                 this.DialogResult = DialogResult.OK;
             }
-            catch (Exception)
+            catch (SQLiteException ex)
             {
-
+                // Handle the exception here
+                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
             }
         }
         //cuando carga el formulario pone el valor del ID del form principal 

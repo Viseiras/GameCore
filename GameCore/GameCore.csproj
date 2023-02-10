@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\foto_perfil_vacia.png" />
+    <None Include="Resources\cerrar_sesion.png" />
     <Content Include="Resources\hidepanel.png" />
     <Content Include="Resources\settings.png" />
     <Content Include="Resources\showpanel.png" />
