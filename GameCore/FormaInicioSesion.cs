@@ -85,5 +85,30 @@ namespace GameCore
             formVistaVacia.ShowDialog();
             this.Close();*/
         }
+        /// <summary>
+        /// Método que al pulsar enter en el textbox de contraseña se inicie sesión.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
+        private void textBox_Contraseña_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.button_iniciarSesion(null, null);
+            }
+        }
+        /// <summary>
+        /// Método que al pulsar enter en el textbox de usuario se inicie sesión.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
+        private void textBox_nombreUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.button_iniciarSesion(null, null);
+            }
+            
+        }
     }
 }

@@ -75,10 +75,10 @@ namespace GameCore
             this.tsMenuCerrado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblDeplegar,
             this.tsbtnRegresa});
-            this.tsMenuCerrado.Location = new System.Drawing.Point(0, 561);
+            this.tsMenuCerrado.Location = new System.Drawing.Point(0, 566);
             this.tsMenuCerrado.Name = "tsMenuCerrado";
             this.tsMenuCerrado.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsMenuCerrado.Size = new System.Drawing.Size(1500, 27);
+            this.tsMenuCerrado.Size = new System.Drawing.Size(1116, 27);
             this.tsMenuCerrado.TabIndex = 2;
             this.tsMenuCerrado.Text = "Desplegar ";
             this.tsMenuCerrado.Visible = false;
@@ -108,13 +108,14 @@ namespace GameCore
             // 
             this.btnAnadir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnadir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAnadir.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnadir.ForeColor = System.Drawing.Color.White;
             this.btnAnadir.Location = new System.Drawing.Point(958, 541);
             this.btnAnadir.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnadir.Name = "btnAnadir";
             this.btnAnadir.Size = new System.Drawing.Size(142, 46);
-            this.btnAnadir.TabIndex = 0;
+            this.btnAnadir.TabIndex = 4;
             this.btnAnadir.Text = "Añadir Juego";
             this.btnAnadir.UseVisualStyleBackColor = false;
             this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
@@ -136,7 +137,7 @@ namespace GameCore
             this.toolStrip__menuInferior.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip__menuInferior.ShowItemToolTips = false;
             this.toolStrip__menuInferior.Size = new System.Drawing.Size(220, 27);
-            this.toolStrip__menuInferior.TabIndex = 1;
+            this.toolStrip__menuInferior.TabIndex = 95;
             this.toolStrip__menuInferior.Text = "Menu";
             // 
             // toolStripButton1
@@ -203,18 +204,20 @@ namespace GameCore
             // 
             this.label_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_cerrarSesion.AutoSize = true;
+            this.label_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_cerrarSesion.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_cerrarSesion.ForeColor = System.Drawing.Color.White;
             this.label_cerrarSesion.Location = new System.Drawing.Point(76, 473);
             this.label_cerrarSesion.Name = "label_cerrarSesion";
             this.label_cerrarSesion.Size = new System.Drawing.Size(113, 23);
-            this.label_cerrarSesion.TabIndex = 6;
+            this.label_cerrarSesion.TabIndex = 97;
             this.label_cerrarSesion.Text = "Cerrar sesión";
             this.label_cerrarSesion.Click += new System.EventHandler(this.label_cerrarSesion_Click);
             // 
             // pictureBox_cerrarSesion
             // 
             this.pictureBox_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_cerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cerrarSesion.Image")));
             this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(12, 456);
             this.pictureBox_cerrarSesion.Name = "pictureBox_cerrarSesion";
@@ -233,7 +236,7 @@ namespace GameCore
             this.label_nombreUsuario.MaximumSize = new System.Drawing.Size(100, 100);
             this.label_nombreUsuario.Name = "label_nombreUsuario";
             this.label_nombreUsuario.Size = new System.Drawing.Size(94, 50);
-            this.label_nombreUsuario.TabIndex = 4;
+            this.label_nombreUsuario.TabIndex = 98;
             this.label_nombreUsuario.Text = "NombreUsuario";
             this.label_nombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -261,7 +264,7 @@ namespace GameCore
             this.flVistaVacia.Margin = new System.Windows.Forms.Padding(4);
             this.flVistaVacia.Name = "flVistaVacia";
             this.flVistaVacia.Size = new System.Drawing.Size(837, 449);
-            this.flVistaVacia.TabIndex = 0;
+            this.flVistaVacia.TabIndex = 93;
             // 
             // menu_VistaVacia
             // 
@@ -275,7 +278,7 @@ namespace GameCore
             this.menu_VistaVacia.Name = "menu_VistaVacia";
             this.menu_VistaVacia.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menu_VistaVacia.Size = new System.Drawing.Size(1116, 28);
-            this.menu_VistaVacia.TabIndex = 3;
+            this.menu_VistaVacia.TabIndex = 99;
             this.menu_VistaVacia.Text = "menuStrip1";
             // 
             // boton_perfil_menu_strip
@@ -291,14 +294,15 @@ namespace GameCore
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
             // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
-            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.ajustesToolStripMenuItem.Text = "Ajustes";
+            this.ajustesToolStripMenuItem.Click += new System.EventHandler(this.ajustesToolStripMenuItem_Click);
             // 
             // boton_sistema_menu_strip
             // 
@@ -341,13 +345,14 @@ namespace GameCore
             // 
             this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.button_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_buscar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_buscar.ForeColor = System.Drawing.Color.White;
             this.button_buscar.Location = new System.Drawing.Point(997, 30);
             this.button_buscar.Margin = new System.Windows.Forms.Padding(4);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(86, 35);
-            this.button_buscar.TabIndex = 7;
+            this.button_buscar.TabIndex = 2;
             this.button_buscar.Text = "Buscar";
             this.button_buscar.UseVisualStyleBackColor = false;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
@@ -355,6 +360,7 @@ namespace GameCore
             // pictureBox_buscar
             // 
             this.pictureBox_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_buscar.Image = global::GameCore.Properties.Resources.refrescar_icon;
             this.pictureBox_buscar.Location = new System.Drawing.Point(263, 530);
             this.pictureBox_buscar.Name = "pictureBox_buscar";
@@ -368,11 +374,12 @@ namespace GameCore
             // 
             this.label__mostrar_coleccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label__mostrar_coleccion.AutoSize = true;
+            this.label__mostrar_coleccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label__mostrar_coleccion.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label__mostrar_coleccion.Location = new System.Drawing.Point(319, 547);
             this.label__mostrar_coleccion.Name = "label__mostrar_coleccion";
             this.label__mostrar_coleccion.Size = new System.Drawing.Size(212, 23);
-            this.label__mostrar_coleccion.TabIndex = 9;
+            this.label__mostrar_coleccion.TabIndex = 3;
             this.label__mostrar_coleccion.Text = "Mostrar toda la colección";
             // 
             // FormVistaVacia

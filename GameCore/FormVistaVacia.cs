@@ -73,8 +73,7 @@ namespace GameCore
 
                                     control = new ControlVideojuego();
                                     control.Size = new Size(200, 200);
-                                    //ver por qué no funciona el margin
-                                    //control.Margin = new Padding(0,-15,0,0);
+                                    this.control.Cursor = Cursors.Hand;
                                     control.UpdateData(titulo, imagen);
                                     flVistaVacia.Controls.Add(control);
                                     cont++;
@@ -183,6 +182,7 @@ namespace GameCore
 
                                 control = new ControlVideojuego();
                                 control.Size = new Size(200, 200);
+                                this.control.Cursor = Cursors.Hand;
                                 control.UpdateData(titulo, imagen);
                                 flVistaVacia.Controls.Add(control);
 
@@ -303,7 +303,10 @@ namespace GameCore
         /// <param name="e"></param>
         private void label_cerrarSesion_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormaInicioSesion inicioSesion = new FormaInicioSesion();
+            inicioSesion.ShowDialog();
+            this.Close();
         }
         /// <summary>
         /// Método que permite cerrar la sesión actual 
@@ -312,7 +315,10 @@ namespace GameCore
         /// <param name="e"></param>
         private void pictureBox_cerrarSesion_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormaInicioSesion inicioSesion = new FormaInicioSesion();
+            inicioSesion.ShowDialog();
+            this.Close();
         }
         /// <summary>
         /// Método para buscar un videojuego entre la colección asociada al usuario
@@ -332,7 +338,7 @@ namespace GameCore
                 {
                     conexion.Open();
 
-                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE LOWER(titulo) LIKE \"" + juego_buscar + "\"", conexion))
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE LOWER(titulo) LIKE \"" + juego_buscar + "\"" + "AND fk_usuario = " + MetodosSqlite.pkUsuario, conexion))
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
@@ -354,6 +360,7 @@ namespace GameCore
 
                                 control = new ControlVideojuego();
                                 control.Size = new Size(200, 200);
+                                this.control.Cursor = Cursors.Hand;
                                 control.UpdateData(titulo, imagen);
                                 flVistaVacia.Controls.Add(control);
 
@@ -431,6 +438,13 @@ namespace GameCore
             ayuda.Show();
         }
 
-        
+        private void ajustesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPerfil form = new FormPerfil();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

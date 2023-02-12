@@ -59,11 +59,11 @@
             // 
             this.label_Inicio_Sesion.AutoSize = true;
             this.label_Inicio_Sesion.BackColor = System.Drawing.Color.Transparent;
-            this.label_Inicio_Sesion.Font = new System.Drawing.Font("Nirmala UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Inicio_Sesion.Location = new System.Drawing.Point(207, 32);
+            this.label_Inicio_Sesion.Font = new System.Drawing.Font("Nirmala UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Inicio_Sesion.Location = new System.Drawing.Point(203, 41);
             this.label_Inicio_Sesion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Inicio_Sesion.Name = "label_Inicio_Sesion";
-            this.label_Inicio_Sesion.Size = new System.Drawing.Size(233, 46);
+            this.label_Inicio_Sesion.Size = new System.Drawing.Size(254, 50);
             this.label_Inicio_Sesion.TabIndex = 6;
             this.label_Inicio_Sesion.Text = "Iniciar Sesión";
             // 
@@ -77,6 +77,7 @@
             this.textBox_nombreUsuario.Name = "textBox_nombreUsuario";
             this.textBox_nombreUsuario.Size = new System.Drawing.Size(445, 27);
             this.textBox_nombreUsuario.TabIndex = 1;
+            this.textBox_nombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_nombreUsuario_KeyDown);
             // 
             // label_nombreUsuario
             // 
@@ -113,6 +114,7 @@
             this.textBox_Contraseña.Name = "textBox_Contraseña";
             this.textBox_Contraseña.Size = new System.Drawing.Size(445, 27);
             this.textBox_Contraseña.TabIndex = 10;
+            this.textBox_Contraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Contraseña_KeyDown);
             // 
             // button_registrar
             // 
@@ -134,11 +136,11 @@
             // 
             this.label_no_tienes_cuenta.AutoSize = true;
             this.label_no_tienes_cuenta.BackColor = System.Drawing.Color.Transparent;
-            this.label_no_tienes_cuenta.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_no_tienes_cuenta.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_no_tienes_cuenta.Location = new System.Drawing.Point(159, 486);
             this.label_no_tienes_cuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_no_tienes_cuenta.Name = "label_no_tienes_cuenta";
-            this.label_no_tienes_cuenta.Size = new System.Drawing.Size(310, 37);
+            this.label_no_tienes_cuenta.Size = new System.Drawing.Size(340, 41);
             this.label_no_tienes_cuenta.TabIndex = 13;
             this.label_no_tienes_cuenta.Text = "¿No tienes una cuenta?";
             // 
