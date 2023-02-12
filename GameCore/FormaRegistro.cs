@@ -38,7 +38,7 @@ namespace GameCore
         {
             //variables donde almaceno los datos que introduce el usuario y los paso a minúsculas para introducirlos en la BD
             string nombreUsuario = textBox_nomUsuario.Text;
-            nombreUsuario = nombreUsuario.Trim().ToLower();
+            nombreUsuario = nombreUsuario.Trim();
             string contraseña = textBox_contraseña.Text;
             contraseña = contraseña.Trim();
             string repetirContraseña = textBox_repetirContraseña.Text;

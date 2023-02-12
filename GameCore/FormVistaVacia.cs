@@ -322,8 +322,7 @@ namespace GameCore
         private void button_buscar_Click(object sender, EventArgs e)
         {
             string juego_buscar = textBox_buscar.Text;
-            juego_buscar = juego_buscar.ToLower();
-
+            juego_buscar = juego_buscar.ToLower() + "%";
             //limpio los juegos del flowlayout
             flVistaVacia.Controls.Clear();
 
@@ -333,7 +332,7 @@ namespace GameCore
                 {
                     conexion.Open();
 
-                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE LOWER(titulo) = \"" + juego_buscar + "\"", conexion))
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE LOWER(titulo) LIKE \"" + juego_buscar + "\"", conexion))
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
