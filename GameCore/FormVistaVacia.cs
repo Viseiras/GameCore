@@ -15,7 +15,9 @@ using TextBox = System.Windows.Forms.TextBox;
 
 namespace GameCore
 {
-    
+    /// <summary>
+    /// Clase principal de la aplicación donde se muestra la colección de videojuegos del usuario que haya iniciado sesión
+    /// </summary>
     public partial class FormVistaVacia : Form
     {
         private int cont=0;
@@ -29,6 +31,11 @@ namespace GameCore
 
         }
 
+        /// <summary>
+        /// Método que abre la forma añadir y se realiza el INSERT del videojuego en su tabla de la Base de Datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnadir_Click(object sender, EventArgs e)
         {
             formAñadir form = new formAñadir();
@@ -87,7 +94,11 @@ namespace GameCore
             }
             
         }
-
+        /// <summary>
+        /// Método que nos lleva a la forma del perfil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Settings_Click(object sender, EventArgs e)
         {
             FormPerfil form = new FormPerfil();
@@ -107,6 +118,9 @@ namespace GameCore
             }
         }
 
+        /// <summary>
+        /// Método que nos permite mover el control personalizado de Añadir conforme se van añadiendo videojuegos a la Base de Datos
+        /// </summary>
         public void MueveAnadir()
         { 
             flp = new FlowLayoutPanel();
@@ -131,6 +145,11 @@ namespace GameCore
             cont++;
         }
 
+        /// <summary>
+        /// Método que carga los datos de la vista vacía, se realiza un SELECT a la Base de Datos en función del usuario que ha iniciado sesión y se cargan los videojuegos que haya introducido y están asociados a su cuenta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormVistaVacia_Load(object sender, EventArgs e)
         {
             label_nombreUsuario.Text = FormaInicioSesion.nombreUsuario;
@@ -228,7 +247,11 @@ namespace GameCore
 
         }
             
-
+        /// <summary>
+        /// Método que permite esconder el panel lateral
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void esconder_click(object sender, EventArgs e)
         {
             flVistaVacia.Location = new Point(48, 29);
@@ -236,7 +259,11 @@ namespace GameCore
             panelLateral.Visible = false;
             tsMenuCerrado.Visible = true;
         }
-
+        /// <summary>
+        /// Método que permite desplegar el panel lateral
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void desplegar_click(object sender, EventArgs e)
         {
             flVistaVacia.Location = new Point(198, 29);
@@ -245,11 +272,20 @@ namespace GameCore
             tsMenuCerrado.Visible = false;
         }
 
+        /// <summary>
+        /// Método que permite cerrar el programa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_salir_programa_menu_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        /// <summary>
+        /// Método que permite abrir la vista detallada de un videojuego al hacer doble clic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
         {
             VistaDetalle vistaDetalle = new VistaDetalle();
@@ -260,17 +296,29 @@ namespace GameCore
 
             }
         }
-
+        /// <summary>
+        /// Método que permite cerrar la sesión actual 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_cerrarSesion_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Método que permite cerrar la sesión actual 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox_cerrarSesion_Click(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// Método para buscar un videojuego entre la colección asociada al usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_buscar_Click(object sender, EventArgs e)
         {
             string juego_buscar = textBox_buscar.Text;
@@ -324,12 +372,11 @@ namespace GameCore
                 MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.pictureBox_buscarClick(null, null);
-        }
-
+        /// <summary>
+        /// Método donde se ejecuta la acción de buscar cuando se pulsa la tecla enter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_buscar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -338,14 +385,22 @@ namespace GameCore
             }
             
         }
-
+        /// <summary>
+        /// Método que recarga los datos del FlowLayoutPanel para mostrar todos los videojuegos del usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox_buscarClick(object sender, EventArgs e)
         {
             //limpio los juegos del flowlayout
             flVistaVacia.Controls.Clear();
             this.FormVistaVacia_Load(null, null);
         }
-
+        /// <summary>
+        /// Método que cuando se quita el foco de la pictureBox muestra un texto de placeholder para ayudar al usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_buscar_Leave(object sender, EventArgs e)
         {
             if (textBox_buscar.Text == "")
@@ -354,7 +409,11 @@ namespace GameCore
                 textBox_buscar.ForeColor = Color.Black;
             }
         }
-
+        /// <summary>
+        /// Método que oculta el placeholder cuando se hace click en el pictureBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_buscar_Enter(object sender, EventArgs e)
         {
             if (textBox_buscar.Text == "Introduce el título de un videojuego")
@@ -362,5 +421,17 @@ namespace GameCore
                 textBox_buscar.Text = "";
             }
         }
+        /// <summary>
+        /// Método que abre la forma de ayuda cuando se hace clic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormaAyuda ayuda = new FormaAyuda();
+            ayuda.Show();
+        }
+
+        
     }
 }

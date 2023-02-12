@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace GameCore
 {
+    /// <summary>
+    /// Control personalizado que simula un togglebox para alternar entre el modo oscuro y modo dia.
+    /// </summary>
     public partial class ToogleBoxCustom : CheckBox
     {
         private Color onBackColor = Color.MediumSlateBlue;

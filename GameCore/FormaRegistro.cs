@@ -12,6 +12,9 @@ using System.Data.SQLite;
 
 namespace GameCore
 {
+    /// <summary>
+    /// Clase donde se implementa la funcionalidad para dar de alta al usuario que se registre en la aplicación.
+    /// </summary>
     public partial class FormaRegistro : Form
     {
         SQLiteConnection conexion;
@@ -26,6 +29,11 @@ namespace GameCore
 
         }
 
+        /// <summary>
+        /// Método donde se realiza el INSERT del usuario en la Base de Datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_registrar_Click(object sender, EventArgs e)
         {
             //variables donde almaceno los datos que introduce el usuario y los paso a minúsculas para introducirlos en la BD
@@ -88,7 +96,11 @@ namespace GameCore
 
         }  
 
-        //si ya tienes una cuenta el titulo de iniciar sesion te devuelve a la forma de Inicio de Sesion
+        /// <summary>
+        /// si ya tienes una cuenta el titulo de iniciar sesion te devuelve a la forma de Inicio de Sesion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_iniciar_sesion_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -100,6 +112,11 @@ namespace GameCore
             this.Close();
         }
 
+        /// <summary>
+        /// Método para mostrar u ocultar los caracteres introducidos en los checkbox de la contraseña
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox_mostrarContraseña_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_mostrarContraseña.Checked)
@@ -115,7 +132,12 @@ namespace GameCore
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// PictureBox donde al hacer click cierra la forma de Registro y nos lleva a la de Inicio de sesión.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox_volverAtras_Click(object sender, EventArgs e)
         {
             this.Close();
         }

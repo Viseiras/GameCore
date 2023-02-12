@@ -11,7 +11,9 @@ using System.Data.SQLite;
 
 namespace GameCore
 {
-    //Inciamos la clase de el formulario para añadir productos
+    /// <summary>
+    /// Clase encargada de añadir videojuegos a la base de datos y mostrarlos en el FlowLayoutPanel
+    /// </summary>
     public partial class formAñadir : Form
     {
         private SQLiteConnection conexion;

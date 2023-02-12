@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace GameCore
 {
+    /// <summary>
+    /// esta forma simplemente aloja una pictureBox donde se muestra una imagen con una pequeña guía para el usuario nuevo
+    /// </summary>
     public partial class FormaAyuda : Form
     {
         public FormaAyuda()

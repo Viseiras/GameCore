@@ -10,14 +10,22 @@ using System.Windows.Forms;
 
 namespace GameCore
 {
+    /// <summary>
+    /// Forma de Inicio de sesión donde se muestra el logo de la app, información y funcionalidad para iniciar sesión o registrarse
+    /// </summary>
     public partial class FormaInicioSesion : Form
     {
-        //atributo public para conseguir el nombre de usuario y poder utilizarlo en la clase MetodosSqlite
+        /// <summary>
+        /// atributo public para conseguir el nombre de usuario y poder utilizarlo en la clase MetodosSqlite
+        /// </summary>
         public static string nombreUsuario;
+        /// <summary>
+        /// comprobación para cambiar el color de las letras a blanco si hay una imagen de fondo
+        /// </summary>
         public FormaInicioSesion()
         {
             InitializeComponent();
-            //comprobación para cambiar el color de las letras a blanco si hay una imagen de fondo
+      
             if (this.BackgroundImage != null)
             {
                 label_Inicio_Sesion.ForeColor = Color.White;
@@ -26,14 +34,22 @@ namespace GameCore
                 label_no_tienes_cuenta.ForeColor = Color.White;
             }
         }
-
+        /// <summary>
+        /// boton encargado de abrir la forma para registrarse en la aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_registrarse_Click(object sender, EventArgs e)
         {
             FormaRegistro fRegistro = new FormaRegistro();
             fRegistro.ShowDialog();
             
         }
-
+        /// <summary>
+        /// Método para iniciar sesión cuando se haga clic en el botón. Se comprueba el nombre y la contraseña
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_iniciarSesion(object sender, EventArgs e)
         {
             nombreUsuario = textBox_nombreUsuario.Text.Trim();

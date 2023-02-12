@@ -43,7 +43,7 @@ namespace GameCore
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panelLateral = new System.Windows.Forms.Panel();
             this.label_cerrarSesion = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_cerrarSesion = new System.Windows.Forms.PictureBox();
             this.label_nombreUsuario = new System.Windows.Forms.Label();
             this.pictureBox_ImagenPerfil = new System.Windows.Forms.PictureBox();
             this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
@@ -55,14 +55,13 @@ namespace GameCore
             this.boton_salir_programa_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_buscar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
             this.pictureBox_buscar = new System.Windows.Forms.PictureBox();
             this.label__mostrar_coleccion = new System.Windows.Forms.Label();
             this.tsMenuCerrado.SuspendLayout();
             this.toolStrip__menuInferior.SuspendLayout();
             this.panelLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).BeginInit();
             this.menu_VistaVacia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_buscar)).BeginInit();
@@ -111,7 +110,7 @@ namespace GameCore
             this.btnAnadir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.btnAnadir.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnadir.ForeColor = System.Drawing.Color.White;
-            this.btnAnadir.Location = new System.Drawing.Point(961, 541);
+            this.btnAnadir.Location = new System.Drawing.Point(958, 541);
             this.btnAnadir.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnadir.Name = "btnAnadir";
             this.btnAnadir.Size = new System.Drawing.Size(142, 46);
@@ -132,11 +131,11 @@ namespace GameCore
             this.toolStripSeparator1,
             this.tslblexit,
             this.toolStripButton3});
-            this.toolStrip__menuInferior.Location = new System.Drawing.Point(0, 533);
+            this.toolStrip__menuInferior.Location = new System.Drawing.Point(0, 537);
             this.toolStrip__menuInferior.Name = "toolStrip__menuInferior";
             this.toolStrip__menuInferior.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip__menuInferior.ShowItemToolTips = false;
-            this.toolStrip__menuInferior.Size = new System.Drawing.Size(220, 31);
+            this.toolStrip__menuInferior.Size = new System.Drawing.Size(220, 27);
             this.toolStrip__menuInferior.TabIndex = 1;
             this.toolStrip__menuInferior.Text = "Menu";
             // 
@@ -190,7 +189,7 @@ namespace GameCore
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.panelLateral.Controls.Add(this.label_cerrarSesion);
-            this.panelLateral.Controls.Add(this.pictureBox2);
+            this.panelLateral.Controls.Add(this.pictureBox_cerrarSesion);
             this.panelLateral.Controls.Add(this.label_nombreUsuario);
             this.panelLateral.Controls.Add(this.pictureBox_ImagenPerfil);
             this.panelLateral.Controls.Add(this.toolStrip__menuInferior);
@@ -213,16 +212,16 @@ namespace GameCore
             this.label_cerrarSesion.Text = "Cerrar sesión";
             this.label_cerrarSesion.Click += new System.EventHandler(this.label_cerrarSesion_Click);
             // 
-            // pictureBox2
+            // pictureBox_cerrarSesion
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 456);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox_cerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cerrarSesion.Image")));
+            this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(12, 456);
+            this.pictureBox_cerrarSesion.Name = "pictureBox_cerrarSesion";
+            this.pictureBox_cerrarSesion.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox_cerrarSesion.TabIndex = 5;
+            this.pictureBox_cerrarSesion.TabStop = false;
+            this.pictureBox_cerrarSesion.Click += new System.EventHandler(this.pictureBox_cerrarSesion_Click);
             // 
             // label_nombreUsuario
             // 
@@ -275,7 +274,7 @@ namespace GameCore
             this.menu_VistaVacia.Location = new System.Drawing.Point(0, 0);
             this.menu_VistaVacia.Name = "menu_VistaVacia";
             this.menu_VistaVacia.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menu_VistaVacia.Size = new System.Drawing.Size(1116, 30);
+            this.menu_VistaVacia.Size = new System.Drawing.Size(1116, 28);
             this.menu_VistaVacia.TabIndex = 3;
             this.menu_VistaVacia.Text = "menuStrip1";
             // 
@@ -323,6 +322,7 @@ namespace GameCore
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
             // 
             // textBox_buscar
             // 
@@ -336,15 +336,6 @@ namespace GameCore
             this.textBox_buscar.Enter += new System.EventHandler(this.textBox_buscar_Enter);
             this.textBox_buscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_buscar_KeyDown);
             this.textBox_buscar.Leave += new System.EventHandler(this.textBox_buscar_Leave);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1037, 556);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(8, 8);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // button_buscar
             // 
@@ -383,7 +374,6 @@ namespace GameCore
             this.label__mostrar_coleccion.Size = new System.Drawing.Size(212, 23);
             this.label__mostrar_coleccion.TabIndex = 9;
             this.label__mostrar_coleccion.Text = "Mostrar toda la colección";
-            this.label__mostrar_coleccion.Click += new System.EventHandler(this.label1_Click);
             // 
             // FormVistaVacia
             // 
@@ -394,7 +384,6 @@ namespace GameCore
             this.Controls.Add(this.label__mostrar_coleccion);
             this.Controls.Add(this.pictureBox_buscar);
             this.Controls.Add(this.button_buscar);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_buscar);
             this.Controls.Add(this.menu_VistaVacia);
             this.Controls.Add(this.panelLateral);
@@ -405,7 +394,7 @@ namespace GameCore
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(741, 477);
             this.Name = "FormVistaVacia";
-            this.Text = "Vista Vacía ";
+            this.Text = "Game Core";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormVistaVacia_Load);
             this.tsMenuCerrado.ResumeLayout(false);
@@ -414,7 +403,7 @@ namespace GameCore
             this.toolStrip__menuInferior.PerformLayout();
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).EndInit();
             this.menu_VistaVacia.ResumeLayout(false);
             this.menu_VistaVacia.PerformLayout();
@@ -444,13 +433,12 @@ namespace GameCore
         private System.Windows.Forms.ToolStripMenuItem boton_perfil_menu_strip;
         private System.Windows.Forms.ToolStripMenuItem boton_sistema_menu_strip;
         private System.Windows.Forms.ToolStripMenuItem boton_salir_programa_menu;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox_cerrarSesion;
         private System.Windows.Forms.Label label_cerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox_buscar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button_buscar;
         private System.Windows.Forms.PictureBox pictureBox_buscar;
         private System.Windows.Forms.Label label__mostrar_coleccion;

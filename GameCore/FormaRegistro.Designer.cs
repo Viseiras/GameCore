@@ -44,8 +44,8 @@
             this.barra_separadora_horizontal2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_aviso_errores = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox_volverAtras = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_volverAtras)).BeginInit();
             this.SuspendLayout();
             // 
             // label_nombreUsuario
@@ -226,24 +226,24 @@
             this.label_aviso_errores.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_aviso_errores.Visible = false;
             // 
-            // pictureBox1
+            // pictureBox_volverAtras
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::GameCore.Properties.Resources.atras__icon;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox_volverAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_volverAtras.Image = global::GameCore.Properties.Resources.atras__icon;
+            this.pictureBox_volverAtras.Location = new System.Drawing.Point(-2, -1);
+            this.pictureBox_volverAtras.Name = "pictureBox_volverAtras";
+            this.pictureBox_volverAtras.Size = new System.Drawing.Size(94, 78);
+            this.pictureBox_volverAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_volverAtras.TabIndex = 20;
+            this.pictureBox_volverAtras.TabStop = false;
+            this.pictureBox_volverAtras.Click += new System.EventHandler(this.pictureBox_volverAtras_Click);
             // 
             // FormaRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 726);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox_volverAtras);
             this.Controls.Add(this.label_aviso_errores);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barra_separadora_horizontal2);
@@ -266,8 +266,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormaInicioSesion";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Registro";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_volverAtras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,6 +291,6 @@
         private System.Windows.Forms.Panel barra_separadora_horizontal2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label_aviso_errores;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox_volverAtras;
     }
 }

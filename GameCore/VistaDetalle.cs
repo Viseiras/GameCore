@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace GameCore
 {
+    /// <summary>
+    /// Clase que permite visualizar toda la información perteneciente al videojuego 
+    /// </summary>
     public partial class VistaDetalle : Form
     {
         public String Titulo { get; set; }
@@ -19,9 +22,17 @@ namespace GameCore
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Método que carga la información detallada del videojuego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VistaDetalle_Load(object sender, EventArgs e)
         {
+            //para que cambie el nombre de la forma al título del juego
+            this.Text = Titulo;
+
+            //gestionamos los colores en base al modo oscuro
             if (FormPerfil.darkmode)
             {
                 BackColor = Color.DarkGray;
@@ -32,6 +43,8 @@ namespace GameCore
             }
             labelTitulo.Text = Titulo;
             pbPortada.AllowDrop = true;
+
+            //leemos la información del videojuego para mostrar sus detalles (descripción, portada etc..)
             try
             {
                 using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
@@ -70,7 +83,11 @@ namespace GameCore
                 MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Método que permite arrastrar una imagen al pictureBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pbPortada_DragDrop(object sender, DragEventArgs e)
         {
             object data = e.Data.GetData(DataFormats.FileDrop);
@@ -95,11 +112,16 @@ namespace GameCore
             textBoxDescripcion.Enabled = true; 
             labelTitulo.Enabled = true; 
         }
-
+        /// <summary>
+        /// Método que elimina el videojuego de la Base de Datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_eliminar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Estás seguro que quieres eliminar este videojuego?") == DialogResult.OK)
             {
+                //iniciamos la operación de borrado del videojuego en la BD
                 try
                 {
                     using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))

@@ -8,11 +8,17 @@ using System.Windows.Forms;
 
 namespace GameCore
 {
-    //clase estática hecha para facilitar la utilización de métodos de SQLite en las demás formas del proyecto
+    /// <summary>
+    /// clase estática hecha para facilitar la utilización de métodos de SQLite en las demás formas del proyecto
+    /// </summary>
     internal static class MetodosSqlite
     {
         public static int pkUsuario;
-        //metodo que devuelve true o false en función del parámetro que se le pase, perteneciente a un nombre de usuario en la BD
+        /// <summary>
+        /// metodo que devuelve true o false en función del parámetro que se le pase, perteneciente a un nombre de usuario en la BD
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
         public static bool CompruebaUsuario(string nombre)
         {
             try
@@ -47,6 +53,11 @@ namespace GameCore
                 return false;
             }
         }
+        /// <summary>
+        /// Método que nos sirve para comprobar la contraseña asociada al usuario
+        /// </summary>
+        /// <param name="usuario">Se comprueba la contraseña perteneciente al nombre de usuario pasado como parámetro</param>
+        /// <returns></returns>
         public static string CompruebaContraseña(string usuario)
         {
             try
@@ -77,6 +88,9 @@ namespace GameCore
             }
         }
 
+        /// <summary>
+        /// método que modifica la variable pkUsuario para almacenar la PrimaryKey del usuario en cuestión
+        /// </summary>
         public static void GetPkUsuario()
         {
             //FormaInicioSesion inicioSesion = new FormaInicioSesion();
