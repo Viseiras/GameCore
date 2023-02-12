@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace GameCore
 {
@@ -142,8 +144,10 @@ namespace GameCore
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
+                            int contadorParaAyuda = 0;
                             while (reader.Read())
                             {
+                                contadorParaAyuda++;
                                 cont++;
                                 // Conseguimos los datos de la fila actual
                                 string titulo = (string)reader["titulo"];
@@ -163,6 +167,13 @@ namespace GameCore
                                 control.UpdateData(titulo, imagen);
                                 flVistaVacia.Controls.Add(control);
 
+                            }
+
+                            //no hay videojuegos introducidos por el usuario aún por lo que se muestra la ayuda de vista vacía
+                            if(contadorParaAyuda == 0)
+                            {
+                                FormaAyuda ayuda = new FormaAyuda();
+                                ayuda.ShowDialog();
                             }
                         }
                     }
@@ -258,6 +269,98 @@ namespace GameCore
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_buscar_Click(object sender, EventArgs e)
+        {
+            string juego_buscar = textBox_buscar.Text;
+            juego_buscar = juego_buscar.ToLower();
+
+            //limpio los juegos del flowlayout
+            flVistaVacia.Controls.Clear();
+
+            try
+            {
+                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                {
+                    conexion.Open();
+
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE LOWER(titulo) = \"" + juego_buscar + "\"", conexion))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                cont++;
+                                // Conseguimos los datos de la fila actual
+                                string titulo = (string)reader["titulo"];
+                                byte[] portada = (byte[])reader["portada"];
+                                Image imagen;
+                                // Convertimos el array de bytes a imagen
+                                using (MemoryStream ms = new MemoryStream(portada))
+                                {
+                                    //imagen = Image.FromStream(ms);
+                                    imagen = (Image)Bitmap.FromStream(ms);
+
+
+                                }
+
+                                control = new ControlVideojuego();
+                                control.Size = new Size(200, 200);
+                                control.UpdateData(titulo, imagen);
+                                flVistaVacia.Controls.Add(control);
+
+                            }
+                        }
+                    }
+                    MueveAnadir();
+
+                }
+            }
+            
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.pictureBox_buscarClick(null, null);
+        }
+
+        private void textBox_buscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.button_buscar_Click(null, null);
+            }
+            
+        }
+
+        private void pictureBox_buscarClick(object sender, EventArgs e)
+        {
+            //limpio los juegos del flowlayout
+            flVistaVacia.Controls.Clear();
+            this.FormVistaVacia_Load(null, null);
+        }
+
+        private void textBox_buscar_Leave(object sender, EventArgs e)
+        {
+            if (textBox_buscar.Text == "")
+            {
+                textBox_buscar.Text = "Introduce el título de un videojuego";
+                textBox_buscar.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBox_buscar_Enter(object sender, EventArgs e)
+        {
+            if (textBox_buscar.Text == "Introduce el título de un videojuego")
+            {
+                textBox_buscar.Text = "";
+            }
         }
     }
 }

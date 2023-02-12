@@ -123,14 +123,14 @@
   <metadata name="sqLiteCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>258, 17</value>
   </metadata>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="toolStrip__menuInferior.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAvZJREFUaEPtmU1rE1EUhoNfC5d+rPz4AW6LEukkWfgbikX/gwsVWiLqrnWvouI/
+        DAAACwwBP0AiyAAAAvZJREFUaEPtmU1rE1EUhoNfC5d+rPz4AW6LEukkWfgbikX/gwsVWiLqrnWvouI/
         qNjCzE0ouIjuRKqiRMmd4EJNW6ytu4JxE88bT3Aazm3m8yaBPPBCOjP33PfO3Ln3zGluwoQJyZnpLB0s
         Nt2LjvbKju89L2jvU0GrXwXf+9MVfmtVxzlcM+1X87nO3QPcfHgUmitnyNi9gq9apE4U0UC+kxZLfvU0
         h7OH41dPkoknpHbQVEy1Ha0elRruCQ6fLUW/coWmxY5gJJEcX23TE5nlbtJnam3tMM3hp1LnaYr6eIy+

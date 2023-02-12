@@ -79,9 +79,9 @@
             this.btnEditar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Location = new System.Drawing.Point(521, 346);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(99, 44);
+            this.btnEditar.Size = new System.Drawing.Size(106, 44);
             this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -93,9 +93,9 @@
             this.btnEliminar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Location = new System.Drawing.Point(397, 346);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(104, 44);
+            this.btnEliminar.Size = new System.Drawing.Size(116, 44);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -109,10 +109,11 @@
             this.Modificar.Location = new System.Drawing.Point(272, 346);
             this.Modificar.Margin = new System.Windows.Forms.Padding(4);
             this.Modificar.Name = "Modificar";
-            this.Modificar.Size = new System.Drawing.Size(104, 44);
+            this.Modificar.Size = new System.Drawing.Size(117, 44);
             this.Modificar.TabIndex = 2;
             this.Modificar.Text = "Modificar";
             this.Modificar.UseVisualStyleBackColor = false;
+            this.Modificar.Click += new System.EventHandler(this.Modificar_Click);
             // 
             // VistaDetalle
             // 

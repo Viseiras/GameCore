@@ -114,5 +114,10 @@ namespace GameCore
                 textBox_repetirContraseña.UseSystemPasswordChar = false;
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -35,153 +35,173 @@ namespace GameCore
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblPortada = new System.Windows.Forms.Label();
-            this.btnFoto = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbDesarrolladores = new System.Windows.Forms.ComboBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.button_aceptar = new System.Windows.Forms.Button();
+            this.button_cancelar = new System.Windows.Forms.Button();
+            this.button_añadir_imagen = new System.Windows.Forms.Button();
+            this.pictureBoxAnadir = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnadir)).BeginInit();
             this.SuspendLayout();
             // 
             // tbTitulo
             // 
-            this.tbTitulo.Location = new System.Drawing.Point(28, 31);
+            this.tbTitulo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTitulo.Location = new System.Drawing.Point(13, 36);
+            this.tbTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbTitulo.Name = "tbTitulo";
-            this.tbTitulo.Size = new System.Drawing.Size(206, 20);
+            this.tbTitulo.Size = new System.Drawing.Size(273, 30);
             this.tbTitulo.TabIndex = 1;
             this.tbTitulo.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(25, 15);
+            this.lblTitulo.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location = new System.Drawing.Point(9, 9);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(37, 13);
+            this.lblTitulo.Size = new System.Drawing.Size(65, 23);
             this.lblTitulo.TabIndex = 7;
             this.lblTitulo.Text = "Titulo*";
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(265, 31);
+            this.tbDescripcion.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDescripcion.Location = new System.Drawing.Point(311, 36);
+            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(105, 188);
+            this.tbDescripcion.Size = new System.Drawing.Size(188, 249);
             this.tbDescripcion.TabIndex = 4;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(262, 15);
+            this.lblDescripcion.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.lblDescripcion.Location = new System.Drawing.Point(310, 5);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(103, 23);
             this.lblDescripcion.TabIndex = 11;
             this.lblDescripcion.Text = "Descripción";
             // 
             // lblPortada
             // 
             this.lblPortada.AutoSize = true;
-            this.lblPortada.Location = new System.Drawing.Point(25, 54);
+            this.lblPortada.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.lblPortada.Location = new System.Drawing.Point(112, 109);
+            this.lblPortada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPortada.Name = "lblPortada";
-            this.lblPortada.Size = new System.Drawing.Size(47, 13);
+            this.lblPortada.Size = new System.Drawing.Size(77, 23);
             this.lblPortada.TabIndex = 15;
             this.lblPortada.Text = "Portada ";
-            // 
-            // btnFoto
-            // 
-            this.btnFoto.Location = new System.Drawing.Point(96, 346);
-            this.btnFoto.Name = "btnFoto";
-            this.btnFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnFoto.TabIndex = 6;
-            this.btnFoto.Text = "Añadir Foto";
-            this.btnFoto.UseVisualStyleBackColor = true;
-            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(199, 431);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 7;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // pictureBoxAnadir
-            // 
-            this.pictureBoxAnadir.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pictureBoxAnadir.Location = new System.Drawing.Point(28, 70);
-            this.pictureBoxAnadir.Name = "pictureBoxAnadir";
-            this.pictureBoxAnadir.Size = new System.Drawing.Size(206, 270);
-            this.pictureBoxAnadir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAnadir.TabIndex = 19;
-            this.pictureBoxAnadir.TabStop = false;
-            this.pictureBoxAnadir.Click += new System.EventHandler(this.btnFoto_Click);
-            this.pictureBoxAnadir.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxAnadir_DragDrop);
-            this.pictureBoxAnadir.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxAnadir_DragEnter);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(53, 239);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 239);
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(307, 306);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(143, 23);
             this.label1.TabIndex = 13;
             this.label1.Text = "Desarrolladores*";
             // 
             // cbDesarrolladores
             // 
             this.cbDesarrolladores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDesarrolladores.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDesarrolladores.FormattingEnabled = true;
             this.cbDesarrolladores.Items.AddRange(new object[] {
             "Nintendo",
             "Playstation",
             "Xbox",
             "Steam"});
-            this.cbDesarrolladores.Location = new System.Drawing.Point(265, 255);
+            this.cbDesarrolladores.Location = new System.Drawing.Point(311, 333);
+            this.cbDesarrolladores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbDesarrolladores.Name = "cbDesarrolladores";
-            this.cbDesarrolladores.Size = new System.Drawing.Size(101, 21);
+            this.cbDesarrolladores.Size = new System.Drawing.Size(188, 31);
             this.cbDesarrolladores.TabIndex = 5;
             // 
-            // btnCancelar
+            // button_aceptar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(294, 431);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 20;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.button_aceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.button_aceptar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_aceptar.ForeColor = System.Drawing.Color.White;
+            this.button_aceptar.Location = new System.Drawing.Point(411, 516);
+            this.button_aceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.button_aceptar.Name = "button_aceptar";
+            this.button_aceptar.Size = new System.Drawing.Size(92, 41);
+            this.button_aceptar.TabIndex = 21;
+            this.button_aceptar.Text = "Aceptar";
+            this.button_aceptar.UseVisualStyleBackColor = false;
+            this.button_aceptar.Click += new System.EventHandler(this.button_aceptar_Click);
+            // 
+            // button_cancelar
+            // 
+            this.button_cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.button_cancelar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_cancelar.ForeColor = System.Drawing.Color.White;
+            this.button_cancelar.Location = new System.Drawing.Point(311, 516);
+            this.button_cancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.button_cancelar.Name = "button_cancelar";
+            this.button_cancelar.Size = new System.Drawing.Size(92, 41);
+            this.button_cancelar.TabIndex = 22;
+            this.button_cancelar.Text = "Cancelar";
+            this.button_cancelar.UseVisualStyleBackColor = false;
+            this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
+            // 
+            // button_añadir_imagen
+            // 
+            this.button_añadir_imagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_añadir_imagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.button_añadir_imagen.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_añadir_imagen.ForeColor = System.Drawing.Color.White;
+            this.button_añadir_imagen.Location = new System.Drawing.Point(74, 436);
+            this.button_añadir_imagen.Margin = new System.Windows.Forms.Padding(4);
+            this.button_añadir_imagen.Name = "button_añadir_imagen";
+            this.button_añadir_imagen.Size = new System.Drawing.Size(153, 37);
+            this.button_añadir_imagen.TabIndex = 23;
+            this.button_añadir_imagen.Text = "Añadir imagen";
+            this.button_añadir_imagen.UseVisualStyleBackColor = false;
+            this.button_añadir_imagen.Click += new System.EventHandler(this.button_añadir_imagenClick);
+            // 
+            // pictureBoxAnadir
+            // 
+            this.pictureBoxAnadir.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pictureBoxAnadir.Image = global::GameCore.Properties.Resources.info_drag_drop;
+            this.pictureBoxAnadir.Location = new System.Drawing.Point(37, 146);
+            this.pictureBoxAnadir.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxAnadir.Name = "pictureBoxAnadir";
+            this.pictureBoxAnadir.Size = new System.Drawing.Size(218, 282);
+            this.pictureBoxAnadir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxAnadir.TabIndex = 19;
+            this.pictureBoxAnadir.TabStop = false;
+            this.pictureBoxAnadir.Click += new System.EventHandler(this.btnFoto_Click);
+            this.pictureBoxAnadir.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxAnadir_DragDrop);
+            this.pictureBoxAnadir.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxAnadir_DragEnter);
             // 
             // formAñadir
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(386, 471);
-            this.Controls.Add(this.btnCancelar);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(512, 570);
+            this.Controls.Add(this.button_añadir_imagen);
+            this.Controls.Add(this.button_cancelar);
+            this.Controls.Add(this.button_aceptar);
             this.Controls.Add(this.pictureBoxAnadir);
             this.Controls.Add(this.cbDesarrolladores);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.btnFoto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPortada);
             this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tbTitulo);
-            this.MaximumSize = new System.Drawing.Size(402, 510);
-            this.MinimumSize = new System.Drawing.Size(402, 510);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(530, 617);
+            this.MinimumSize = new System.Drawing.Size(530, 617);
             this.Name = "formAñadir";
             this.Text = "Añadir un nuevo Juego";
             this.Load += new System.EventHandler(this.formAnadir_Load);
@@ -197,13 +217,12 @@ namespace GameCore
         private System.Windows.Forms.TextBox tbDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblPortada;
-        private System.Windows.Forms.Button btnFoto;
-        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.PictureBox pictureBoxAnadir;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbDesarrolladores;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button button_aceptar;
+        private System.Windows.Forms.Button button_cancelar;
+        private System.Windows.Forms.Button button_añadir_imagen;
     }
 }
 

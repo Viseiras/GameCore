@@ -40,43 +40,6 @@ namespace GameCore
                 rutaPortada = opd.FileName;
             }
         }
-
-        //Boton que confirma la acción de añadir o cancela insertando la información en el DataGridView del form principal
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                /*
-             * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
-             * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
-             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
-
-
-                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
-                {
-                    conexion.Open();
-                    byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
-
-                    //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
-                    using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
-                    {
-                        command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
-                        command.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
-                        command.Parameters.AddWithValue("@desarrolladores", cbDesarrolladores.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@portada", portada);
-                        command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.pkUsuario);
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("Juego insertado en la BD.");
-                    }
-                }
-                this.DialogResult = DialogResult.OK;
-            }
-            catch (SQLiteException ex)
-            {
-                // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
-            }
-        }
         //cuando carga el formulario pone el valor del ID del form principal 
         private void formAnadir_Load(object sender, EventArgs e)
         {
@@ -122,6 +85,61 @@ namespace GameCore
         private void pictureBoxAnadir_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
+        }
+
+        private void button_aceptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                /*
+             * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
+             * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
+             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
+
+
+                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                {
+                    conexion.Open();
+                    byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
+
+                    //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
+                    using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
+                    {
+                        command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
+                        command.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
+                        command.Parameters.AddWithValue("@desarrolladores", cbDesarrolladores.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@portada", portada);
+                        command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.pkUsuario);
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Juego insertado en la BD.");
+                    }
+                }
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+            }
+        }
+
+        private void button_cancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void button_añadir_imagenClick(object sender, EventArgs e)
+        {
+            //Creamos el objeto OpenFileDialog para abrir el explorador de archivos con su filtro para que sean esos 4 tipos de imagenes (los gif se quedan con el primer frame)
+            OpenFileDialog opd = new OpenFileDialog();
+            opd.Filter = "JPG|*.jpg;*.jpeg;*.png;*.gif";
+            if (opd.ShowDialog() == DialogResult.OK)
+            {
+                //Convertimos a Bitmap la imagen para que se muestre visualmente en el PictureBox
+                Foto = (Image)new Bitmap(opd.FileName);
+                pictureBoxAnadir.Image = new Bitmap(opd.FileName);
+                rutaPortada = opd.FileName;
+            }
         }
     }
 }

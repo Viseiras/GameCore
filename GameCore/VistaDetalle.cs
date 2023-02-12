@@ -121,5 +121,10 @@ namespace GameCore
 
             }
         }
+
+        private void Modificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

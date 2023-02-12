@@ -76,6 +76,12 @@
     <Compile Include="ControlVideojuego.Designer.cs">
       <DependentUpon>ControlVideojuego.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormaAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaAyuda.Designer.cs">
+      <DependentUpon>FormaAyuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToogleBoxCustom.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="VistaDetalle.Designer.cs">
       <DependentUpon>VistaDetalle.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormaAyuda.resx">
+      <DependentUpon>FormaAyuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormaInicioSesion.resx">
       <DependentUpon>FormaInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,7 +185,12 @@
   <ItemGroup>
     <None Include="Resources\foto_perfil_vacia.png" />
     <None Include="Resources\cerrar_sesion.png" />
+    <None Include="Resources\atras__icon.png" />
+    <None Include="Resources\ayuda_vistaVacia%281%29.png" />
     <Content Include="Resources\hidepanel.png" />
+    <None Include="Resources\search_icon.png" />
+    <None Include="Resources\refrescar_icon.png" />
+    <None Include="Resources\info_drag_drop.png" />
     <Content Include="Resources\settings.png" />
     <Content Include="Resources\showpanel.png" />
     <Content Include="Resources\SUMA.png" />

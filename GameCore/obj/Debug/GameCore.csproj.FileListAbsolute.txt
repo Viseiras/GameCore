@@ -134,3 +134,4 @@ C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csp
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.CopyComplete
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
+C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaAyuda.resources
