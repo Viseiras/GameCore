@@ -48,11 +48,11 @@ namespace GameCore
             pictureBoxAnadir.AllowDrop = true;
             if (FormPerfil.darkmode)
             {
-                BackColor = Color.DarkGray;
+                BackColor = Color.FromArgb(64, 64, 64);
             }
             else
             {
-                BackColor = Color.White;
+                BackColor = Color.FromArgb(235, 235, 235);
             }
         }
 

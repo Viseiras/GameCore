@@ -35,7 +35,7 @@ namespace GameCore
             //gestionamos los colores en base al modo oscuro
             if (FormPerfil.darkmode)
             {
-                BackColor = Color.DarkGray;
+                BackColor = Color.FromArgb(64, 64, 64);
             }
             else
             {

@@ -60,7 +60,7 @@ namespace GameCore
             //vistaDetalle.Portada...
             if (vistaDetalle.ShowDialog() == DialogResult.OK)
             {
-
+                
             }
         }
 

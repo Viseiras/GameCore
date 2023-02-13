@@ -56,12 +56,14 @@ namespace GameCore
             if (darkmode == false)
             {
                 darkmode = true;
-                BackColor = Color.DarkGray;
+                panelLateral.BackColor= Color.FromArgb(34, 34, 34);
+                BackColor = Color.FromArgb(64, 64, 64);
             }
             else if (darkmode == true)
             {
                 darkmode = false;
-                BackColor = Color.White;
+                panelLateral.BackColor = Color.FromArgb(43, 43, 43);
+                BackColor = Color.FromArgb(235, 235, 235);
             }
         }
 
@@ -131,27 +133,26 @@ namespace GameCore
                 pictureBoxCambiarFotoPerfil.Image = new Bitmap(opd.FileName);
                 pictureBoxFotoPerfil.Image = new Bitmap(opd.FileName);
                 rutaPortada = opd.FileName;
-            }
-
-            try
-            {
-                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                try
                 {
-                    conexion.Open();
-                    byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
-
-                    using (SQLiteCommand command = new SQLiteCommand("UPDATE usuarios SET avatar = @imagen WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                    using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                     {
-                        command.Parameters.AddWithValue("@imagen", portada);
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("Foto de perfil cambiada");
+                        conexion.Open();
+                        byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
+
+                        using (SQLiteCommand command = new SQLiteCommand("UPDATE usuarios SET avatar = @imagen WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                        {
+                            command.Parameters.AddWithValue("@imagen", portada);
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Foto de perfil cambiada");
+                        }
                     }
                 }
-            }
-            catch (SQLiteException ex)
-            {
-                // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                catch (SQLiteException ex)
+                {
+                    // Handle the exception here
+                    MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                }
             }
 
         }

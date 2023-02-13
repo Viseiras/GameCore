@@ -107,14 +107,50 @@ namespace GameCore
             }
             if(FormPerfil.darkmode)
             {
-                BackColor = Color.DarkGray;
-                flVistaVacia.BackColor = Color.LightBlue;
+                panelLateral.BackColor = Color.FromArgb(34, 34, 34);
+                BackColor = Color.FromArgb(34, 34, 34);
+                flVistaVacia.BackColor = Color.FromArgb(64, 64, 64);
             }
             else
             {
-                BackColor= Color.White;
-                flVistaVacia.BackColor = Color.LightCyan;
+                panelLateral.BackColor= Color.FromArgb(43, 43, 43);
+                BackColor = BackColor = Color.FromArgb(235, 235, 235);
+                flVistaVacia.BackColor = Color.FromArgb(235, 235, 235);
             }
+            try
+            {
+                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                {
+                    conexion.Open();
+
+                    using (SQLiteCommand command = new SQLiteCommand("select avatar from usuarios where id = \"" + MetodosSqlite.pkUsuario + "\"", conexion))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                byte[] avatar = (byte[])reader["avatar"];
+                                Image imagen;
+                                // Convertimos el array de bytes a imagen
+                                using (MemoryStream ms = new MemoryStream(avatar))
+                                {
+                                    //imagen = Image.FromStream(ms);
+                                    imagen = (Image)Bitmap.FromStream(ms);
+
+
+                                }
+                                pictureBox_ImagenPerfil.Image = imagen;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+            }
+            pictureBox_ImagenPerfil.Refresh();
         }
 
         /// <summary>
@@ -282,21 +318,6 @@ namespace GameCore
             Application.Exit();
         }
         /// <summary>
-        /// Método que permite abrir la vista detallada de un videojuego al hacer doble clic
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
-        {
-            VistaDetalle vistaDetalle = new VistaDetalle();
-           // vistaDetalle.Titulo = this.titulo.Text;
-            //vistaDetalle.Portada...
-            if (vistaDetalle.ShowDialog() == DialogResult.OK)
-            {
-
-            }
-        }
-        /// <summary>
         /// Método que permite cerrar la sesión actual 
         /// </summary>
         /// <param name="sender"></param>
@@ -391,6 +412,7 @@ namespace GameCore
             }
             
         }
+
         /// <summary>
         /// Método que recarga los datos del FlowLayoutPanel para mostrar todos los videojuegos del usuario
         /// </summary>
@@ -435,7 +457,10 @@ namespace GameCore
         private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormaAyuda ayuda = new FormaAyuda();
-            ayuda.Show();
+            if(ayuda.ShowDialog()==DialogResult.OK)
+            {
+
+            }
         }
 
         private void ajustesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -444,6 +469,30 @@ namespace GameCore
             if (form.ShowDialog() == DialogResult.OK)
             {
 
+            }
+        }
+
+        private void Ayuda_F1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                FormaAyuda ayuda = new FormaAyuda();
+                if (ayuda.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void Ayuda_F1_Press(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'F')
+            {
+                FormaAyuda ayuda = new FormaAyuda();
+                if (ayuda.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
         }
     }
