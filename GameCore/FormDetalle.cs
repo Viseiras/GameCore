@@ -15,10 +15,16 @@ namespace GameCore
     /// <summary>
     /// Clase que permite visualizar toda la información perteneciente al videojuego 
     /// </summary>
-    public partial class VistaDetalle : Form
+    public partial class FormDetalle : Form
     {
         public String Titulo { get; set; }
-        public VistaDetalle()
+        public Image img { get; set; }
+        private bool modoedicion = false;
+        private bool fotomodificada = false;
+        private string rutaPortada;
+        private byte[] portadaAnterior;
+
+        public FormDetalle()
         {
             InitializeComponent();
         }
@@ -31,6 +37,7 @@ namespace GameCore
         {
             //para que cambie el nombre de la forma al título del juego
             this.Text = Titulo;
+            tbTitulo.Text = Titulo;
 
             //gestionamos los colores en base al modo oscuro
             if (FormPerfil.darkmode)
@@ -60,6 +67,7 @@ namespace GameCore
                                 // Conseguimos los datos de la fila actual
                                 string descripcion = (string)reader["descripcion"];
                                 byte[] portada = (byte[])reader["portada"];
+                                this.portadaAnterior = portada;
                                 Image imagen;
                                 // Convertimos el array de bytes a imagen
                                 using (MemoryStream ms = new MemoryStream(portada))
@@ -97,6 +105,7 @@ namespace GameCore
                 if(fileNames.Length> 0)
                 {
                     pbPortada.Image = Image.FromFile(fileNames[0]);
+                    fotomodificada = true;
                 }
             }
         }
@@ -104,13 +113,31 @@ namespace GameCore
         private void pbPortada_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
+            fotomodificada = true;
         }
-
+        /// <summary>
+        /// Se activa el modo de edición cuando se hace click en el botón de editar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            pbPortada.Enabled = true;
-            textBoxDescripcion.Enabled = true; 
-            labelTitulo.Enabled = true; 
+            if(modoedicion==false)
+            {
+                modoedicion = true;
+                pbPortada.Enabled = true;
+                textBoxDescripcion.Enabled = true;
+                labelTitulo.Enabled = true;
+                lblModoEdicion.Visible = true;
+                btnCancelar.Visible = true;
+                Guardar.Visible = true;
+                btnEliminar.Visible = false;
+                btnCancelar.Visible = true;
+                labelTitulo.Visible = false;
+                tbTitulo.Visible = true;
+
+
+            }
         }
         /// <summary>
         /// Método que elimina el videojuego de la Base de Datos
@@ -144,8 +171,95 @@ namespace GameCore
             }
         }
 
-        private void Modificar_Click(object sender, EventArgs e)
+        private void pbPortada_DoubleClick(object sender, EventArgs e)
         {
+            //Creamos el objeto OpenFileDialog para abrir el explorador de archivos con su filtro para que sean esos 4 tipos de imagenes (los gif se quedan con el primer frame)
+            OpenFileDialog opd = new OpenFileDialog();
+            opd.Filter = "JPG|*.jpg;*.jpeg;*.png;*.gif";
+            if (opd.ShowDialog() == DialogResult.OK)
+            {
+                //Convertimos a Bitmap la imagen para que se muestre visualmente en el PictureBox
+                Image Foto = (Image)new Bitmap(opd.FileName);
+                pbPortada.Image = new Bitmap(opd.FileName);
+                rutaPortada = opd.FileName;
+                fotomodificada = true;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (modoedicion == true)
+            {
+                modoedicion = false;
+                pbPortada.Enabled = false;
+                textBoxDescripcion.Enabled = false;
+                labelTitulo.Enabled = false;
+                lblModoEdicion.Visible = false;
+                btnCancelar.Visible = false;
+                Guardar.Visible = false;
+                btnEliminar.Visible = true;
+                btnCancelar.Visible = false;
+                labelTitulo.Visible = true;
+                tbTitulo.Visible = false;
+            }
+        }
+        /// <summary>
+        /// Cuando se hace clic en el botón guardar se realiza un UPDATE en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Guardar_Click(object sender, EventArgs e)
+        {
+            if (modoedicion == true)
+            {
+                modoedicion = false;
+                pbPortada.Enabled = false;
+                textBoxDescripcion.Enabled = false;
+                labelTitulo.Enabled = false;
+                lblModoEdicion.Visible = false;
+                btnCancelar.Visible = false;
+                Guardar.Visible = false;
+                btnEliminar.Visible = true;
+                btnCancelar.Visible = false;
+                labelTitulo.Visible = true;
+                tbTitulo.Visible = false;
+            }
+
+            try
+            {
+                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                {
+                    byte[] portada;
+                    conexion.Open();
+                    if (fotomodificada)
+                    {
+                        portada= System.IO.File.ReadAllBytes(rutaPortada);
+                    }
+                    else 
+                    {
+                         portada=portadaAnterior;
+                    }
+                    using (SQLiteCommand command = new SQLiteCommand("UPDATE videojuegos SET titulo = @titulo, portada = @portada, descripcion = @descripcion WHERE titulo = \"" + labelTitulo.Text + "\"", conexion))
+                    {
+                        command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
+                        command.Parameters.AddWithValue("@portada", portada);
+                        command.Parameters.AddWithValue("@descripcion", textBoxDescripcion.Text);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                //Mandamos un mensaje para que sepa que se ha actualizado en la base de datos
+                MessageBox.Show("Se ha actualizado el juego");
+                //Cerramos la forma Detalle una vez guardado
+                this.DialogResult = DialogResult.OK;
+
+            }
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+            }
+
 
         }
     }

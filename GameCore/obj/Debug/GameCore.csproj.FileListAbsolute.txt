@@ -102,7 +102,6 @@ C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.r
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
 C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.formAñadir.resources
-C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.formAñadir.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources
@@ -136,3 +135,4 @@ C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaAyuda.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaAyuda.resources
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormDetalle.resources

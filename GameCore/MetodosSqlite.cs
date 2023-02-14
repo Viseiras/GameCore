@@ -57,7 +57,7 @@ namespace GameCore
         /// Método que nos sirve para comprobar la contraseña asociada al usuario
         /// </summary>
         /// <param name="usuario">Se comprueba la contraseña perteneciente al nombre de usuario pasado como parámetro</param>
-        /// <returns></returns>
+        /// <returns>devuelve un string con la contraseña de la base de datos</returns>
         public static string CompruebaContraseña(string usuario)
         {
             try

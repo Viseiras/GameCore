@@ -213,7 +213,6 @@ namespace GameCore
                                     //imagen = Image.FromStream(ms);
                                     imagen = (Image)Bitmap.FromStream(ms);
 
-
                                 }
 
                                 control = new ControlVideojuego();
@@ -495,5 +494,17 @@ namespace GameCore
                 }
             }
         }
+        //TODO Arreglar esta wea
+      /*  private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
+        {
+            FormDetalle vistaDetalle = new FormDetalle();
+            vistaDetalle.Titulo = ControlVideojuego.titol;
+            vistaDetalle.img = ControlVideojuego.img;
+            //vistaDetalle.Portada...
+            if (vistaDetalle.ShowDialog() == DialogResult.OK)
+            {
+                flVistaVacia.Refresh();
+            }
+        }*/
     }
 }
