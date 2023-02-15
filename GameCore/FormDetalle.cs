@@ -158,7 +158,9 @@ namespace GameCore
                         using (SQLiteCommand command = new SQLiteCommand("DELETE FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\"and titulo = \"" + Titulo + "\"", conexion))
                         {
                             command.ExecuteNonQuery();
-                            
+                            //cargamos la anterior forma tras eliminar el videojuego
+                            FormVistaVacia previousForm = (FormVistaVacia)Application.OpenForms[Application.OpenForms.Count - 2];
+                            previousForm.CargarDatos();
                         }
                     }
                 }
@@ -245,6 +247,8 @@ namespace GameCore
                         command.Parameters.AddWithValue("@portada", portada);
                         command.Parameters.AddWithValue("@descripcion", textBoxDescripcion.Text);
                         command.ExecuteNonQuery();
+                        FormVistaVacia previousForm = (FormVistaVacia)Application.OpenForms[Application.OpenForms.Count - 2];
+                        previousForm.CargarDatos();
                     }
                 }
 

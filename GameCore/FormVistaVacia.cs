@@ -23,7 +23,7 @@ namespace GameCore
         private int cont=0;
         SQLiteConnection conexion;
         private int pkUsuario;
-        FlowLayoutPanel flp;
+        static FlowLayoutPanel flp;
         ControlVideojuego control;
         public FormVistaVacia()
         {
@@ -419,9 +419,7 @@ namespace GameCore
         /// <param name="e"></param>
         private void pictureBox_buscarClick(object sender, EventArgs e)
         {
-            //limpio los juegos del flowlayout
-            flVistaVacia.Controls.Clear();
-            this.FormVistaVacia_Load(null, null);
+            
         }
         /// <summary>
         /// Método que cuando se quita el foco de la pictureBox muestra un texto de placeholder para ayudar al usuario
@@ -494,17 +492,32 @@ namespace GameCore
                 }
             }
         }
-        //TODO Arreglar esta wea
-      /*  private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
+
+        private void pictureBox_refrescarClick(object sender, EventArgs e)
         {
-            FormDetalle vistaDetalle = new FormDetalle();
-            vistaDetalle.Titulo = ControlVideojuego.titol;
-            vistaDetalle.img = ControlVideojuego.img;
-            //vistaDetalle.Portada...
-            if (vistaDetalle.ShowDialog() == DialogResult.OK)
-            {
-                flVistaVacia.Refresh();
-            }
-        }*/
+            //limpio los juegos del flowlayout
+            flVistaVacia.Controls.Clear();
+            this.FormVistaVacia_Load(null, null);
+        }
+
+        public void CargarDatos()
+        {
+            flVistaVacia.Controls.Clear();
+            this.FormVistaVacia_Load(null, null);
+        }
+
+        
+        //TODO Arreglar esta wea
+        /*  private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
+          {
+              FormDetalle vistaDetalle = new FormDetalle();
+              vistaDetalle.Titulo = ControlVideojuego.titol;
+              vistaDetalle.img = ControlVideojuego.img;
+              //vistaDetalle.Portada...
+              if (vistaDetalle.ShowDialog() == DialogResult.OK)
+              {
+                  flVistaVacia.Refresh();
+              }
+          }*/
     }
 }
