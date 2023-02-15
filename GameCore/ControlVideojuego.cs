@@ -12,10 +12,8 @@ namespace GameCore
 {
     public partial class ControlVideojuego : Control
     {
-        public PictureBox portada;
+        private PictureBox portada;
         private Label titulo;
-        public string titol;
-        public Image img;
 
         public ControlVideojuego()
         {
@@ -45,17 +43,25 @@ namespace GameCore
             this.Controls.Add(titulo);
 
             //SE CREA UN EVENTO PARA EL DOBLE CLICK
-            //portada.DoubleClick += ControlPersonalizado_DobleClick;
+            portada.DoubleClick += ControlPersonalizado_DobleClick;
         }
 
         public void UpdateData(string t, Image imagen)
         {
-            titol= t;
-            img = imagen;
             // SE ACTUALIZA EL CONTROL EN BASE A LOS VALORES PASADOS COMO PARÁMETROS A LA FUNCIÓN
             portada.Image = imagen;
             titulo.Text = t;
-            //portada.DoubleClick += evento;
+        }
+
+        private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
+        {
+            FormDetalle vistaDetalle = new FormDetalle();
+            vistaDetalle.Titulo = this.titulo.Text;
+            //vistaDetalle.Portada...
+            if (vistaDetalle.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
     }
