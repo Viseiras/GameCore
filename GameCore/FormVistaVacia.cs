@@ -187,7 +187,9 @@ namespace GameCore
         /// <param name="e"></param>
         private void FormVistaVacia_Load(object sender, EventArgs e)
         {
-            label_nombreUsuario.Text = FormaInicioSesion.nombreUsuario;
+            string str = FormaInicioSesion.nombreUsuario;
+            string mayus = char.ToUpper(str[0]) + str.Substring(1);
+            label_nombreUsuario.Text = mayus;
             try
             {
                 using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
@@ -459,7 +461,11 @@ namespace GameCore
 
             }
         }
-
+        /// <summary>
+        /// Si pulsamos en la tecla de perfil del menu strip nos lleva a la forma de perfil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ajustesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPerfil form = new FormPerfil();
@@ -492,32 +498,48 @@ namespace GameCore
                 }
             }
         }
-
-        private void pictureBox_refrescarClick(object sender, EventArgs e)
-        {
-            //limpio los juegos del flowlayout
-            flVistaVacia.Controls.Clear();
-            this.FormVistaVacia_Load(null, null);
-        }
-
+        /// <summary>
+        /// Método que permite cargar el flow layout panel desde otras clases
+        /// </summary>
         public void CargarDatos()
         {
             flVistaVacia.Controls.Clear();
             this.FormVistaVacia_Load(null, null);
         }
 
-        
-        //TODO Arreglar esta wea
-        /*  private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
-          {
-              FormDetalle vistaDetalle = new FormDetalle();
-              vistaDetalle.Titulo = ControlVideojuego.titol;
-              vistaDetalle.img = ControlVideojuego.img;
-              //vistaDetalle.Portada...
-              if (vistaDetalle.ShowDialog() == DialogResult.OK)
-              {
-                  flVistaVacia.Refresh();
-              }
-          }*/
+        /*
+         * EXPERIMENTANDO CON UNA VISTA DE DATAGRIDVIEW, ELIMINAR SI NO ACABA PUEDIENDO IMPLEMENTARSE
+         */
+        private void label_vistaLista_Click(object sender, EventArgs e)
+        {
+            PruebaDgv dgv = new PruebaDgv();
+            if (dgv.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void label_mostrarColeccion_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void pictureBox_mostrarColeccion_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormaInicioSesion inicioSesion = new FormaInicioSesion();
+            inicioSesion.ShowDialog();
+            this.Close();
+        }
+
+        private void label_nombreUsuario_Click(object sender, EventArgs e)
+        {
+            Settings_Click(null, null);
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace GameCore
             catch (SQLiteException ex)
             {
                 // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
                 return false;
             }
         }
@@ -83,7 +83,7 @@ namespace GameCore
             catch (SQLiteException ex)
             {
                 // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
                 return null;
             }
         }
@@ -118,7 +118,7 @@ namespace GameCore
             catch (SQLiteException ex)
             {
                 // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
         }
 

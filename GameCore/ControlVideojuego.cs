@@ -43,7 +43,7 @@ namespace GameCore
             this.Controls.Add(titulo);
 
             //SE CREA UN EVENTO PARA EL DOBLE CLICK
-            portada.DoubleClick += ControlPersonalizado_DobleClick;
+            portada.Click += ControlPersonalizado_DobleClick;
         }
 
         public void UpdateData(string t, Image imagen)

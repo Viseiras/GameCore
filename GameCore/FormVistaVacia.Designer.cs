@@ -56,15 +56,16 @@ namespace GameCore
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_buscar = new System.Windows.Forms.TextBox();
             this.button_buscar = new System.Windows.Forms.Button();
-            this.pictureBox_refrescar = new System.Windows.Forms.PictureBox();
-            this.label__mostrar_coleccion = new System.Windows.Forms.Label();
+            this.label_vistaLista = new System.Windows.Forms.Label();
+            this.label_mostrarColeccion = new System.Windows.Forms.Label();
+            this.pictureBox_mostrarColeccion = new System.Windows.Forms.PictureBox();
             this.tsMenuCerrado.SuspendLayout();
             this.toolStrip__menuInferior.SuspendLayout();
             this.panelLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).BeginInit();
             this.menu_VistaVacia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_refrescar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mostrarColeccion)).BeginInit();
             this.SuspendLayout();
             // 
             // tsMenuCerrado
@@ -112,7 +113,7 @@ namespace GameCore
             this.btnAnadir.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnadir.ForeColor = System.Drawing.Color.White;
             this.btnAnadir.Location = new System.Drawing.Point(957, 542);
-            this.btnAnadir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnadir.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnadir.Name = "btnAnadir";
             this.btnAnadir.Size = new System.Drawing.Size(141, 46);
             this.btnAnadir.TabIndex = 4;
@@ -132,11 +133,11 @@ namespace GameCore
             this.toolStripSeparator1,
             this.tslblexit,
             this.toolStripButton3});
-            this.toolStrip__menuInferior.Location = new System.Drawing.Point(0, 536);
+            this.toolStrip__menuInferior.Location = new System.Drawing.Point(0, 532);
             this.toolStrip__menuInferior.Name = "toolStrip__menuInferior";
             this.toolStrip__menuInferior.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip__menuInferior.ShowItemToolTips = false;
-            this.toolStrip__menuInferior.Size = new System.Drawing.Size(220, 27);
+            this.toolStrip__menuInferior.Size = new System.Drawing.Size(220, 31);
             this.toolStrip__menuInferior.TabIndex = 95;
             this.toolStrip__menuInferior.Text = "Menu";
             // 
@@ -146,7 +147,7 @@ namespace GameCore
             this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
             // 
@@ -156,20 +157,20 @@ namespace GameCore
             this.tslblSettings.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tslblSettings.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.tslblSettings.Name = "tslblSettings";
-            this.tslblSettings.Size = new System.Drawing.Size(64, 26);
+            this.tslblSettings.Size = new System.Drawing.Size(64, 30);
             this.tslblSettings.Text = "Ajustes";
             this.tslblSettings.Click += new System.EventHandler(this.Settings_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // tslblexit
             // 
             this.tslblexit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tslblexit.Name = "tslblexit";
-            this.tslblexit.Size = new System.Drawing.Size(79, 24);
+            this.tslblexit.Size = new System.Drawing.Size(79, 28);
             this.tslblexit.Text = "Esconder";
             this.tslblexit.Click += new System.EventHandler(this.esconder_click);
             // 
@@ -180,7 +181,7 @@ namespace GameCore
             this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton3.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
             // 
@@ -189,13 +190,14 @@ namespace GameCore
             this.panelLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.panelLateral.Controls.Add(this.label_vistaLista);
             this.panelLateral.Controls.Add(this.label_cerrarSesion);
             this.panelLateral.Controls.Add(this.pictureBox_cerrarSesion);
             this.panelLateral.Controls.Add(this.label_nombreUsuario);
             this.panelLateral.Controls.Add(this.pictureBox_ImagenPerfil);
             this.panelLateral.Controls.Add(this.toolStrip__menuInferior);
             this.panelLateral.Location = new System.Drawing.Point(0, 27);
-            this.panelLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLateral.Margin = new System.Windows.Forms.Padding(4);
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(255, 560);
             this.panelLateral.TabIndex = 1;
@@ -231,21 +233,24 @@ namespace GameCore
             // 
             this.label_nombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label_nombreUsuario.AutoSize = true;
+            this.label_nombreUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_nombreUsuario.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label_nombreUsuario.Location = new System.Drawing.Point(61, 190);
             this.label_nombreUsuario.MaximumSize = new System.Drawing.Size(100, 100);
             this.label_nombreUsuario.Name = "label_nombreUsuario";
             this.label_nombreUsuario.Size = new System.Drawing.Size(94, 50);
-            this.label_nombreUsuario.TabIndex = 98;
+            this.label_nombreUsuario.TabIndex = 1;
             this.label_nombreUsuario.Text = "NombreUsuario";
             this.label_nombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_nombreUsuario.Click += new System.EventHandler(this.label_nombreUsuario_Click);
             // 
             // pictureBox_ImagenPerfil
             // 
+            this.pictureBox_ImagenPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_ImagenPerfil.Image = global::GameCore.Properties.Resources.foto_perfil_vacia;
             this.pictureBox_ImagenPerfil.Location = new System.Drawing.Point(37, 27);
-            this.pictureBox_ImagenPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox_ImagenPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_ImagenPerfil.Name = "pictureBox_ImagenPerfil";
             this.pictureBox_ImagenPerfil.Size = new System.Drawing.Size(149, 148);
             this.pictureBox_ImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -262,7 +267,7 @@ namespace GameCore
             this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flVistaVacia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.flVistaVacia.Location = new System.Drawing.Point(263, 74);
-            this.flVistaVacia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flVistaVacia.Margin = new System.Windows.Forms.Padding(4);
             this.flVistaVacia.Name = "flVistaVacia";
             this.flVistaVacia.Size = new System.Drawing.Size(837, 449);
             this.flVistaVacia.TabIndex = 93;
@@ -295,13 +300,14 @@ namespace GameCore
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
-            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.ajustesToolStripMenuItem.Text = "Ajustes";
             this.ajustesToolStripMenuItem.Click += new System.EventHandler(this.ajustesToolStripMenuItem_Click);
             // 
@@ -317,7 +323,7 @@ namespace GameCore
             // boton_salir_programa_menu
             // 
             this.boton_salir_programa_menu.Name = "boton_salir_programa_menu";
-            this.boton_salir_programa_menu.Size = new System.Drawing.Size(216, 26);
+            this.boton_salir_programa_menu.Size = new System.Drawing.Size(224, 26);
             this.boton_salir_programa_menu.Text = "Salir del programa";
             this.boton_salir_programa_menu.Click += new System.EventHandler(this.boton_salir_programa_menu_Click);
             // 
@@ -337,7 +343,7 @@ namespace GameCore
             this.textBox_buscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_buscar.Name = "textBox_buscar";
             this.textBox_buscar.Size = new System.Drawing.Size(327, 27);
-            this.textBox_buscar.TabIndex = 1;
+            this.textBox_buscar.TabIndex = 2;
             this.textBox_buscar.Text = "Introduce el título de un videojuego";
             this.textBox_buscar.Enter += new System.EventHandler(this.textBox_buscar_Enter);
             this.textBox_buscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_buscar_KeyDown);
@@ -351,39 +357,55 @@ namespace GameCore
             this.button_buscar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_buscar.ForeColor = System.Drawing.Color.White;
             this.button_buscar.Location = new System.Drawing.Point(997, 30);
-            this.button_buscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_buscar.Margin = new System.Windows.Forms.Padding(4);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(85, 34);
-            this.button_buscar.TabIndex = 2;
+            this.button_buscar.TabIndex = 3;
             this.button_buscar.Text = "Buscar";
             this.button_buscar.UseVisualStyleBackColor = false;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
             // 
-            // pictureBox_refrescar
+            // label_vistaLista
             // 
-            this.pictureBox_refrescar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox_refrescar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_refrescar.Image = global::GameCore.Properties.Resources.refrescar_icon;
-            this.pictureBox_refrescar.Location = new System.Drawing.Point(263, 530);
-            this.pictureBox_refrescar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox_refrescar.Name = "pictureBox_refrescar";
-            this.pictureBox_refrescar.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox_refrescar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox_refrescar.TabIndex = 8;
-            this.pictureBox_refrescar.TabStop = false;
-            this.pictureBox_refrescar.Click += new System.EventHandler(this.pictureBox_refrescarClick);
+            this.label_vistaLista.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label_vistaLista.AutoSize = true;
+            this.label_vistaLista.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_vistaLista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_vistaLista.Location = new System.Drawing.Point(61, 276);
+            this.label_vistaLista.MaximumSize = new System.Drawing.Size(100, 100);
+            this.label_vistaLista.Name = "label_vistaLista";
+            this.label_vistaLista.Size = new System.Drawing.Size(94, 25);
+            this.label_vistaLista.TabIndex = 98;
+            this.label_vistaLista.Text = "Vista lista";
+            this.label_vistaLista.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_vistaLista.Click += new System.EventHandler(this.label_vistaLista_Click);
             // 
-            // label__mostrar_coleccion
+            // label_mostrarColeccion
             // 
-            this.label__mostrar_coleccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label__mostrar_coleccion.AutoSize = true;
-            this.label__mostrar_coleccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label__mostrar_coleccion.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label__mostrar_coleccion.Location = new System.Drawing.Point(319, 546);
-            this.label__mostrar_coleccion.Name = "label__mostrar_coleccion";
-            this.label__mostrar_coleccion.Size = new System.Drawing.Size(212, 23);
-            this.label__mostrar_coleccion.TabIndex = 3;
-            this.label__mostrar_coleccion.Text = "Mostrar toda la colección";
+            this.label_mostrarColeccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_mostrarColeccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_mostrarColeccion.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_mostrarColeccion.ForeColor = System.Drawing.Color.Black;
+            this.label_mostrarColeccion.Location = new System.Drawing.Point(326, 527);
+            this.label_mostrarColeccion.Name = "label_mostrarColeccion";
+            this.label_mostrarColeccion.Size = new System.Drawing.Size(250, 34);
+            this.label_mostrarColeccion.TabIndex = 100;
+            this.label_mostrarColeccion.Text = "Mostrar toda la colección";
+            this.label_mostrarColeccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_mostrarColeccion.Click += new System.EventHandler(this.label_mostrarColeccion_Click);
+            // 
+            // pictureBox_mostrarColeccion
+            // 
+            this.pictureBox_mostrarColeccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox_mostrarColeccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_mostrarColeccion.Image = global::GameCore.Properties.Resources.refrescar_icon;
+            this.pictureBox_mostrarColeccion.Location = new System.Drawing.Point(262, 526);
+            this.pictureBox_mostrarColeccion.Name = "pictureBox_mostrarColeccion";
+            this.pictureBox_mostrarColeccion.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox_mostrarColeccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_mostrarColeccion.TabIndex = 101;
+            this.pictureBox_mostrarColeccion.TabStop = false;
+            this.pictureBox_mostrarColeccion.Click += new System.EventHandler(this.pictureBox_mostrarColeccion_Click);
             // 
             // FormVistaVacia
             // 
@@ -392,8 +414,8 @@ namespace GameCore
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.ClientSize = new System.Drawing.Size(1116, 593);
-            this.Controls.Add(this.label__mostrar_coleccion);
-            this.Controls.Add(this.pictureBox_refrescar);
+            this.Controls.Add(this.pictureBox_mostrarColeccion);
+            this.Controls.Add(this.label_mostrarColeccion);
             this.Controls.Add(this.button_buscar);
             this.Controls.Add(this.textBox_buscar);
             this.Controls.Add(this.menu_VistaVacia);
@@ -401,8 +423,9 @@ namespace GameCore
             this.Controls.Add(this.btnAnadir);
             this.Controls.Add(this.flVistaVacia);
             this.Controls.Add(this.tsMenuCerrado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu_VistaVacia;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(741, 475);
             this.Name = "FormVistaVacia";
             this.Text = "Game Core";
@@ -421,7 +444,7 @@ namespace GameCore
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).EndInit();
             this.menu_VistaVacia.ResumeLayout(false);
             this.menu_VistaVacia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_refrescar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mostrarColeccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,8 +477,9 @@ namespace GameCore
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox_buscar;
         private System.Windows.Forms.Button button_buscar;
-        private System.Windows.Forms.PictureBox pictureBox_refrescar;
-        private System.Windows.Forms.Label label__mostrar_coleccion;
+        private System.Windows.Forms.Label label_vistaLista;
+        private System.Windows.Forms.Label label_mostrarColeccion;
+        private System.Windows.Forms.PictureBox pictureBox_mostrarColeccion;
     }
 }
 

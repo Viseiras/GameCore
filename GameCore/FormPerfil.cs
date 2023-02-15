@@ -209,5 +209,10 @@ namespace GameCore
                 MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
             }
         }
+
+        private void label_miColeccion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -136,3 +136,4 @@ C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.For
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaAyuda.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormDetalle.resources
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormDetalle.resources
+C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.PruebaDgv.resources

@@ -82,6 +82,12 @@
     <Compile Include="FormaAyuda.Designer.cs">
       <DependentUpon>FormaAyuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="PruebaDgv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaDgv.Designer.cs">
+      <DependentUpon>PruebaDgv.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToogleBoxCustom.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetalle.resx">
       <DependentUpon>FormDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaDgv.resx">
+      <DependentUpon>PruebaDgv.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BaseDeDatos\gamecore.db" />
     <None Include="packages.config" />

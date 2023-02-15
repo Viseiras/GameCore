@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormaInicioSesion));
             this.label1 = new System.Windows.Forms.Label();
             this.label_Inicio_Sesion = new System.Windows.Forms.Label();
             this.textBox_nombreUsuario = new System.Windows.Forms.TextBox();
@@ -71,11 +72,11 @@
             // 
             this.textBox_nombreUsuario.AcceptsReturn = true;
             this.textBox_nombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_nombreUsuario.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_nombreUsuario.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_nombreUsuario.Location = new System.Drawing.Point(96, 177);
             this.textBox_nombreUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_nombreUsuario.Name = "textBox_nombreUsuario";
-            this.textBox_nombreUsuario.Size = new System.Drawing.Size(445, 27);
+            this.textBox_nombreUsuario.Size = new System.Drawing.Size(445, 31);
             this.textBox_nombreUsuario.TabIndex = 1;
             this.textBox_nombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_nombreUsuario_KeyDown);
             // 
@@ -108,11 +109,11 @@
             // textBox_Contraseña
             // 
             this.textBox_Contraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_Contraseña.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Contraseña.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Contraseña.Location = new System.Drawing.Point(96, 292);
             this.textBox_Contraseña.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Contraseña.Name = "textBox_Contraseña";
-            this.textBox_Contraseña.Size = new System.Drawing.Size(445, 27);
+            this.textBox_Contraseña.Size = new System.Drawing.Size(445, 31);
             this.textBox_Contraseña.TabIndex = 10;
             this.textBox_Contraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Contraseña_KeyDown);
             // 
@@ -122,6 +123,7 @@
             this.button_registrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_registrar.FlatAppearance.BorderSize = 0;
             this.button_registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_registrar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_registrar.ForeColor = System.Drawing.Color.White;
             this.button_registrar.Location = new System.Drawing.Point(231, 364);
             this.button_registrar.Margin = new System.Windows.Forms.Padding(4);
@@ -150,6 +152,7 @@
             this.button_registrarse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_registrarse.FlatAppearance.BorderSize = 0;
             this.button_registrarse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_registrarse.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_registrarse.ForeColor = System.Drawing.Color.White;
             this.button_registrarse.Location = new System.Drawing.Point(231, 554);
             this.button_registrarse.Margin = new System.Windows.Forms.Padding(4);
@@ -163,19 +166,19 @@
             // barra_separadora_horizontal1
             // 
             this.barra_separadora_horizontal1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.barra_separadora_horizontal1.Location = new System.Drawing.Point(96, 202);
+            this.barra_separadora_horizontal1.Location = new System.Drawing.Point(96, 212);
             this.barra_separadora_horizontal1.Margin = new System.Windows.Forms.Padding(4);
             this.barra_separadora_horizontal1.Name = "barra_separadora_horizontal1";
-            this.barra_separadora_horizontal1.Size = new System.Drawing.Size(440, 4);
+            this.barra_separadora_horizontal1.Size = new System.Drawing.Size(445, 4);
             this.barra_separadora_horizontal1.TabIndex = 15;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Location = new System.Drawing.Point(96, 324);
+            this.panel1.Location = new System.Drawing.Point(96, 331);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(440, 4);
+            this.panel1.Size = new System.Drawing.Size(445, 4);
             this.panel1.TabIndex = 16;
             // 
             // panel2
@@ -235,6 +238,7 @@
             this.Controls.Add(this.pictureBox_descipcionApp);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox_logoAplicacion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
