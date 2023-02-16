@@ -50,10 +50,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1067, 364);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(800, 296);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 3;
             // 
             // label_Inicio_Sesion
@@ -61,10 +60,9 @@
             this.label_Inicio_Sesion.AutoSize = true;
             this.label_Inicio_Sesion.BackColor = System.Drawing.Color.Transparent;
             this.label_Inicio_Sesion.Font = new System.Drawing.Font("Nirmala UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Inicio_Sesion.Location = new System.Drawing.Point(203, 41);
-            this.label_Inicio_Sesion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Inicio_Sesion.Location = new System.Drawing.Point(152, 33);
             this.label_Inicio_Sesion.Name = "label_Inicio_Sesion";
-            this.label_Inicio_Sesion.Size = new System.Drawing.Size(254, 50);
+            this.label_Inicio_Sesion.Size = new System.Drawing.Size(205, 41);
             this.label_Inicio_Sesion.TabIndex = 6;
             this.label_Inicio_Sesion.Text = "Iniciar Sesión";
             // 
@@ -73,10 +71,9 @@
             this.textBox_nombreUsuario.AcceptsReturn = true;
             this.textBox_nombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_nombreUsuario.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_nombreUsuario.Location = new System.Drawing.Point(96, 177);
-            this.textBox_nombreUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_nombreUsuario.Location = new System.Drawing.Point(72, 144);
             this.textBox_nombreUsuario.Name = "textBox_nombreUsuario";
-            this.textBox_nombreUsuario.Size = new System.Drawing.Size(445, 31);
+            this.textBox_nombreUsuario.Size = new System.Drawing.Size(334, 25);
             this.textBox_nombreUsuario.TabIndex = 1;
             this.textBox_nombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_nombreUsuario_KeyDown);
             // 
@@ -86,10 +83,10 @@
             this.label_nombreUsuario.BackColor = System.Drawing.Color.Transparent;
             this.label_nombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nombreUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label_nombreUsuario.Location = new System.Drawing.Point(91, 136);
-            this.label_nombreUsuario.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label_nombreUsuario.Location = new System.Drawing.Point(68, 110);
+            this.label_nombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_nombreUsuario.Name = "label_nombreUsuario";
-            this.label_nombreUsuario.Size = new System.Drawing.Size(177, 25);
+            this.label_nombreUsuario.Size = new System.Drawing.Size(143, 20);
             this.label_nombreUsuario.TabIndex = 8;
             this.label_nombreUsuario.Text = "Nombre de usuario";
             // 
@@ -99,10 +96,10 @@
             this.label_Contraseña.BackColor = System.Drawing.Color.Transparent;
             this.label_Contraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Contraseña.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label_Contraseña.Location = new System.Drawing.Point(91, 254);
-            this.label_Contraseña.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label_Contraseña.Location = new System.Drawing.Point(68, 206);
+            this.label_Contraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Contraseña.Name = "label_Contraseña";
-            this.label_Contraseña.Size = new System.Drawing.Size(114, 25);
+            this.label_Contraseña.Size = new System.Drawing.Size(92, 20);
             this.label_Contraseña.TabIndex = 9;
             this.label_Contraseña.Text = "Contraseña";
             // 
@@ -110,10 +107,9 @@
             // 
             this.textBox_Contraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_Contraseña.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Contraseña.Location = new System.Drawing.Point(96, 292);
-            this.textBox_Contraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Contraseña.Location = new System.Drawing.Point(72, 237);
             this.textBox_Contraseña.Name = "textBox_Contraseña";
-            this.textBox_Contraseña.Size = new System.Drawing.Size(445, 31);
+            this.textBox_Contraseña.Size = new System.Drawing.Size(334, 25);
             this.textBox_Contraseña.TabIndex = 10;
             this.textBox_Contraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Contraseña_KeyDown);
             // 
@@ -125,10 +121,9 @@
             this.button_registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_registrar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_registrar.ForeColor = System.Drawing.Color.White;
-            this.button_registrar.Location = new System.Drawing.Point(231, 364);
-            this.button_registrar.Margin = new System.Windows.Forms.Padding(4);
+            this.button_registrar.Location = new System.Drawing.Point(173, 296);
             this.button_registrar.Name = "button_registrar";
-            this.button_registrar.Size = new System.Drawing.Size(199, 57);
+            this.button_registrar.Size = new System.Drawing.Size(149, 46);
             this.button_registrar.TabIndex = 11;
             this.button_registrar.Text = "INICIAR SESIÓN";
             this.button_registrar.UseVisualStyleBackColor = false;
@@ -139,10 +134,9 @@
             this.label_no_tienes_cuenta.AutoSize = true;
             this.label_no_tienes_cuenta.BackColor = System.Drawing.Color.Transparent;
             this.label_no_tienes_cuenta.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_no_tienes_cuenta.Location = new System.Drawing.Point(159, 486);
-            this.label_no_tienes_cuenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_no_tienes_cuenta.Location = new System.Drawing.Point(119, 395);
             this.label_no_tienes_cuenta.Name = "label_no_tienes_cuenta";
-            this.label_no_tienes_cuenta.Size = new System.Drawing.Size(340, 41);
+            this.label_no_tienes_cuenta.Size = new System.Drawing.Size(279, 32);
             this.label_no_tienes_cuenta.TabIndex = 13;
             this.label_no_tienes_cuenta.Text = "¿No tienes una cuenta?";
             // 
@@ -154,10 +148,9 @@
             this.button_registrarse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_registrarse.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_registrarse.ForeColor = System.Drawing.Color.White;
-            this.button_registrarse.Location = new System.Drawing.Point(231, 554);
-            this.button_registrarse.Margin = new System.Windows.Forms.Padding(4);
+            this.button_registrarse.Location = new System.Drawing.Point(173, 450);
             this.button_registrarse.Name = "button_registrarse";
-            this.button_registrarse.Size = new System.Drawing.Size(199, 57);
+            this.button_registrarse.Size = new System.Drawing.Size(149, 46);
             this.button_registrarse.TabIndex = 14;
             this.button_registrarse.Text = "REGÍSTRATE";
             this.button_registrarse.UseVisualStyleBackColor = false;
@@ -166,28 +159,25 @@
             // barra_separadora_horizontal1
             // 
             this.barra_separadora_horizontal1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.barra_separadora_horizontal1.Location = new System.Drawing.Point(96, 212);
-            this.barra_separadora_horizontal1.Margin = new System.Windows.Forms.Padding(4);
+            this.barra_separadora_horizontal1.Location = new System.Drawing.Point(72, 172);
             this.barra_separadora_horizontal1.Name = "barra_separadora_horizontal1";
-            this.barra_separadora_horizontal1.Size = new System.Drawing.Size(445, 4);
+            this.barra_separadora_horizontal1.Size = new System.Drawing.Size(334, 3);
             this.barra_separadora_horizontal1.TabIndex = 15;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Location = new System.Drawing.Point(96, 331);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(72, 269);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(445, 4);
+            this.panel1.Size = new System.Drawing.Size(334, 3);
             this.panel1.TabIndex = 16;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(649, -5);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(487, -4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(4, 722);
+            this.panel2.Size = new System.Drawing.Size(3, 587);
             this.panel2.TabIndex = 17;
             // 
             // pictureBox_descipcionApp
@@ -195,8 +185,7 @@
             this.pictureBox_descipcionApp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox_descipcionApp.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_descipcionApp.Image = global::GameCore.Properties.Resources.fondoDescripcion;
-            this.pictureBox_descipcionApp.Location = new System.Drawing.Point(735, 364);
-            this.pictureBox_descipcionApp.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox_descipcionApp.Location = new System.Drawing.Point(551, 296);
             this.pictureBox_descipcionApp.Name = "pictureBox_descipcionApp";
             this.pictureBox_descipcionApp.Size = new System.Drawing.Size(523, 177);
             this.pictureBox_descipcionApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -208,8 +197,7 @@
             this.pictureBox_logoAplicacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox_logoAplicacion.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_logoAplicacion.Image = global::GameCore.Properties.Resources.logo1;
-            this.pictureBox_logoAplicacion.Location = new System.Drawing.Point(812, -26);
-            this.pictureBox_logoAplicacion.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox_logoAplicacion.Location = new System.Drawing.Point(609, -21);
             this.pictureBox_logoAplicacion.Name = "pictureBox_logoAplicacion";
             this.pictureBox_logoAplicacion.Size = new System.Drawing.Size(399, 259);
             this.pictureBox_logoAplicacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -218,12 +206,12 @@
             // 
             // FormaInicioSesion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = global::GameCore.Properties.Resources.imagen_fondo_iniciar_sesion;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1492, 718);
+            this.ClientSize = new System.Drawing.Size(1119, 583);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barra_separadora_horizontal1);
@@ -239,10 +227,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox_logoAplicacion);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
+            this.Load += new System.EventHandler(this.FormaInicioSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_descipcionApp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_logoAplicacion)).EndInit();
             this.ResumeLayout(false);

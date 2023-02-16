@@ -103,7 +103,6 @@ C:\Users\samu2\Desktop\RepoGit\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.formAñadir.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.formAñadir.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormPerfil.resources
-C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.VistaDetalle.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\Control.Draggable.dll
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\Control.Draggable.dll
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\bin\Debug\GameCore.exe.config
@@ -139,3 +138,7 @@ C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.Pru
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.PruebaDgv.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\bin\Debug\GameCore.xml
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\GameCore.xml
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaAyuda.resources
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormDetalle.resources
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.PruebaDgv.resources

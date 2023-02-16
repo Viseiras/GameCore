@@ -43,56 +43,72 @@ namespace GameCore
             contraseña = contraseña.Trim();
             string repetirContraseña = textBox_repetirContraseña.Text;
             repetirContraseña = repetirContraseña.Trim();
-
-            if (contraseña.Equals(repetirContraseña))
+            if(string.IsNullOrWhiteSpace(nombreUsuario))
             {
-                //PENDIENTE comprobar si el archivo de la base de datos está en la aplicación
-                try
-                {
-                    //iniciamos la conexión con la base de datos al iniciar la forma registro
-                    using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
-                    {
-                        conexion.Open();
-
-                        using (SQLiteCommand command = new SQLiteCommand(conexion))
-                        {
-                            //si me devuelve false es que no hay usuario con ese nombre, por lo tanto lo inserto en la base de datos
-                            if (!MetodosSqlite.CompruebaUsuario(nombreUsuario))
-                            {
-                                //consulta parametrizada para evitar inyección SQL en la base de datos
-                                command.CommandText = "INSERT INTO usuarios (nombre_usuario,contraseña) VALUES (@nombre, @contraseña)";
-                                command.Parameters.AddWithValue("@nombre", nombreUsuario);
-                                command.Parameters.AddWithValue("@contraseña", contraseña);
-                                command.ExecuteNonQuery();
-                                MessageBox.Show("Has sido registrado en la aplicación");
-                                conexion.Close();
-                            }
-                            //si devuelve true le aviso al usuario de que ya hay un usuario con ese nombre
-                            else
-                            {
-                                MessageBox.Show("Ese usuarios ya existe");
-                            }
-
-                        }
-
-                    }
-                }
-                
-                catch (SQLiteException ex)
-                {
-                    // Handle the exception here
-                    MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
-                }
+                MessageBox.Show("El nombre no puede estar vacío");
             }
-               
             else
             {
-                //hacer visible la titulo
-                label_aviso_errores.Text = "Las contraseñas no coinciden";
-                label_aviso_errores.Size = new Size(309, 10);
-                label_aviso_errores.TextAlign = ContentAlignment.MiddleCenter;
-                label_aviso_errores.Visible = true;
+                if(string.IsNullOrEmpty(contraseña)||string.IsNullOrEmpty(repetirContraseña))
+                {
+                    MessageBox.Show("La contraseña no puede estar vacía");
+                }
+                else
+                {
+                    if (contraseña.Equals(repetirContraseña))
+                    {
+                        //PENDIENTE comprobar si el archivo de la base de datos está en la aplicación
+                        try
+                        {
+                            //iniciamos la conexión con la base de datos al iniciar la forma registro
+                            using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                            {
+                                conexion.Open();
+
+                                using (SQLiteCommand command = new SQLiteCommand(conexion))
+                                {
+                                    //si me devuelve false es que no hay usuario con ese nombre, por lo tanto lo inserto en la base de datos
+                                    if (!MetodosSqlite.CompruebaUsuario(nombreUsuario))
+                                    {
+                                        //consulta parametrizada para evitar inyección SQL en la base de datos
+                                        command.CommandText = "INSERT INTO usuarios (nombre_usuario,contraseña) VALUES (@nombre, @contraseña)";
+                                        command.Parameters.AddWithValue("@nombre", nombreUsuario);
+                                        command.Parameters.AddWithValue("@contraseña", contraseña);
+                                        command.ExecuteNonQuery();
+                                        MessageBox.Show("Has sido registrado en la aplicación");
+                                        conexion.Close();
+                                        this.DialogResult = DialogResult.OK;
+                                    }
+                                    //si devuelve true le aviso al usuario de que ya hay un usuario con ese nombre
+                                    else
+                                    {
+                                        MessageBox.Show("Ese usuarios ya existe");
+                                    }
+
+                                }
+
+                            }
+                        }
+
+                        catch (SQLiteException ex)
+                        {
+                            // Handle the exception here
+                            MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+                        }
+                    }
+
+                    else
+                    {
+                        //hacer visible la titulo
+                        label_aviso_errores.Text = "Las contraseñas no coinciden";
+                        label_aviso_errores.Size = new Size(309, 10);
+                        label_aviso_errores.TextAlign = ContentAlignment.MiddleCenter;
+                        label_aviso_errores.Visible = true;
+                    }
+                }
+               
             }
+           
 
         }  
 

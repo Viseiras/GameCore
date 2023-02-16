@@ -40,16 +40,11 @@ namespace GameCore
             tbTitulo.Text = Titulo;
             CambiarIdioma();
             //gestionamos los colores en base al modo oscuro
-            if (FormPerfil.darkmode)
-            {
-                BackColor = Color.FromArgb(64, 64, 64);
-            }
-            else
-            {
-                BackColor = Color.White;
-            }
+            darkModeChanger();
             labelTitulo.Text = Titulo;
             pbPortada.AllowDrop = true;
+
+            
 
             //leemos la información del videojuego para mostrar sus detalles (descripción, portada etc..)
             try
@@ -161,6 +156,7 @@ namespace GameCore
                             //cargamos la anterior forma tras eliminar el videojuego
                             FormVistaVacia previousForm = (FormVistaVacia)Application.OpenForms[Application.OpenForms.Count - 2];
                             previousForm.CargarDatos();
+                            this.DialogResult= DialogResult.OK;
                         }
                     }
                 }
@@ -235,41 +231,99 @@ namespace GameCore
                 tbTitulo.Visible = false;
             }
 
-            try
+            if(string.IsNullOrEmpty(tbTitulo.Text))
             {
-                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                if(FormPerfil.idIdioma== 0) 
                 {
-                    byte[] portada;
-                    conexion.Open();
-                    if (fotomodificada)
+                    MessageBox.Show("El titulo no puede estar vacío");
+                }
+                else if (FormPerfil.idIdioma == 1)
+                {
+                    MessageBox.Show("O título não pode estar vazio");
+                }
+                else if (FormPerfil.idIdioma == 2)
+                {
+                    MessageBox.Show("Title can't be empty");
+                }
+            }
+            else
+            {
+                if(string.IsNullOrEmpty(textBoxDescripcion.Text))
+                {
+                    if (FormPerfil.idIdioma == 0)
                     {
-                        portada= System.IO.File.ReadAllBytes(rutaPortada);
+                        MessageBox.Show("La descripción no puede estar vacío");
                     }
-                    else 
+                    else if (FormPerfil.idIdioma == 1)
                     {
-                         portada=portadaAnterior;
+                        MessageBox.Show("A descrição não pode estar vazia");
                     }
-                    using (SQLiteCommand command = new SQLiteCommand("UPDATE videojuegos SET titulo = @titulo, portada = @portada, descripcion = @descripcion WHERE titulo = \"" + labelTitulo.Text + "\"", conexion))
+                    else if (FormPerfil.idIdioma == 2)
                     {
-                        command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
-                        command.Parameters.AddWithValue("@portada", portada);
-                        command.Parameters.AddWithValue("@descripcion", textBoxDescripcion.Text);
-                        command.ExecuteNonQuery();
-                        FormVistaVacia previousForm = (FormVistaVacia)Application.OpenForms[Application.OpenForms.Count - 2];
-                        previousForm.CargarDatos();
+                        MessageBox.Show("Description can't be empty");
                     }
                 }
+                else
+                {
+                    try
+                    {
+                        using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                        {
+                            byte[] portada;
+                            conexion.Open();
+                            if (fotomodificada)
+                            {
+                                portada = System.IO.File.ReadAllBytes(rutaPortada);
+                            }
+                            else
+                            {
+                                portada = portadaAnterior;
+                            }
+                            using (SQLiteCommand command = new SQLiteCommand("UPDATE videojuegos SET titulo = @titulo, portada = @portada, descripcion = @descripcion WHERE titulo = \"" + labelTitulo.Text + "\"", conexion))
+                            {
+                                command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
+                                command.Parameters.AddWithValue("@portada", portada);
+                                command.Parameters.AddWithValue("@descripcion", textBoxDescripcion.Text);
+                                command.ExecuteNonQuery();
+                                FormVistaVacia previousForm = (FormVistaVacia)Application.OpenForms[Application.OpenForms.Count - 2];
+                                previousForm.CargarDatos();
+                            }
+                        }
 
-                //Mandamos un mensaje para que sepa que se ha actualizado en la base de datos
-                MessageBox.Show("Se ha actualizado el juego");
-                //Cerramos la forma Detalle una vez guardado
-                this.DialogResult = DialogResult.OK;
+                        //Mandamos un mensaje para que sepa que se ha actualizado en la base de datos
+                        if (FormPerfil.idIdioma == 0)
+                        {
+                            MessageBox.Show("Se ha actualizado el juego");
+                        }
+                        else if (FormPerfil.idIdioma == 1)
+                        {
+                            MessageBox.Show("Jogo inserido no banco de dados");
+                        }
+                        else if (FormPerfil.idIdioma == 2)
+                        {
+                            MessageBox.Show("Game inserted into the database");
+                        }
+                        //Cerramos la forma Detalle una vez guardado
+                        this.DialogResult = DialogResult.OK;
 
-            }
-            catch (SQLiteException ex)
-            {
-                // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        // Handle the exception here
+                        if (FormPerfil.idIdioma == 0)
+                        {
+                            MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+                        }
+                        else if (FormPerfil.idIdioma == 1)
+                        {
+                            MessageBox.Show("Erro ao acessar o banco de dados: " + ex.Message);
+                        }
+                        else if (FormPerfil.idIdioma == 2)
+                        {
+                            MessageBox.Show("Unable accessing the database: " + ex.Message);
+                        }
+                    }
+                }
             }
         }
 
@@ -299,6 +353,22 @@ namespace GameCore
                 btnEditar.Text = "Edit";
                 Guardar.Text = "Save";
                 btnEliminar.Text = "Delete";
+            }
+        }
+
+        private void darkModeChanger()
+        {
+            if (FormPerfil.darkmode)
+            {
+                BackColor = Color.FromArgb(64, 64, 64);
+                lblModoEdicion.ForeColor = Color.White;
+                labelTitulo.ForeColor = Color.White;     
+            }
+            else
+            {
+                BackColor = Color.FromArgb(235, 235, 235);
+                lblModoEdicion.ForeColor = Color.Black;
+                labelTitulo.ForeColor = Color.Black;
             }
         }
     }

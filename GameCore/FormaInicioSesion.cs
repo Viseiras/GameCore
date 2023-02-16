@@ -42,7 +42,11 @@ namespace GameCore
         private void button_registrarse_Click(object sender, EventArgs e)
         {
             FormaRegistro fRegistro = new FormaRegistro();
-            fRegistro.ShowDialog();
+            if (fRegistro.ShowDialog()==DialogResult.OK)
+            {
+
+            }
+                
             
         }
         /// <summary>
@@ -109,6 +113,11 @@ namespace GameCore
                 this.button_iniciarSesion(null, null);
             }
             
+        }
+
+        private void FormaInicioSesion_Load(object sender, EventArgs e)
+        {
+            textBox_Contraseña.UseSystemPasswordChar=true;
         }
     }
 }

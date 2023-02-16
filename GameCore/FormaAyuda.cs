@@ -19,5 +19,10 @@ namespace GameCore
         {
             InitializeComponent();
         }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            this.DialogResult= DialogResult.OK;
+        }
     }
 }

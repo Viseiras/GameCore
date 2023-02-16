@@ -40,6 +40,14 @@ namespace GameCore
             titulo.Dock = DockStyle.Bottom;
             portada.Dock = DockStyle.Bottom;
             titulo.TextAlign = ContentAlignment.MiddleCenter;
+            if(FormPerfil.darkmode) 
+            {
+                titulo.ForeColor = Color.White;
+            }
+            else
+            {
+                titulo.ForeColor = Color.Black;
+            }
 
             // LOS AÑADIMOS AL CONTROL PERSONALIZADO
             this.Controls.Add(portada);

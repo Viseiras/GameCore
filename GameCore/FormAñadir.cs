@@ -18,6 +18,7 @@ namespace GameCore
     {
         private SQLiteConnection conexion;
         public Image Foto;
+        private bool fotomodificada = false;
         public String Titulo { set; get; }
 
         public String Descripcion = "";
@@ -44,6 +45,7 @@ namespace GameCore
                 Foto = (Image)new Bitmap(opd.FileName);
                 pictureBoxAnadir.Image = new Bitmap(opd.FileName);
                 rutaPortada = opd.FileName;
+                fotomodificada = true;
             }
         }
         /// <summary>
@@ -55,14 +57,7 @@ namespace GameCore
         {
             languajeChanger();
             pictureBoxAnadir.AllowDrop = true;
-            if (FormPerfil.darkmode)
-            {
-                BackColor = Color.FromArgb(64, 64, 64);
-            }
-            else
-            {
-                BackColor = Color.FromArgb(235, 235, 235);
-            }
+            darkModeChanger();
         }
 
         /// <summary>
@@ -101,57 +96,145 @@ namespace GameCore
                 {
                     rutaPortada= fileNames[0];
                     pictureBoxAnadir.Image = Image.FromFile(fileNames[0]);
+                    fotomodificada = true;
                 }
             }
         }
 
         private void pictureBoxAnadir_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.Copy;
+            fotomodificada = true;
+            e.Effect = DragDropEffects.Copy;    
         }
 
         private void button_aceptar_Click(object sender, EventArgs e)
         {
-            if(cbDesarrolladores.SelectedIndex!=-1)
+            if (string.IsNullOrEmpty(tbTitulo.Text))
             {
-                try
+                if (FormPerfil.idIdioma == 0)
                 {
-                    /*
-                 * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
-                 * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
-                 * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
-
-
-                    using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
-                    {
-                        conexion.Open();
-                        byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
-
-                        //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
-                        using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
-                        {
-                            command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
-                            command.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
-                            command.Parameters.AddWithValue("@desarrolladores", cbDesarrolladores.SelectedItem.ToString());
-                            command.Parameters.AddWithValue("@portada", portada);
-                            command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.pkUsuario);
-                            command.ExecuteNonQuery();
-                            MessageBox.Show("Juego insertado en la BD.");
-                        }
-                    }
-                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("El titulo no puede estar vacío");
                 }
-                catch (SQLiteException ex)
+                else if (FormPerfil.idIdioma == 1)
                 {
-                    // Handle the exception here
-                    MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                    MessageBox.Show("O título não pode estar vazio");
+                }
+                else if (FormPerfil.idIdioma == 2)
+                {
+                    MessageBox.Show("Title can't be empty");
                 }
             }
             else
             {
-                MessageBox.Show("Debes seleccionar un desarrollador");
-            }
-           
+                if (string.IsNullOrEmpty(tbDescripcion.Text))
+                {
+                    if (FormPerfil.idIdioma == 0)
+                    {
+                        MessageBox.Show("La descripción no puede estar vacío");
+                    }
+                    else if (FormPerfil.idIdioma == 1)
+                    {
+                        MessageBox.Show("A descrição não pode estar vazia");
+                    }
+                    else if (FormPerfil.idIdioma == 2)
+                    {
+                        MessageBox.Show("Description can't be empty");
+                    }
+                }
+                else
+                {
+                    if (cbDesarrolladores.SelectedIndex != -1)
+                    {
+                        try
+                        {
+                            /*
+                         * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
+                         * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
+                         * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
+
+
+                            using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                            {
+                                byte[] portada;
+                                conexion.Open();
+                                if (fotomodificada)
+                                {
+                                    portada = System.IO.File.ReadAllBytes(rutaPortada);
+                                    //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
+                                    using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
+                                    {
+                                        command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
+                                        command.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
+                                        command.Parameters.AddWithValue("@desarrolladores", cbDesarrolladores.SelectedItem.ToString());
+                                        command.Parameters.AddWithValue("@portada", portada);
+                                        command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.pkUsuario);
+                                        command.ExecuteNonQuery();
+                                        if (FormPerfil.idIdioma == 0)
+                                        {
+                                            MessageBox.Show("Juego insertado en la base de datos");
+                                        }
+                                        else if (FormPerfil.idIdioma == 1)
+                                        {
+                                            MessageBox.Show("Jogo inserido no banco de dados");
+                                        }
+                                        else if (FormPerfil.idIdioma == 2)
+                                        {
+                                            MessageBox.Show("Game inserted into the database");
+                                        }
+                                        this.DialogResult = DialogResult.OK;
+                                    }
+                                }
+                                else
+                                {
+                                    if (FormPerfil.idIdioma == 0)
+                                    {
+                                        MessageBox.Show("La portada no puede estar vacía");
+                                    }
+                                    else if (FormPerfil.idIdioma == 1)
+                                    {
+                                        MessageBox.Show("Arte de capa não pode estar vazia");
+                                    }
+                                    else if (FormPerfil.idIdioma == 2)
+                                    {
+                                        MessageBox.Show("Cover can't be empty");
+                                    }
+                                }
+                            }
+                        }
+                        catch (SQLiteException ex)
+                        {
+                            // Handle the exception here
+                            if (FormPerfil.idIdioma == 0)
+                            {
+                                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+                            }
+                            else if (FormPerfil.idIdioma == 1)
+                            {
+                                MessageBox.Show("Erro ao acessar o banco de dados: "+ ex.Message);
+                            }
+                            else if (FormPerfil.idIdioma == 2)
+                            {
+                                MessageBox.Show("Unable accessing the database: " + ex.Message);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (FormPerfil.idIdioma == 0)
+                        {
+                            MessageBox.Show("Debe seleccionar a un desarrollador");
+                        }
+                        else if (FormPerfil.idIdioma == 1)
+                        {
+                            MessageBox.Show("Você deve selecionar um desenvolvedor");
+                        }
+                        else if (FormPerfil.idIdioma == 2)
+                        {
+                            MessageBox.Show("Must choose a developer");
+                        }
+                    }
+                }
+            }  
         }
 
         private void button_cancelar_Click(object sender, EventArgs e)
@@ -170,6 +253,7 @@ namespace GameCore
                 Foto = (Image)new Bitmap(opd.FileName);
                 pictureBoxAnadir.Image = new Bitmap(opd.FileName);
                 rutaPortada = opd.FileName;
+                fotomodificada = true;
             }
         }
         /// <summary>
@@ -192,7 +276,7 @@ namespace GameCore
             else if (FormPerfil.idIdioma == 1)
             {
                 lblTitulo.Text = "Nome*";
-                lblDescripcion.Text = "Descrição";
+                lblDescripcion.Text = "Descrição*";
                 labelDesarrolladores.Text = "Desenvolvedores*";
                 lblPortada.Text = "Arte de capa*";
                 button_añadir_imagen.Text = "Adicionar imagem";
@@ -209,6 +293,28 @@ namespace GameCore
                 button_añadir_imagen.Text = "Add image";
                 button_cancelar.Text = "Cancel";
                 button_aceptar.Text = "Accept";
+            }
+        }
+
+        private void darkModeChanger()
+        {
+            if (FormPerfil.darkmode)
+            {
+                BackColor = Color.FromArgb(64, 64, 64);
+                lblTitulo.ForeColor=Color.White; 
+                lblDescripcion.ForeColor =Color.White;
+                lblPortada.ForeColor =Color.White;
+                lblDescripcion.ForeColor=Color.White;
+                labelDesarrolladores.ForeColor=Color.White;
+            }
+            else
+            {
+                BackColor  = Color.FromArgb(235, 235, 235);
+                lblTitulo.ForeColor=Color.Black;
+                lblDescripcion.ForeColor = Color.Black;
+                lblPortada.ForeColor = Color.Black;
+                lblDescripcion.ForeColor = Color.Black;
+                labelDesarrolladores.ForeColor = Color.Black;
             }
         }
     }

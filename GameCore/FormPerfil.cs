@@ -17,6 +17,7 @@ namespace GameCore
     /// </summary>
     public partial class FormPerfil : Form
     {
+        private bool fotomodificada = false;
         public Image Foto;
         public string rutaPortada = "";
         public static int idIdioma =0;
@@ -51,19 +52,23 @@ namespace GameCore
         /// <summary>
         /// Método para cambiar el modo oscuro de la aplicación
         /// </summary>
-        public void darkModeChanger()
+        private void darkModeChanger()
         {
             if (darkmode == false)
             {
                 darkmode = true;
                 panelLateral.BackColor= Color.FromArgb(34, 34, 34);
                 BackColor = Color.FromArgb(64, 64, 64);
+                label_idioma.ForeColor = Color.White;
+                labelTema.ForeColor= Color.White;
             }
             else if (darkmode == true)
             {
                 darkmode = false;
                 panelLateral.BackColor = Color.FromArgb(43, 43, 43);
                 BackColor = Color.FromArgb(235, 235, 235);
+                label_idioma.ForeColor = Color.Black;
+                labelTema.ForeColor = Color.Black;
             }
         }
 
@@ -192,13 +197,26 @@ namespace GameCore
                     using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                     {
                         conexion.Open();
-                        byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
-
-                        using (SQLiteCommand command = new SQLiteCommand("UPDATE usuarios SET avatar = @imagen WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                        if(fotomodificada)
                         {
-                            command.Parameters.AddWithValue("@imagen", portada);
-                            command.ExecuteNonQuery();
-                            MessageBox.Show("Foto de perfil cambiada");
+                            byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
+                            using (SQLiteCommand command = new SQLiteCommand("UPDATE usuarios SET avatar = @imagen WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                            {
+                                command.Parameters.AddWithValue("@imagen", portada);
+                                command.ExecuteNonQuery();
+                                if (FormPerfil.idIdioma == 0)
+                                {
+                                    MessageBox.Show("Foto de perfil cambiada");
+                                }
+                                else if (FormPerfil.idIdioma == 1)
+                                {
+                                    MessageBox.Show("Foto de perfil alterada");
+                                }
+                                else if (FormPerfil.idIdioma == 2)
+                                {
+                                    MessageBox.Show("Profile picture changed");
+                                }
+                            }
                         }
                     }
                 }
@@ -260,13 +278,13 @@ namespace GameCore
             catch (SQLiteException ex)
             {
                 // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
         }
 
         private void label_miColeccion_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult= DialogResult.Cancel;
         }
 
         private void idiomaCombo_SelectedIndexChanged(object sender, EventArgs e)

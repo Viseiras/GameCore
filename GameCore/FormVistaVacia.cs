@@ -38,7 +38,6 @@ namespace GameCore
         private void btnAnadir_Click(object sender, EventArgs e)
         {
             formAñadir form = new formAñadir();
-            
             if (form.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -59,7 +58,7 @@ namespace GameCore
                                     // Conseguimos los datos de la fila actual
                                     string titulo = (string)reader["titulo"];
                                     byte[] portada = (byte[])reader["portada"];
-                                    int id = (int)reader["id"];
+                                    var id = reader["id"];
                                     Image imagen;
                                     // Convertimos el array de bytes a imagen
                                     using (MemoryStream ms = new MemoryStream(portada))
@@ -76,6 +75,7 @@ namespace GameCore
                                     control.ActualizarDatos(titulo, imagen);
                                     flVistaVacia.Controls.Add(control);
                                     cont++;
+                                    textBox_buscar.Enabled= true;
                                 }
                                     
                               
@@ -102,19 +102,7 @@ namespace GameCore
             FormPerfil form = new FormPerfil();
             if (form.ShowDialog() == DialogResult.OK)
             {
-
-            }
-            if(FormPerfil.darkmode)
-            {
-                panelLateral.BackColor = Color.FromArgb(34, 34, 34);
-                BackColor = Color.FromArgb(34, 34, 34);
-                flVistaVacia.BackColor = Color.FromArgb(64, 64, 64);
-            }
-            else
-            {
-                panelLateral.BackColor= Color.FromArgb(43, 43, 43);
-                BackColor = BackColor = Color.FromArgb(235, 235, 235);
-                flVistaVacia.BackColor = Color.FromArgb(235, 235, 235);
+                darkModeChanger();
             }
             try
             {
@@ -150,7 +138,26 @@ namespace GameCore
                 MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
             pictureBox_ImagenPerfil.Refresh();
+            CargarDatos();
             CambiarIdioma();
+        }
+
+        private void darkModeChanger()
+        {
+            if (FormPerfil.darkmode)
+            {
+                panelLateral.BackColor = Color.FromArgb(34, 34, 34);
+                BackColor = Color.FromArgb(34, 34, 34);
+                flVistaVacia.BackColor = Color.FromArgb(64, 64, 64);
+                label_mostrarColeccion.ForeColor = Color.White;
+            }
+            else
+            {
+                panelLateral.BackColor = Color.FromArgb(43, 43, 43);
+                BackColor = Color.FromArgb(235, 235, 235);
+                flVistaVacia.BackColor = Color.FromArgb(235, 235, 235);
+                label_mostrarColeccion.ForeColor = Color.Black;
+            }
         }
 
         /// <summary>
@@ -164,8 +171,14 @@ namespace GameCore
             tb.Text = "Añadir";
             tb.TextAlign = HorizontalAlignment.Center;
             tb.Enabled = false;
-            pb.Image = (Image)new Bitmap(@".\\..\\..\\Resources\\SUMA.png");
-
+            if(FormPerfil.darkmode==true)
+            {
+                pb.Image = (Image)new Bitmap(@".\\..\\..\\Resources\\SUMA_dark.png");
+            }
+            else if(FormPerfil.darkmode==false)
+            {
+                pb.Image = (Image)new Bitmap(@".\\..\\..\\Resources\\SUMA.png");
+            }
             flp.Height = 200;
             flp.Width = 130;
             pb.Width = 120;
@@ -176,7 +189,7 @@ namespace GameCore
             flp.Controls.Add(tb);
 
             flVistaVacia.Controls.Add(flp);
-            pb.DoubleClick += btnAnadir_Click;
+            pb.Click += btnAnadir_Click;
             cont++;
         }
 
@@ -187,6 +200,10 @@ namespace GameCore
         /// <param name="e"></param>
         private void FormVistaVacia_Load(object sender, EventArgs e)
         {
+            darkModeChanger();
+            cont = 0;
+            textBox_buscar.Enabled= true;
+            int contadorParaAyuda=0;
             string str = FormaInicioSesion.nombreUsuario;
             string mayus = char.ToUpper(str[0]) + str.Substring(1);
             label_nombreUsuario.Text = mayus;
@@ -200,7 +217,7 @@ namespace GameCore
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
-                            int contadorParaAyuda = 0;
+                            
                             while (reader.Read())
                             {
                                 contadorParaAyuda++;
@@ -228,8 +245,12 @@ namespace GameCore
                             //no hay videojuegos introducidos por el usuario aún por lo que se muestra la ayuda de vista vacía
                             if(contadorParaAyuda == 0)
                             {
+                                textBox_buscar.Enabled= false;
                                 FormaAyuda ayuda = new FormaAyuda();
-                                ayuda.ShowDialog();
+                                if(ayuda.ShowDialog() == DialogResult.OK)
+                                {
+                                    
+                                }
                             }
                         }
                     }
@@ -472,30 +493,6 @@ namespace GameCore
             if (form.ShowDialog() == DialogResult.OK)
             {
 
-            }
-        }
-
-        private void Ayuda_F1(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F1)
-            {
-                FormaAyuda ayuda = new FormaAyuda();
-                if (ayuda.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-            }
-        }
-
-        private void Ayuda_F1_Press(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 'F')
-            {
-                FormaAyuda ayuda = new FormaAyuda();
-                if (ayuda.ShowDialog() == DialogResult.OK)
-                {
-
-                }
             }
         }
         /// <summary>
