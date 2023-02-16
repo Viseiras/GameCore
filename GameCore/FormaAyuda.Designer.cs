@@ -52,8 +52,8 @@
             this.ClientSize = new System.Drawing.Size(1239, 677);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormaAyuda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ayuda";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

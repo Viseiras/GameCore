@@ -22,7 +22,6 @@ namespace GameCore
     {
         private int cont=0;
         SQLiteConnection conexion;
-        private int pkUsuario;
         static FlowLayoutPanel flp;
         ControlVideojuego control;
         public FormVistaVacia()
@@ -74,7 +73,7 @@ namespace GameCore
                                     control = new ControlVideojuego();
                                     control.Size = new Size(200, 200);
                                     this.control.Cursor = Cursors.Hand;
-                                    control.UpdateData(titulo, imagen);
+                                    control.ActualizarDatos(titulo, imagen);
                                     flVistaVacia.Controls.Add(control);
                                     cont++;
                                 }
@@ -151,7 +150,7 @@ namespace GameCore
                 MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
             pictureBox_ImagenPerfil.Refresh();
-            languajeChanger();
+            CambiarIdioma();
         }
 
         /// <summary>
@@ -221,7 +220,7 @@ namespace GameCore
                                 control = new ControlVideojuego();
                                 control.Size = new Size(200, 200);
                                 this.control.Cursor = Cursors.Hand;
-                                control.UpdateData(titulo, imagen);
+                                control.ActualizarDatos(titulo, imagen);
                                 flVistaVacia.Controls.Add(control);
 
                             }
@@ -384,7 +383,7 @@ namespace GameCore
                                 control = new ControlVideojuego();
                                 control.Size = new Size(200, 200);
                                 this.control.Cursor = Cursors.Hand;
-                                control.UpdateData(titulo, imagen);
+                                control.ActualizarDatos(titulo, imagen);
                                 flVistaVacia.Controls.Add(control);
 
                             }
@@ -519,17 +518,29 @@ namespace GameCore
 
             }
         }
-
+        /// <summary>
+        /// Nos recarga la informacion de los juegos que se muestran
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_mostrarColeccion_Click(object sender, EventArgs e)
         {
             CargarDatos();
         }
-
+        /// <summary>
+        /// Nos recarga la informacion de los juegos que se muestran
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox_mostrarColeccion_Click(object sender, EventArgs e)
         {
             CargarDatos();
         }
-
+        /// <summary>
+        /// Cierra la ventana y te devuelve al inicio de sesion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -537,12 +548,17 @@ namespace GameCore
             inicioSesion.ShowDialog();
             this.Close();
         }
-
+        /// <summary>
+        /// Nos lleva al perfil del usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_nombreUsuario_Click(object sender, EventArgs e)
         {
             Settings_Click(null, null);
         }
-        public void languajeChanger()
+
+        public void CambiarIdioma()
         {
             if (FormPerfil.idIdioma == 0)
             {
@@ -591,6 +607,19 @@ namespace GameCore
                 btnAnadir.Text = "Add";
                 label_mostrarColeccion.Text = "Show all collection";
                 label_vistaLista.Text = "List view";
+            }
+        }
+        /// <summary>
+        /// Metodo que se encarga de mostrar todos los videojuegos si la barra buscadora está vacía o tiene espacios en blanco
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox_buscar_TextChanged(object sender, EventArgs e)
+        {
+            //se comprueba si el textbox de la barra buscadora está vacío o tiene espacios
+            if(string.IsNullOrEmpty(textBox_buscar.Text))
+            {
+                CargarDatos();
             }
         }
     }

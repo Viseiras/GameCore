@@ -21,6 +21,11 @@ namespace GameCore
 
         private void PruebaDgv_Load(object sender, EventArgs e)
         {
+            //establecemos el nombre del usuario
+            string str = FormaInicioSesion.nombreUsuario;
+            string mayus = char.ToUpper(str[0]) + str.Substring(1);
+            label_nombreUsuario.Text = mayus;
+
             string titulo;
             string descripcion;
             int rowid=0;
@@ -56,6 +61,53 @@ namespace GameCore
                 
 
             }
+            //PORCION DE CODIGO ENCARGADA DE CARGAR LA IMAGEN DE PERFIL QUE HAYA ESTABLECIDO EL USUARIO
+            try
+            {
+                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                {
+                    conexion.Open();
+
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT avatar FROM usuarios WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                //si el lector no está vacío es que hay imagen, por lo tanto la actualizo
+                                if (reader["avatar"] != DBNull.Value)
+                                {
+                                    byte[] portada = (byte[])reader["avatar"];
+                                    Image Foto;
+                                    // Convertimos el array de bytes a imagen
+                                    using (MemoryStream ms = new MemoryStream(portada))
+                                    {
+                                        Foto = (Image)Bitmap.FromStream(ms);
+                                        pictureBox_ImagenPerfil.Image = Foto;
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+            }
+
+        }
+
+        private void label_vistaLista_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label_cerrarSesion_Click(object sender, EventArgs e)
+        {
 
         }
     }

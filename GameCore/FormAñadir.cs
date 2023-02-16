@@ -28,7 +28,11 @@ namespace GameCore
             InitializeComponent();
         }
 
-        //Abrimos el explorador de archivos para añadir una foto
+        /// <summary>
+        /// Abrimos el explorador de archivos para añadir una foto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFoto_Click(object sender, EventArgs e)
         {
             //Creamos el objeto OpenFileDialog para abrir el explorador de archivos con su filtro para que sean esos 4 tipos de imagenes (los gif se quedan con el primer frame)
@@ -42,7 +46,11 @@ namespace GameCore
                 rutaPortada = opd.FileName;
             }
         }
-        //cuando carga el formulario pone el valor del ID del form principal 
+        /// <summary>
+        /// cuando carga el formulario pone el valor del ID del form principal 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void formAnadir_Load(object sender, EventArgs e)
         {
             languajeChanger();
@@ -57,7 +65,11 @@ namespace GameCore
             }
         }
 
-        //Comprobamos que el nombre no se encuentra vacío 
+        /// <summary>
+        /// Comprobamos que el nombre no se encuentra vacío 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
             if (tbTitulo.Text != "")
@@ -65,12 +77,20 @@ namespace GameCore
             else
                 tbTitulo.BackColor = Color.Red;
         }
-
+        /// <summary>
+        /// Boton de cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
+        /// <summary>
+        /// Método que nos sirve para añadir la imagen al picture box cuando se agrega mediante drag and drop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxAnadir_DragDrop(object sender, DragEventArgs e)
         {
             object data = e.Data.GetData(DataFormats.FileDrop);
@@ -152,9 +172,12 @@ namespace GameCore
                 rutaPortada = opd.FileName;
             }
         }
-
+        /// <summary>
+        /// Método que sirve para cambiar el idioma de la vista en base a qué idioma ha establecido el usuarios
+        /// </summary>
         public void languajeChanger()
         {
+            //0 = español
             if (FormPerfil.idIdioma == 0)
             {
                 lblTitulo.Text = "Titulo*";
@@ -165,6 +188,7 @@ namespace GameCore
                 button_cancelar.Text = "Cancelar";
                 button_aceptar.Text = "Aceptar";
             }
+            //1 = portugués
             else if (FormPerfil.idIdioma == 1)
             {
                 lblTitulo.Text = "Nome*";
@@ -175,6 +199,7 @@ namespace GameCore
                 button_cancelar.Text = "Cancelar";
                 button_aceptar.Text = "Aceitar";
             }
+            //2 = inglés
             else if (FormPerfil.idIdioma == 2)
             {
                 lblTitulo.Text = "Title*";

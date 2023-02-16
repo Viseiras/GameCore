@@ -17,7 +17,7 @@ namespace GameCore
         /// <summary>
         /// metodo que devuelve true o false en función del parámetro que se le pase, perteneciente a un nombre de usuario en la BD
         /// </summary>
-        /// <param name="nombre"></param>
+        /// <param name="nombre">Nombre del usuario del que se le quiere validar la contraseña</param>
         /// <returns></returns>
         public static bool CompruebaUsuario(string nombre)
         {

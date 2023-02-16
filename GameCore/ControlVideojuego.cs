@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace GameCore
 {
+    /// <summary>
+    /// Control Personalizado encargado de almacenar la portada y el titulo del videojuego. Este control es básicamente el videojuego que se añade al FlowLayoutPanel
+    /// </summary>
     public partial class ControlVideojuego : Control
     {
         private PictureBox portada;
@@ -46,13 +49,22 @@ namespace GameCore
             portada.Click += ControlPersonalizado_DobleClick;
         }
 
-        public void UpdateData(string t, Image imagen)
+        /// <summary>
+        /// Método al que se le pasan dos parámetros, titulo y portada y sirve para actualizar los datos del control personalizado y así ir mostrando los videojuegos de la BD
+        /// </summary>
+        /// <param name="t">titulo del videojuego</param>
+        /// <param name="imagen">portada del videojuego</param>
+        public void ActualizarDatos(string t, Image imagen)
         {
             // SE ACTUALIZA EL CONTROL EN BASE A LOS VALORES PASADOS COMO PARÁMETROS A LA FUNCIÓN
             portada.Image = imagen;
             titulo.Text = t;
         }
-
+        /// <summary>
+        /// Método que abre la vista detallada del videojuego cuando se hace click sobre él
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ControlPersonalizado_DobleClick(object sender, EventArgs e)
         {
             FormDetalle vistaDetalle = new FormDetalle();

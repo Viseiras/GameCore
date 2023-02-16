@@ -38,7 +38,7 @@ namespace GameCore
             //para que cambie el nombre de la forma al título del juego
             this.Text = Titulo;
             tbTitulo.Text = Titulo;
-            languajeChanger();
+            CambiarIdioma();
             //gestionamos los colores en base al modo oscuro
             if (FormPerfil.darkmode)
             {
@@ -172,7 +172,11 @@ namespace GameCore
 
             }
         }
-
+        /// <summary>
+        /// Cuando se hace doble click en la portada se abre el OpenFileDialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pbPortada_DoubleClick(object sender, EventArgs e)
         {
             //Creamos el objeto OpenFileDialog para abrir el explorador de archivos con su filtro para que sean esos 4 tipos de imagenes (los gif se quedan con el primer frame)
@@ -187,7 +191,11 @@ namespace GameCore
                 fotomodificada = true;
             }
         }
-
+        /// <summary>
+        /// Boton cancelar para salir del modo edición, se cambia lo que se muestra al usuario 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (modoedicion == true)
@@ -264,7 +272,8 @@ namespace GameCore
                 MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
             }
         }
-        public void languajeChanger()
+
+        public void CambiarIdioma()
         {
             if (FormPerfil.idIdioma == 0)
             {

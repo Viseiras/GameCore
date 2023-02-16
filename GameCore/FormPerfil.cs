@@ -67,8 +67,10 @@ namespace GameCore
             }
         }
 
-
-        public void languajeChanger()
+        /// <summary>
+        /// Método que sirve para cambiar el idioma de la aplicacion en funcion de cual ha elegido el usuario en el comboBox
+        /// </summary>
+        public void CambiarIdioma()
         {
             if (idIdioma == 0)
             {
@@ -174,8 +176,6 @@ namespace GameCore
         /// <summary>
         /// Método que nos permite cambiar la imagen de perfil
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void CambiarImagen()
         {
             OpenFileDialog opd = new OpenFileDialog();
@@ -219,7 +219,7 @@ namespace GameCore
         private void FormPerfil_Load_1(object sender, EventArgs e)
         {
             label_nombreUsuario.Text = FormaInicioSesion.nombreUsuario;
-            languajeChanger();
+            CambiarIdioma();
             if (darkmode == true)
             {
                 toogleBoxCustomDarkMode.Checked = true;
@@ -271,7 +271,7 @@ namespace GameCore
 
         private void idiomaCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            languajeChanger();
+            CambiarIdioma();
             if(idiomaCombo.Text== "Español")
             {
                 idIdioma = 0;
