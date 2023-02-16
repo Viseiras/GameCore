@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,23 +21,40 @@ namespace GameCore
 
         private void PruebaDgv_Load(object sender, EventArgs e)
         {
+            string titulo;
+            string descripcion;
+            int rowid=0;
             dgvVideojuegos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
             {
                 conexion.Open();
-                string query = "SELECT titulo, descripcion, portada FROM videojuegos where fk_usuario = 1";
-
-                // Create a DataTable to hold the data
-                DataTable dataTable = new DataTable();
-
-                // Use a DataAdapter to fill the DataTable with data from the database
-                using (SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, conexion))
+                string query = "SELECT titulo, descripcion, portada FROM videojuegos where fk_usuario = " + MetodosSqlite.pkUsuario;
+                using (SQLiteCommand command = new SQLiteCommand(query, conexion))
                 {
-                    dataAdapter.Fill(dataTable);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Image imagen;
+                            titulo = (string)reader["titulo"];
+                            descripcion = (string)reader["descripcion"];
+                            byte[] portada = (byte[])reader["portada"];
+                            // Convertimos el array de bytes a imagen
+                            using (MemoryStream ms = new MemoryStream(portada))
+                            {
+                                imagen = (Image)Bitmap.FromStream(ms);
+                            }
+                            string[] campos= new string[2];
+                            campos[0]=titulo.ToString();
+                            campos[1]=descripcion.ToString();
+                            dgvVideojuegos.Rows.Add(campos);
+                            dgvVideojuegos.Rows[rowid].Cells[2].Value = imagen;
+                            rowid++;
+                        }
+                    }
                 }
+                
 
-                // Set the DataSource property of the DataGridView to the DataTable
-                dgvVideojuegos.DataSource = dataTable;
             }
 
         }

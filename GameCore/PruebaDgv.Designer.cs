@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PruebaDgv));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvVideojuegos = new System.Windows.Forms.DataGridView();
             this.panelLateral = new System.Windows.Forms.Panel();
             this.label_vistaLista = new System.Windows.Forms.Label();
@@ -62,6 +64,7 @@
             // 
             // dgvVideojuegos
             // 
+            this.dgvVideojuegos.AllowUserToAddRows = false;
             this.dgvVideojuegos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -70,11 +73,13 @@
             this.Titulo,
             this.Descripcion,
             this.Portada});
-            this.dgvVideojuegos.Location = new System.Drawing.Point(271, 73);
+            this.dgvVideojuegos.Location = new System.Drawing.Point(203, 59);
+            this.dgvVideojuegos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvVideojuegos.Name = "dgvVideojuegos";
             this.dgvVideojuegos.RowHeadersWidth = 51;
-            this.dgvVideojuegos.RowTemplate.Height = 24;
-            this.dgvVideojuegos.Size = new System.Drawing.Size(911, 500);
+            this.dgvVideojuegos.RowTemplate.Height = 200;
+            this.dgvVideojuegos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVideojuegos.Size = new System.Drawing.Size(683, 406);
             this.dgvVideojuegos.TabIndex = 0;
             // 
             // panelLateral
@@ -88,10 +93,9 @@
             this.panelLateral.Controls.Add(this.label_nombreUsuario);
             this.panelLateral.Controls.Add(this.pictureBox_ImagenPerfil);
             this.panelLateral.Controls.Add(this.toolStrip__menuInferior);
-            this.panelLateral.Location = new System.Drawing.Point(0, 23);
-            this.panelLateral.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLateral.Location = new System.Drawing.Point(0, 19);
             this.panelLateral.Name = "panelLateral";
-            this.panelLateral.Size = new System.Drawing.Size(255, 563);
+            this.panelLateral.Size = new System.Drawing.Size(191, 457);
             this.panelLateral.TabIndex = 2;
             // 
             // label_vistaLista
@@ -100,10 +104,11 @@
             this.label_vistaLista.AutoSize = true;
             this.label_vistaLista.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_vistaLista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_vistaLista.Location = new System.Drawing.Point(61, 276);
-            this.label_vistaLista.MaximumSize = new System.Drawing.Size(100, 100);
+            this.label_vistaLista.Location = new System.Drawing.Point(46, 224);
+            this.label_vistaLista.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_vistaLista.MaximumSize = new System.Drawing.Size(75, 81);
             this.label_vistaLista.Name = "label_vistaLista";
-            this.label_vistaLista.Size = new System.Drawing.Size(94, 25);
+            this.label_vistaLista.Size = new System.Drawing.Size(44, 40);
             this.label_vistaLista.TabIndex = 98;
             this.label_vistaLista.Text = "Vista lista";
             this.label_vistaLista.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,9 +120,10 @@
             this.label_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_cerrarSesion.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_cerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.label_cerrarSesion.Location = new System.Drawing.Point(76, 476);
+            this.label_cerrarSesion.Location = new System.Drawing.Point(57, 387);
+            this.label_cerrarSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_cerrarSesion.Name = "label_cerrarSesion";
-            this.label_cerrarSesion.Size = new System.Drawing.Size(113, 23);
+            this.label_cerrarSesion.Size = new System.Drawing.Size(97, 19);
             this.label_cerrarSesion.TabIndex = 97;
             this.label_cerrarSesion.Text = "Cerrar sesión";
             // 
@@ -126,10 +132,10 @@
             this.pictureBox_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox_cerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cerrarSesion.Image")));
-            this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(12, 458);
-            this.pictureBox_cerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(9, 372);
+            this.pictureBox_cerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox_cerrarSesion.Name = "pictureBox_cerrarSesion";
-            this.pictureBox_cerrarSesion.Size = new System.Drawing.Size(59, 50);
+            this.pictureBox_cerrarSesion.Size = new System.Drawing.Size(44, 41);
             this.pictureBox_cerrarSesion.TabIndex = 5;
             this.pictureBox_cerrarSesion.TabStop = false;
             // 
@@ -139,10 +145,11 @@
             this.label_nombreUsuario.AutoSize = true;
             this.label_nombreUsuario.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_nombreUsuario.Location = new System.Drawing.Point(61, 190);
-            this.label_nombreUsuario.MaximumSize = new System.Drawing.Size(100, 100);
+            this.label_nombreUsuario.Location = new System.Drawing.Point(46, 154);
+            this.label_nombreUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_nombreUsuario.MaximumSize = new System.Drawing.Size(75, 81);
             this.label_nombreUsuario.Name = "label_nombreUsuario";
-            this.label_nombreUsuario.Size = new System.Drawing.Size(94, 50);
+            this.label_nombreUsuario.Size = new System.Drawing.Size(67, 40);
             this.label_nombreUsuario.TabIndex = 0;
             this.label_nombreUsuario.Text = "NombreUsuario";
             this.label_nombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,10 +157,9 @@
             // pictureBox_ImagenPerfil
             // 
             this.pictureBox_ImagenPerfil.Image = global::GameCore.Properties.Resources.foto_perfil_vacia;
-            this.pictureBox_ImagenPerfil.Location = new System.Drawing.Point(37, 27);
-            this.pictureBox_ImagenPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox_ImagenPerfil.Location = new System.Drawing.Point(28, 22);
             this.pictureBox_ImagenPerfil.Name = "pictureBox_ImagenPerfil";
-            this.pictureBox_ImagenPerfil.Size = new System.Drawing.Size(149, 148);
+            this.pictureBox_ImagenPerfil.Size = new System.Drawing.Size(112, 120);
             this.pictureBox_ImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_ImagenPerfil.TabIndex = 3;
             this.pictureBox_ImagenPerfil.TabStop = false;
@@ -170,11 +176,11 @@
             this.toolStripSeparator1,
             this.tslblexit,
             this.toolStripButton3});
-            this.toolStrip__menuInferior.Location = new System.Drawing.Point(0, 539);
+            this.toolStrip__menuInferior.Location = new System.Drawing.Point(0, 433);
             this.toolStrip__menuInferior.Name = "toolStrip__menuInferior";
             this.toolStrip__menuInferior.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip__menuInferior.ShowItemToolTips = false;
-            this.toolStrip__menuInferior.Size = new System.Drawing.Size(220, 27);
+            this.toolStrip__menuInferior.Size = new System.Drawing.Size(183, 27);
             this.toolStrip__menuInferior.TabIndex = 95;
             this.toolStrip__menuInferior.Text = "Menu";
             // 
@@ -184,7 +190,7 @@
             this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // tslblSettings
@@ -193,7 +199,7 @@
             this.tslblSettings.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tslblSettings.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.tslblSettings.Name = "tslblSettings";
-            this.tslblSettings.Size = new System.Drawing.Size(64, 26);
+            this.tslblSettings.Size = new System.Drawing.Size(53, 26);
             this.tslblSettings.Text = "Ajustes";
             // 
             // toolStripSeparator1
@@ -205,7 +211,7 @@
             // 
             this.tslblexit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tslblexit.Name = "tslblexit";
-            this.tslblexit.Size = new System.Drawing.Size(79, 24);
+            this.tslblexit.Size = new System.Drawing.Size(64, 24);
             this.tslblexit.Text = "Esconder";
             // 
             // toolStripButton3
@@ -215,7 +221,7 @@
             this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // menu_VistaVacia
@@ -228,8 +234,8 @@
             this.ayudaToolStripMenuItem});
             this.menu_VistaVacia.Location = new System.Drawing.Point(0, 0);
             this.menu_VistaVacia.Name = "menu_VistaVacia";
-            this.menu_VistaVacia.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menu_VistaVacia.Size = new System.Drawing.Size(1199, 30);
+            this.menu_VistaVacia.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menu_VistaVacia.Size = new System.Drawing.Size(899, 24);
             this.menu_VistaVacia.TabIndex = 100;
             this.menu_VistaVacia.Text = "menuStrip1";
             // 
@@ -240,19 +246,19 @@
             this.ajustesToolStripMenuItem});
             this.boton_perfil_menu_strip.ForeColor = System.Drawing.Color.White;
             this.boton_perfil_menu_strip.Name = "boton_perfil_menu_strip";
-            this.boton_perfil_menu_strip.Size = new System.Drawing.Size(56, 24);
+            this.boton_perfil_menu_strip.Size = new System.Drawing.Size(46, 20);
             this.boton_perfil_menu_strip.Text = "Perfil";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
             // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
-            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.ajustesToolStripMenuItem.Text = "Ajustes";
             // 
             // boton_sistema_menu_strip
@@ -261,25 +267,27 @@
             this.boton_salir_programa_menu});
             this.boton_sistema_menu_strip.ForeColor = System.Drawing.Color.White;
             this.boton_sistema_menu_strip.Name = "boton_sistema_menu_strip";
-            this.boton_sistema_menu_strip.Size = new System.Drawing.Size(75, 24);
+            this.boton_sistema_menu_strip.Size = new System.Drawing.Size(60, 20);
             this.boton_sistema_menu_strip.Text = "Sistema";
             // 
             // boton_salir_programa_menu
             // 
             this.boton_salir_programa_menu.Name = "boton_salir_programa_menu";
-            this.boton_salir_programa_menu.Size = new System.Drawing.Size(216, 26);
+            this.boton_salir_programa_menu.Size = new System.Drawing.Size(170, 22);
             this.boton_salir_programa_menu.Text = "Salir del programa";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // Titulo
             // 
             this.Titulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.DefaultCellStyle = dataGridViewCellStyle3;
             this.Titulo.HeaderText = "Titulo";
             this.Titulo.MinimumWidth = 6;
             this.Titulo.Name = "Titulo";
@@ -287,6 +295,8 @@
             // Descripcion
             // 
             this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle4;
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.MinimumWidth = 6;
             this.Descripcion.Name = "Descripcion";
@@ -295,18 +305,19 @@
             // 
             this.Portada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Portada.HeaderText = "Portada";
-            this.Portada.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Portada.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Portada.MinimumWidth = 6;
             this.Portada.Name = "Portada";
             // 
             // PruebaDgv
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 585);
+            this.ClientSize = new System.Drawing.Size(899, 475);
             this.Controls.Add(this.menu_VistaVacia);
             this.Controls.Add(this.panelLateral);
             this.Controls.Add(this.dgvVideojuegos);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PruebaDgv";
             this.Text = "PruebaDgv";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

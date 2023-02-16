@@ -58,9 +58,9 @@ namespace GameCore
                                 {
                                     flVistaVacia.Refresh();
                                     // Conseguimos los datos de la fila actual
-                                    var titulo = (string)reader["titulo"];
+                                    string titulo = (string)reader["titulo"];
                                     byte[] portada = (byte[])reader["portada"];
-                                    var id = reader["id"];
+                                    int id = (int)reader["id"];
                                     Image imagen;
                                     // Convertimos el array de bytes a imagen
                                     using (MemoryStream ms = new MemoryStream(portada))
