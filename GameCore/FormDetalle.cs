@@ -38,7 +38,7 @@ namespace GameCore
             //para que cambie el nombre de la forma al título del juego
             this.Text = Titulo;
             tbTitulo.Text = Titulo;
-
+            languajeChanger();
             //gestionamos los colores en base al modo oscuro
             if (FormPerfil.darkmode)
             {
@@ -263,8 +263,34 @@ namespace GameCore
                 // Handle the exception here
                 MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
             }
-
-
+        }
+        public void languajeChanger()
+        {
+            if (FormPerfil.idIdioma == 0)
+            {
+                lblModoEdicion.Text = "Estás editando";
+                btnCancelar.Text ="Cancelar";
+                btnEditar.Text = "Editar";
+                Guardar.Text = "Guardar";
+                btnEliminar.Text = "Eliminar";
+                
+            }
+            else if (FormPerfil.idIdioma == 1)
+            {
+                lblModoEdicion.Text = "Voçe está editando";
+                btnCancelar.Text = "Cancelar";
+                btnEditar.Text = "Editar";
+                Guardar.Text = "Manter";
+                btnEliminar.Text = "Eliminar";
+            }
+            else if (FormPerfil.idIdioma == 2)
+            {
+                lblModoEdicion.Text = "You are editing";
+                btnCancelar.Text = "Cancel";
+                btnEditar.Text = "Edit";
+                Guardar.Text = "Save";
+                btnEliminar.Text = "Delete";
+            }
         }
     }
 }

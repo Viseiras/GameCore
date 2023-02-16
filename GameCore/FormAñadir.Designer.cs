@@ -35,7 +35,7 @@ namespace GameCore
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblPortada = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDesarrolladores = new System.Windows.Forms.Label();
             this.cbDesarrolladores = new System.Windows.Forms.ComboBox();
             this.button_aceptar = new System.Windows.Forms.Button();
             this.button_cancelar = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@ namespace GameCore
             this.tbTitulo.Location = new System.Drawing.Point(13, 47);
             this.tbTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitulo.Name = "tbTitulo";
-            this.tbTitulo.Size = new System.Drawing.Size(273, 30);
+            this.tbTitulo.Size = new System.Drawing.Size(273, 26);
             this.tbTitulo.TabIndex = 1;
             this.tbTitulo.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
@@ -61,7 +61,7 @@ namespace GameCore
             this.lblTitulo.Location = new System.Drawing.Point(9, 9);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(65, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(53, 19);
             this.lblTitulo.TabIndex = 7;
             this.lblTitulo.Text = "Titulo*";
             // 
@@ -82,7 +82,7 @@ namespace GameCore
             this.lblDescripcion.Location = new System.Drawing.Point(9, 131);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(103, 23);
+            this.lblDescripcion.Size = new System.Drawing.Size(87, 19);
             this.lblDescripcion.TabIndex = 11;
             this.lblDescripcion.Text = "Descripción";
             // 
@@ -93,20 +93,20 @@ namespace GameCore
             this.lblPortada.Location = new System.Drawing.Point(472, 54);
             this.lblPortada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPortada.Name = "lblPortada";
-            this.lblPortada.Size = new System.Drawing.Size(77, 23);
+            this.lblPortada.Size = new System.Drawing.Size(66, 19);
             this.lblPortada.TabIndex = 15;
             this.lblPortada.Text = "Portada ";
             // 
-            // label1
+            // labelDesarrolladores
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 457);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 23);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Desarrolladores*";
+            this.labelDesarrolladores.AutoSize = true;
+            this.labelDesarrolladores.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDesarrolladores.Location = new System.Drawing.Point(13, 457);
+            this.labelDesarrolladores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDesarrolladores.Name = "labelDesarrolladores";
+            this.labelDesarrolladores.Size = new System.Drawing.Size(122, 19);
+            this.labelDesarrolladores.TabIndex = 13;
+            this.labelDesarrolladores.Text = "Desarrolladores*";
             // 
             // cbDesarrolladores
             // 
@@ -121,7 +121,7 @@ namespace GameCore
             this.cbDesarrolladores.Location = new System.Drawing.Point(13, 495);
             this.cbDesarrolladores.Margin = new System.Windows.Forms.Padding(4);
             this.cbDesarrolladores.Name = "cbDesarrolladores";
-            this.cbDesarrolladores.Size = new System.Drawing.Size(273, 31);
+            this.cbDesarrolladores.Size = new System.Drawing.Size(273, 27);
             this.cbDesarrolladores.TabIndex = 5;
             // 
             // button_aceptar
@@ -193,7 +193,7 @@ namespace GameCore
             this.Controls.Add(this.button_aceptar);
             this.Controls.Add(this.pictureBoxAnadir);
             this.Controls.Add(this.cbDesarrolladores);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelDesarrolladores);
             this.Controls.Add(this.lblPortada);
             this.Controls.Add(this.tbDescripcion);
             this.Controls.Add(this.lblDescripcion);
@@ -216,7 +216,7 @@ namespace GameCore
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblPortada;
         private System.Windows.Forms.PictureBox pictureBoxAnadir;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDesarrolladores;
         private System.Windows.Forms.ComboBox cbDesarrolladores;
         private System.Windows.Forms.Button button_aceptar;
         private System.Windows.Forms.Button button_cancelar;

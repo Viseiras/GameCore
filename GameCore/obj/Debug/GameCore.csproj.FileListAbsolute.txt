@@ -86,7 +86,6 @@ C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.S
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.xml
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\bin\Debug\System.Data.SQLite.xml
-C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaInicioSesion.resources
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaRegistro.resources
 C:\Users\ciclosm\source\repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormVistaVacia.resources
@@ -138,3 +137,4 @@ C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.Form
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormDetalle.resources
 C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\obj\Debug\GameCore.PruebaDgv.resources
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.PruebaDgv.resources
+C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache

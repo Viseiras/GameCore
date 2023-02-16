@@ -19,7 +19,7 @@ namespace GameCore
     {
         public Image Foto;
         public string rutaPortada = "";
-
+        public static int idIdioma =0;
         public static bool darkmode = false;
         public FormPerfil()
         {
@@ -64,6 +64,60 @@ namespace GameCore
                 darkmode = false;
                 panelLateral.BackColor = Color.FromArgb(43, 43, 43);
                 BackColor = Color.FromArgb(235, 235, 235);
+            }
+        }
+
+
+        public void languajeChanger()
+        {
+            if (idIdioma == 0)
+            {
+                boton_perfil_menu_strip.Text = "Perfil";
+                cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+                ajustesToolStripMenuItem.Text = "Ajustes";
+                boton_sistema_menu_strip.Text = "Salir del programa";
+                ayudaToolStripMenuItem.Text = "Ayuda";
+                label_miColeccion.Text = "Mi colección";
+                labelTema.Text = "Cambiar tema";
+                label_idioma.Text = "Idioma";
+                btnCambiarImagen.Text = "Cambiar imagen";
+                button_ajustes_por_defecto.Text = "Ajustes por defecto";
+                boton_guardar.Text = "Guardar";
+                toolStrip_esconder.Text = "Esconder";
+                tslblDeplegar.Text = "Desplegar";
+                
+            }
+            else if (idIdioma == 1)
+            {
+                boton_perfil_menu_strip.Text = "Perfil";
+                cerrarSesiónToolStripMenuItem.Text = "Fechar sessão";
+                ajustesToolStripMenuItem.Text = "Configurações";
+                boton_sistema_menu_strip.Text = "Sair do programa";
+                ayudaToolStripMenuItem.Text = "Ajuda";
+                label_miColeccion.Text = "Miña coleção";
+                labelTema.Text = "Mudar tema";
+                label_idioma.Text = "Linguagem";
+                btnCambiarImagen.Text = "Mudar imagem";
+                button_ajustes_por_defecto.Text = "Configuraçoes padrão";
+                boton_guardar.Text = "Manter";
+                toolStrip_esconder.Text = "Esconder";
+                tslblDeplegar.Text = "Implantar";
+            }
+            else if (idIdioma == 2)
+            {
+                boton_perfil_menu_strip.Text = "Profile";
+                cerrarSesiónToolStripMenuItem.Text = "Log out";
+                ajustesToolStripMenuItem.Text = "Settings";
+                boton_sistema_menu_strip.Text = "Exit";
+                ayudaToolStripMenuItem.Text = "Help";
+                label_miColeccion.Text = "My collection";
+                labelTema.Text = "Change theme";
+                label_idioma.Text = "Language";
+                btnCambiarImagen.Text = "Change avatar";
+                button_ajustes_por_defecto.Text = "Default settings";
+                boton_guardar.Text = "Save";
+                toolStrip_esconder.Text = "Hide";
+                tslblDeplegar.Text = "Show";
             }
         }
 
@@ -165,7 +219,7 @@ namespace GameCore
         private void FormPerfil_Load_1(object sender, EventArgs e)
         {
             label_nombreUsuario.Text = FormaInicioSesion.nombreUsuario;
-
+            languajeChanger();
             if (darkmode == true)
             {
                 toogleBoxCustomDarkMode.Checked = true;
@@ -213,6 +267,23 @@ namespace GameCore
         private void label_miColeccion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void idiomaCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            languajeChanger();
+            if(idiomaCombo.Text== "Español")
+            {
+                idIdioma = 0;
+            }
+            else if(idiomaCombo.Text== "Portugués")
+            {
+                idIdioma = 1;
+            }
+            else if (idiomaCombo.Text == "Inglés")
+            {
+                idIdioma = 2;
+            }
         }
     }
 }

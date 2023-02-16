@@ -20,7 +20,7 @@ namespace GameCore
         public Image Foto;
         public String Titulo { set; get; }
 
-        public String Descripcion = " ";
+        public String Descripcion = "";
         public string rutaPortada = "";
 
         public formAñadir()
@@ -45,6 +45,7 @@ namespace GameCore
         //cuando carga el formulario pone el valor del ID del form principal 
         private void formAnadir_Load(object sender, EventArgs e)
         {
+            languajeChanger();
             pictureBoxAnadir.AllowDrop = true;
             if (FormPerfil.darkmode)
             {
@@ -91,38 +92,46 @@ namespace GameCore
 
         private void button_aceptar_Click(object sender, EventArgs e)
         {
-            try
+            if(cbDesarrolladores.SelectedIndex!=-1)
             {
-                /*
-             * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
-             * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
-             * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
-
-
-                using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                try
                 {
-                    conexion.Open();
-                    byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
+                    /*
+                 * INSERTAR EN LA BD EL VIDEOJUEGO, ESTRUCTURA DE LA TABLA
+                 * TABLE videojuegos (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, descripcion TEXT, desarrolladores TEXT, 
+                 * portada BLOB, fk_usuario INTEGER, FOREIGN KEY (fk_usuario) REFERENCES usuarios(id))*/
 
-                    //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
-                    using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
+
+                    using (conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                     {
-                        command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
-                        command.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
-                        command.Parameters.AddWithValue("@desarrolladores", cbDesarrolladores.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@portada", portada);
-                        command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.pkUsuario);
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("Juego insertado en la BD.");
+                        conexion.Open();
+                        byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
+
+                        //INSERTAMOS LOS DATOS DEL VIDEOJUEGO EN LA BASE DE DATOS
+                        using (SQLiteCommand command = new SQLiteCommand("INSERT INTO videojuegos (titulo,descripcion,desarrolladores,portada,fk_usuario) VALUES (@titulo,@descripcion,@desarrolladores,@portada,@fk_usuario)", conexion))
+                        {
+                            command.Parameters.AddWithValue("@titulo", tbTitulo.Text);
+                            command.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
+                            command.Parameters.AddWithValue("@desarrolladores", cbDesarrolladores.SelectedItem.ToString());
+                            command.Parameters.AddWithValue("@portada", portada);
+                            command.Parameters.AddWithValue("@fk_usuario", MetodosSqlite.pkUsuario);
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("Juego insertado en la BD.");
+                        }
                     }
+                    this.DialogResult = DialogResult.OK;
                 }
-                this.DialogResult = DialogResult.OK;
+                catch (SQLiteException ex)
+                {
+                    // Handle the exception here
+                    MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                }
             }
-            catch (SQLiteException ex)
+            else
             {
-                // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Debes seleccionar un desarrollador");
             }
+           
         }
 
         private void button_cancelar_Click(object sender, EventArgs e)
@@ -141,6 +150,40 @@ namespace GameCore
                 Foto = (Image)new Bitmap(opd.FileName);
                 pictureBoxAnadir.Image = new Bitmap(opd.FileName);
                 rutaPortada = opd.FileName;
+            }
+        }
+
+        public void languajeChanger()
+        {
+            if (FormPerfil.idIdioma == 0)
+            {
+                lblTitulo.Text = "Titulo*";
+                lblDescripcion.Text = "Descripción*";
+                labelDesarrolladores.Text = "Desarrolladores*";
+                lblPortada.Text = "Portada*";
+                button_añadir_imagen.Text = "Añadir imagen";
+                button_cancelar.Text = "Cancelar";
+                button_aceptar.Text = "Aceptar";
+            }
+            else if (FormPerfil.idIdioma == 1)
+            {
+                lblTitulo.Text = "Nome*";
+                lblDescripcion.Text = "Descrição";
+                labelDesarrolladores.Text = "Desenvolvedores*";
+                lblPortada.Text = "Arte de capa*";
+                button_añadir_imagen.Text = "Adicionar imagem";
+                button_cancelar.Text = "Cancelar";
+                button_aceptar.Text = "Aceitar";
+            }
+            else if (FormPerfil.idIdioma == 2)
+            {
+                lblTitulo.Text = "Title*";
+                lblDescripcion.Text = "Description*";
+                labelDesarrolladores.Text = "Developers*";
+                lblPortada.Text = "Cover*";
+                button_añadir_imagen.Text = "Add image";
+                button_cancelar.Text = "Cancel";
+                button_aceptar.Text = "Accept";
             }
         }
     }

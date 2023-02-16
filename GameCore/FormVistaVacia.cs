@@ -151,6 +151,7 @@ namespace GameCore
                 MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
             pictureBox_ImagenPerfil.Refresh();
+            languajeChanger();
         }
 
         /// <summary>
@@ -540,6 +541,57 @@ namespace GameCore
         private void label_nombreUsuario_Click(object sender, EventArgs e)
         {
             Settings_Click(null, null);
+        }
+        public void languajeChanger()
+        {
+            if (FormPerfil.idIdioma == 0)
+            {
+                boton_perfil_menu_strip.Text = "Perfil";
+                cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+                boton_sistema_menu_strip.Text = "Salir del programa";
+                ajustesToolStripMenuItem.Text = "Ajustes";
+                ayudaToolStripMenuItem.Text = "Ayuda";
+                tslblexit.Text = "Esconder";
+                tslblDeplegar.Text = "Desplegar";
+                textBox_buscar.Text = "Introduce el título de un videojuego";
+                button_buscar.Text = "Buscar";
+                label_cerrarSesion.Text = "Cerrar Sesión";
+                btnAnadir.Text = "Añadir";
+                label_mostrarColeccion.Text = "Mostrar toda la colección";
+                label_vistaLista.Text = "Vista lista";
+            }
+            else if (FormPerfil.idIdioma == 1)
+            {
+                boton_perfil_menu_strip.Text = "Perfil";
+                cerrarSesiónToolStripMenuItem.Text = "Fechar sessão";
+                boton_sistema_menu_strip.Text = "Sair do programa";
+                ajustesToolStripMenuItem.Text = "Configurações";
+                ayudaToolStripMenuItem.Text = "Ajuda";
+                tslblexit.Text = "Esconder";
+                tslblDeplegar.Text = "Implantar";
+                textBox_buscar.Text = "Insira o título de um jogo de vídeo";
+                button_buscar.Text = "Achar";
+                label_cerrarSesion.Text = "Fechar sessão";
+                btnAnadir.Text = "Adicionar";
+                label_mostrarColeccion.Text = "Mostrar toda a coleção";
+                label_vistaLista.Text = "Exibicão";
+            }
+            else if (FormPerfil.idIdioma == 2)
+            {
+                boton_perfil_menu_strip.Text = "Profile";
+                cerrarSesiónToolStripMenuItem.Text = "Log out";
+                boton_sistema_menu_strip.Text = "Exit";
+                ajustesToolStripMenuItem.Text = "Settings";
+                ayudaToolStripMenuItem.Text = "Help";
+                tslblexit.Text = "Hide";
+                tslblDeplegar.Text = "Show";
+                textBox_buscar.Text = "Search a videogame title";
+                button_buscar.Text = "Search";
+                label_cerrarSesion.Text = "Log off";
+                btnAnadir.Text = "Add";
+                label_mostrarColeccion.Text = "Show all collection";
+                label_vistaLista.Text = "List view";
+            }
         }
     }
 }
