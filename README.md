@@ -1,3 +1,5 @@
+Nota para Miguel: si te da problemas al abrir el proyecto con visual studio utiliza mejor el fichero .zip pasado que hemos adjuntado por Classroom, por lo visto ha habido algún conflicto con GitHub.
+
 # Game Core
 
 Game Core es una aplicación de gestión de videojuegos diseñada para que los usuarios puedan organizar su colección de juegos de manera eficiente. Con Game Core, 
