@@ -141,3 +141,10 @@ C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.cspr
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.pdb
 C:\Users\ciclosm\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\x86\sqlite3.dll
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\x64\sqlite3.dll
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\GameCore.exe.manifest
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\GameCore.application
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.TrustInfo.xml
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.exe.manifest
+C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.application
