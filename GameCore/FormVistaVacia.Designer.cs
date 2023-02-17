@@ -30,24 +30,19 @@ namespace GameCore
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVistaVacia));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsMenuCerrado = new System.Windows.Forms.ToolStrip();
             this.tslblDeplegar = new System.Windows.Forms.ToolStripLabel();
-            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
-            this.btnAnadir = new System.Windows.Forms.Button();
             this.toolStrip__menuInferior = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tslblSettings = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslblexit = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panelLateral = new System.Windows.Forms.Panel();
             this.label_vistaLista = new System.Windows.Forms.Label();
             this.label_cerrarSesion = new System.Windows.Forms.Label();
-            this.pictureBox_cerrarSesion = new System.Windows.Forms.PictureBox();
             this.label_nombreUsuario = new System.Windows.Forms.Label();
-            this.pictureBox_ImagenPerfil = new System.Windows.Forms.PictureBox();
-            this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
             this.menu_VistaVacia = new System.Windows.Forms.MenuStrip();
             this.boton_perfil_menu_strip = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,15 +52,27 @@ namespace GameCore
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_buscar = new System.Windows.Forms.TextBox();
             this.button_buscar = new System.Windows.Forms.Button();
+            this.flVistaVacia = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAnadir = new System.Windows.Forms.Button();
             this.label_mostrarColeccion = new System.Windows.Forms.Label();
             this.pictureBox_mostrarColeccion = new System.Windows.Forms.PictureBox();
+            this.pictureBox_cerrarSesion = new System.Windows.Forms.PictureBox();
+            this.pictureBox_ImagenPerfil = new System.Windows.Forms.PictureBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
+            this.dgvVideojuegos = new System.Windows.Forms.DataGridView();
+            this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Portada = new System.Windows.Forms.DataGridViewImageColumn();
             this.tsMenuCerrado.SuspendLayout();
             this.toolStrip__menuInferior.SuspendLayout();
             this.panelLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).BeginInit();
             this.menu_VistaVacia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mostrarColeccion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVideojuegos)).BeginInit();
             this.SuspendLayout();
             // 
             // tsMenuCerrado
@@ -76,10 +83,10 @@ namespace GameCore
             this.tsMenuCerrado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblDeplegar,
             this.tsbtnRegresa});
-            this.tsMenuCerrado.Location = new System.Drawing.Point(0, 460);
+            this.tsMenuCerrado.Location = new System.Drawing.Point(0, 455);
             this.tsMenuCerrado.Name = "tsMenuCerrado";
             this.tsMenuCerrado.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsMenuCerrado.Size = new System.Drawing.Size(837, 22);
+            this.tsMenuCerrado.Size = new System.Drawing.Size(837, 27);
             this.tsMenuCerrado.TabIndex = 2;
             this.tsMenuCerrado.Text = "Desplegar ";
             this.tsMenuCerrado.Visible = false;
@@ -87,38 +94,13 @@ namespace GameCore
             // tslblDeplegar
             // 
             this.tslblDeplegar.Name = "tslblDeplegar";
-            this.tslblDeplegar.Size = new System.Drawing.Size(59, 19);
+            this.tslblDeplegar.Size = new System.Drawing.Size(59, 24);
             this.tslblDeplegar.Text = "Desplegar";
             this.tslblDeplegar.Click += new System.EventHandler(this.desplegar_click);
-            // 
-            // tsbtnRegresa
-            // 
-            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
-            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.Name = "tsbtnRegresa";
-            this.tsbtnRegresa.Size = new System.Drawing.Size(24, 19);
-            this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
             // 
             // sqLiteCommand1
             // 
             this.sqLiteCommand1.CommandText = null;
-            // 
-            // btnAnadir
-            // 
-            this.btnAnadir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnadir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.btnAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnadir.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnadir.ForeColor = System.Drawing.Color.White;
-            this.btnAnadir.Location = new System.Drawing.Point(718, 440);
-            this.btnAnadir.Name = "btnAnadir";
-            this.btnAnadir.Size = new System.Drawing.Size(106, 37);
-            this.btnAnadir.TabIndex = 4;
-            this.btnAnadir.Text = "Añadir Juego";
-            this.btnAnadir.UseVisualStyleBackColor = false;
-            this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
             // 
             // toolStrip__menuInferior
             // 
@@ -139,16 +121,6 @@ namespace GameCore
             this.toolStrip__menuInferior.Size = new System.Drawing.Size(183, 27);
             this.toolStrip__menuInferior.TabIndex = 6;
             this.toolStrip__menuInferior.Text = "Menu";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
             // 
             // tslblSettings
             // 
@@ -172,17 +144,6 @@ namespace GameCore
             this.tslblexit.Size = new System.Drawing.Size(64, 24);
             this.tslblexit.Text = "Esconder";
             this.tslblexit.Click += new System.EventHandler(this.esconder_click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.BackgroundImage = global::GameCore.Properties.Resources.settings;
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
             // 
             // panelLateral
             // 
@@ -232,19 +193,6 @@ namespace GameCore
             this.label_cerrarSesion.Text = "Cerrar sesión";
             this.label_cerrarSesion.Click += new System.EventHandler(this.label_cerrarSesion_Click);
             // 
-            // pictureBox_cerrarSesion
-            // 
-            this.pictureBox_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBox_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_cerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cerrarSesion.Image")));
-            this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(9, 370);
-            this.pictureBox_cerrarSesion.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox_cerrarSesion.Name = "pictureBox_cerrarSesion";
-            this.pictureBox_cerrarSesion.Size = new System.Drawing.Size(44, 41);
-            this.pictureBox_cerrarSesion.TabIndex = 5;
-            this.pictureBox_cerrarSesion.TabStop = false;
-            this.pictureBox_cerrarSesion.Click += new System.EventHandler(this.pictureBox_cerrarSesion_Click);
-            // 
             // label_nombreUsuario
             // 
             this.label_nombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -261,31 +209,6 @@ namespace GameCore
             this.label_nombreUsuario.Text = "NombreUsuario";
             this.label_nombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_nombreUsuario.Click += new System.EventHandler(this.label_nombreUsuario_Click);
-            // 
-            // pictureBox_ImagenPerfil
-            // 
-            this.pictureBox_ImagenPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_ImagenPerfil.Image = global::GameCore.Properties.Resources.foto_perfil_vacia;
-            this.pictureBox_ImagenPerfil.Location = new System.Drawing.Point(28, 22);
-            this.pictureBox_ImagenPerfil.Name = "pictureBox_ImagenPerfil";
-            this.pictureBox_ImagenPerfil.Size = new System.Drawing.Size(112, 120);
-            this.pictureBox_ImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_ImagenPerfil.TabIndex = 3;
-            this.pictureBox_ImagenPerfil.TabStop = false;
-            this.pictureBox_ImagenPerfil.Click += new System.EventHandler(this.Settings_Click);
-            // 
-            // flVistaVacia
-            // 
-            this.flVistaVacia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flVistaVacia.AutoScroll = true;
-            this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flVistaVacia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.flVistaVacia.Location = new System.Drawing.Point(197, 60);
-            this.flVistaVacia.Name = "flVistaVacia";
-            this.flVistaVacia.Size = new System.Drawing.Size(628, 365);
-            this.flVistaVacia.TabIndex = 93;
             // 
             // menu_VistaVacia
             // 
@@ -380,6 +303,34 @@ namespace GameCore
             this.button_buscar.UseVisualStyleBackColor = false;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
             // 
+            // flVistaVacia
+            // 
+            this.flVistaVacia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flVistaVacia.AutoScroll = true;
+            this.flVistaVacia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flVistaVacia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.flVistaVacia.Location = new System.Drawing.Point(197, 60);
+            this.flVistaVacia.Name = "flVistaVacia";
+            this.flVistaVacia.Size = new System.Drawing.Size(628, 365);
+            this.flVistaVacia.TabIndex = 93;
+            // 
+            // btnAnadir
+            // 
+            this.btnAnadir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAnadir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnadir.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnadir.ForeColor = System.Drawing.Color.White;
+            this.btnAnadir.Location = new System.Drawing.Point(718, 440);
+            this.btnAnadir.Name = "btnAnadir";
+            this.btnAnadir.Size = new System.Drawing.Size(106, 37);
+            this.btnAnadir.TabIndex = 4;
+            this.btnAnadir.Text = "Añadir Juego";
+            this.btnAnadir.UseVisualStyleBackColor = false;
+            this.btnAnadir.Click += new System.EventHandler(this.btnAnadir_Click);
+            // 
             // label_mostrarColeccion
             // 
             this.label_mostrarColeccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -409,6 +360,113 @@ namespace GameCore
             this.pictureBox_mostrarColeccion.TabStop = false;
             this.pictureBox_mostrarColeccion.Click += new System.EventHandler(this.pictureBox_mostrarColeccion_Click);
             // 
+            // pictureBox_cerrarSesion
+            // 
+            this.pictureBox_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_cerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cerrarSesion.Image")));
+            this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(9, 370);
+            this.pictureBox_cerrarSesion.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox_cerrarSesion.Name = "pictureBox_cerrarSesion";
+            this.pictureBox_cerrarSesion.Size = new System.Drawing.Size(44, 41);
+            this.pictureBox_cerrarSesion.TabIndex = 5;
+            this.pictureBox_cerrarSesion.TabStop = false;
+            this.pictureBox_cerrarSesion.Click += new System.EventHandler(this.pictureBox_cerrarSesion_Click);
+            // 
+            // pictureBox_ImagenPerfil
+            // 
+            this.pictureBox_ImagenPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_ImagenPerfil.Image = global::GameCore.Properties.Resources.foto_perfil_vacia;
+            this.pictureBox_ImagenPerfil.Location = new System.Drawing.Point(28, 22);
+            this.pictureBox_ImagenPerfil.Name = "pictureBox_ImagenPerfil";
+            this.pictureBox_ImagenPerfil.Size = new System.Drawing.Size(112, 120);
+            this.pictureBox_ImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_ImagenPerfil.TabIndex = 3;
+            this.pictureBox_ImagenPerfil.TabStop = false;
+            this.pictureBox_ImagenPerfil.Click += new System.EventHandler(this.Settings_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.BackgroundImage = global::GameCore.Properties.Resources.settings;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
+            // 
+            // tsbtnRegresa
+            // 
+            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
+            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.Name = "tsbtnRegresa";
+            this.tsbtnRegresa.Size = new System.Drawing.Size(24, 24);
+            this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
+            // 
+            // dgvVideojuegos
+            // 
+            this.dgvVideojuegos.AllowUserToAddRows = false;
+            this.dgvVideojuegos.AllowUserToDeleteRows = false;
+            this.dgvVideojuegos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVideojuegos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVideojuegos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Titulo,
+            this.Descripcion,
+            this.Portada});
+            this.dgvVideojuegos.Location = new System.Drawing.Point(196, 26);
+            this.dgvVideojuegos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvVideojuegos.Name = "dgvVideojuegos";
+            this.dgvVideojuegos.ReadOnly = true;
+            this.dgvVideojuegos.RowHeadersWidth = 51;
+            this.dgvVideojuegos.RowTemplate.Height = 200;
+            this.dgvVideojuegos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVideojuegos.Size = new System.Drawing.Size(630, 451);
+            this.dgvVideojuegos.TabIndex = 102;
+            this.dgvVideojuegos.Visible = false;
+            // 
+            // Titulo
+            // 
+            this.Titulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Titulo.HeaderText = "Titulo";
+            this.Titulo.MinimumWidth = 6;
+            this.Titulo.Name = "Titulo";
+            this.Titulo.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 6;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Portada
+            // 
+            this.Portada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Portada.HeaderText = "Portada";
+            this.Portada.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Portada.MinimumWidth = 6;
+            this.Portada.Name = "Portada";
+            // 
             // FormVistaVacia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,6 +483,7 @@ namespace GameCore
             this.Controls.Add(this.btnAnadir);
             this.Controls.Add(this.flVistaVacia);
             this.Controls.Add(this.tsMenuCerrado);
+            this.Controls.Add(this.dgvVideojuegos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu_VistaVacia;
             this.MinimumSize = new System.Drawing.Size(560, 392);
@@ -438,11 +497,12 @@ namespace GameCore
             this.toolStrip__menuInferior.PerformLayout();
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).EndInit();
             this.menu_VistaVacia.ResumeLayout(false);
             this.menu_VistaVacia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mostrarColeccion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVideojuegos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,7 +513,6 @@ namespace GameCore
         private System.Windows.Forms.ToolStripLabel tslblDeplegar;
         private System.Windows.Forms.ToolStripButton tsbtnRegresa;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
-        private System.Windows.Forms.Button btnAnadir;
         private System.Windows.Forms.ToolStrip toolStrip__menuInferior;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel tslblSettings;
@@ -461,7 +520,6 @@ namespace GameCore
         private System.Windows.Forms.ToolStripLabel tslblexit;
         private System.Windows.Forms.Panel panelLateral;
         private System.Windows.Forms.PictureBox pictureBox_ImagenPerfil;
-        private System.Windows.Forms.FlowLayoutPanel flVistaVacia;
         private System.Windows.Forms.Label label_nombreUsuario;
         private System.Windows.Forms.MenuStrip menu_VistaVacia;
         private System.Windows.Forms.ToolStripMenuItem boton_perfil_menu_strip;
@@ -475,9 +533,15 @@ namespace GameCore
         private System.Windows.Forms.TextBox textBox_buscar;
         private System.Windows.Forms.Button button_buscar;
         private System.Windows.Forms.Label label_vistaLista;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.FlowLayoutPanel flVistaVacia;
+        private System.Windows.Forms.Button btnAnadir;
         private System.Windows.Forms.Label label_mostrarColeccion;
         private System.Windows.Forms.PictureBox pictureBox_mostrarColeccion;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.DataGridView dgvVideojuegos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Titulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewImageColumn Portada;
     }
 }
 

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -76,12 +78,13 @@ namespace GameCore
                                     flVistaVacia.Controls.Add(control);
                                     cont++;
                                     textBox_buscar.Enabled= true;
+                                    CargarDatos();
+                                    
                                 }
                                     
                               
                             }
                         }
-                        MueveAnadir();
                     }
                 }
                 catch (SQLiteException ex)
@@ -150,6 +153,11 @@ namespace GameCore
                 BackColor = Color.FromArgb(34, 34, 34);
                 flVistaVacia.BackColor = Color.FromArgb(64, 64, 64);
                 label_mostrarColeccion.ForeColor = Color.White;
+                dgvVideojuegos.EnableHeadersVisualStyles = false;
+                dgvVideojuegos.BackgroundColor = Color.FromArgb(34, 34, 34);
+                dgvVideojuegos.GridColor= Color.FromArgb(34, 34, 34);
+                dgvVideojuegos.DefaultCellStyle.ForeColor = Color.White;
+                dgvVideojuegos.DefaultCellStyle.BackColor = Color.FromArgb(64, 64, 64); ;
             }
             else
             {
@@ -157,6 +165,11 @@ namespace GameCore
                 BackColor = Color.FromArgb(235, 235, 235);
                 flVistaVacia.BackColor = Color.FromArgb(235, 235, 235);
                 label_mostrarColeccion.ForeColor = Color.Black;
+                dgvVideojuegos.EnableHeadersVisualStyles = true;
+                dgvVideojuegos.BackgroundColor = Color.FromArgb(235, 235, 235);
+                dgvVideojuegos.GridColor = Color.Black;
+                dgvVideojuegos.DefaultCellStyle.ForeColor = Color.Black;
+                dgvVideojuegos.DefaultCellStyle.BackColor = Color.FromArgb(235, 235, 235);
             }
         }
 
@@ -200,6 +213,7 @@ namespace GameCore
         /// <param name="e"></param>
         private void FormVistaVacia_Load(object sender, EventArgs e)
         {
+            dgvVideojuegos.Rows.Clear();
             darkModeChanger();
             cont = 0;
             textBox_buscar.Enabled= true;
@@ -224,6 +238,7 @@ namespace GameCore
                                 cont++;
                                 // Conseguimos los datos de la fila actual
                                 string titulo = (string)reader["titulo"];
+                                string descripcion = (string)reader["descripcion"];
                                 byte[] portada = (byte[])reader["portada"];
                                 Image imagen;
                                 // Convertimos el array de bytes a imagen
@@ -240,6 +255,12 @@ namespace GameCore
                                 control.ActualizarDatos(titulo, imagen);
                                 flVistaVacia.Controls.Add(control);
 
+                                string[] campos = new string[2];
+                                campos[0] = titulo.ToString();
+                                campos[1] = descripcion.ToString();
+                                
+                                dgvVideojuegos.Rows.Add(campos);
+                                dgvVideojuegos.Rows[dgvVideojuegos.Rows.Count- 1].Cells[2].Value = imagen;
                             }
 
                             //no hay videojuegos introducidos por el usuario aún por lo que se muestra la ayuda de vista vacía
@@ -300,11 +321,11 @@ namespace GameCore
             catch (SQLiteException ex)
             {
                 // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
 
         }
-            
+
         /// <summary>
         /// Método que permite esconder el panel lateral
         /// </summary>
@@ -410,15 +431,13 @@ namespace GameCore
                             }
                         }
                     }
-                    MueveAnadir();
-
                 }
             }
             
             catch (SQLiteException ex)
             {
                 // Handle the exception here
-                MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
         }
         /// <summary>
@@ -435,15 +454,6 @@ namespace GameCore
             
         }
 
-        /// <summary>
-        /// Método que recarga los datos del FlowLayoutPanel para mostrar todos los videojuegos del usuario
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pictureBox_buscarClick(object sender, EventArgs e)
-        {
-            
-        }
         /// <summary>
         /// Método que cuando se quita el foco de la pictureBox muestra un texto de placeholder para ayudar al usuario
         /// </summary>
@@ -505,14 +515,29 @@ namespace GameCore
         }
 
         /*
-         * EXPERIMENTANDO CON UNA VISTA DE DATAGRIDVIEW, ELIMINAR SI NO ACABA PUEDIENDO IMPLEMENTARSE
+         * EXPERIMENTANDO CON UNA VISTA DE DATAGRIDVIEW, ELIMINAR SI NO ACABA PUDIENDO IMPLEMENTARSE
          */
         private void label_vistaLista_Click(object sender, EventArgs e)
         {
-            PruebaDgv dgv = new PruebaDgv();
-            if (dgv.ShowDialog() == DialogResult.OK)
+            if (dgvVideojuegos.Visible == true)
             {
-
+                dgvVideojuegos.Visible = false;
+                flVistaVacia.Visible= true;
+                textBox_buscar.Visible=true;
+                label_mostrarColeccion.Visible=true;
+                pictureBox_mostrarColeccion.Visible =true;
+                button_buscar.Visible=true;
+                label_vistaLista.Text = "Vista lista";
+            }
+            else
+            {
+                dgvVideojuegos.Visible = true;
+                flVistaVacia.Visible = false;
+                textBox_buscar.Visible = false;
+                label_mostrarColeccion.Visible = false;
+                pictureBox_mostrarColeccion.Visible = false;
+                button_buscar.Visible = false;
+                label_vistaLista.Text = "Vista colección";
             }
         }
         /// <summary>

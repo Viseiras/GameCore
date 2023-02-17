@@ -141,4 +141,3 @@ C:\Users\samu2\Desktop\RepoGit\Viseiras\GameCore\GameCore\bin\Debug\GameCore.xml
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\bin\Debug\GameCore.xml
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormaAyuda.resources
 C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.FormDetalle.resources
-C:\Users\javiv\Source\Repos\Viseiras\GameCore\GameCore\obj\Debug\GameCore.PruebaDgv.resources

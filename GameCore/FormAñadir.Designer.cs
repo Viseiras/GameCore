@@ -177,7 +177,7 @@ namespace GameCore
             this.pictureBoxAnadir.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxAnadir.Name = "pictureBoxAnadir";
             this.pictureBoxAnadir.Size = new System.Drawing.Size(225, 291);
-            this.pictureBoxAnadir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxAnadir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAnadir.TabIndex = 19;
             this.pictureBoxAnadir.TabStop = false;
             this.pictureBoxAnadir.Click += new System.EventHandler(this.btnFoto_Click);
