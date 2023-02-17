@@ -17,7 +17,7 @@ título en el cuadro de búsqueda.
 Game Core es fácil de usar y ofrece una interfaz intuitiva que hace que la gestión de la colección de juegos sea un proceso rápido y sencillo. Además, la aplicación está 
 construida con tecnología de base de datos SQLite, lo que significa que los datos de la colección están protegidos y seguros.
 
-En resumen, Game Core es una herramienta perfecta para los amantes de los videojuegos que buscan una manera eficiente de organizar su colección y encontrar rápidamente 
+En resumen Game Core es una herramienta perfecta para los amantes de los videojuegos que buscan una manera eficiente de organizar su colección y encontrar rápidamente 
 juegos específicos. Descárgalo hoy mismo y comienza a organizar tu colección de videojuegos.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
