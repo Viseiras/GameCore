@@ -57,7 +57,7 @@
             this.pbPortada.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.pbPortada.Enabled = false;
             this.pbPortada.Location = new System.Drawing.Point(28, 66);
-            this.pbPortada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbPortada.Margin = new System.Windows.Forms.Padding(2);
             this.pbPortada.Name = "pbPortada";
             this.pbPortada.Size = new System.Drawing.Size(151, 201);
             this.pbPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -73,7 +73,7 @@
             this.textBoxDescripcion.Enabled = false;
             this.textBoxDescripcion.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDescripcion.Location = new System.Drawing.Point(230, 66);
-            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.Size = new System.Drawing.Size(262, 201);
             this.textBoxDescripcion.TabIndex = 1;
@@ -82,6 +82,7 @@
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Location = new System.Drawing.Point(412, 287);
@@ -95,6 +96,7 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Location = new System.Drawing.Point(319, 287);
@@ -108,11 +110,12 @@
             // Guardar
             // 
             this.Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Guardar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Guardar.ForeColor = System.Drawing.Color.White;
             this.Guardar.Location = new System.Drawing.Point(412, 287);
             this.Guardar.Name = "Guardar";
-            this.Guardar.Size = new System.Drawing.Size(88, 36);
+            this.Guardar.Size = new System.Drawing.Size(80, 36);
             this.Guardar.TabIndex = 2;
             this.Guardar.Text = "Guardar";
             this.Guardar.UseVisualStyleBackColor = false;
@@ -122,9 +125,10 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(319, 287);
+            this.btnCancelar.Location = new System.Drawing.Point(318, 287);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 36);
             this.btnCancelar.TabIndex = 5;
@@ -169,7 +173,7 @@
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.pbPortada);
             this.Controls.Add(this.tbTitulo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VistaDetalle";

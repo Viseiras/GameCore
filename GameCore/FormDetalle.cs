@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameCore
@@ -17,13 +11,17 @@ namespace GameCore
     /// </summary>
     public partial class FormDetalle : Form
     {
+        /// <summary>
+        /// Atributo titulo
+        /// </summary>
         public String Titulo { get; set; }
-        public Image img { get; set; }
         private bool modoedicion = false;
         private bool fotomodificada = false;
         private string rutaPortada;
         private byte[] portadaAnterior;
-
+        /// <summary>
+        /// Constructor de la forma detalle
+        /// </summary>
         public FormDetalle()
         {
             InitializeComponent();
@@ -44,8 +42,6 @@ namespace GameCore
             labelTitulo.Text = Titulo;
             pbPortada.AllowDrop = true;
 
-            
-
             //leemos la información del videojuego para mostrar sus detalles (descripción, portada etc..)
             try
             {
@@ -53,7 +49,7 @@ namespace GameCore
                 {
                     conexion.Open();
 
-                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\"and titulo = \""+Titulo+"\"", conexion))
+                    using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM videojuegos WHERE fk_usuario = \"" + MetodosSqlite.pkUsuario + "\"and titulo = \"" + Titulo + "\"", conexion))
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
@@ -97,7 +93,7 @@ namespace GameCore
             if (data != null)
             {
                 string[] fileNames = data as string[];
-                if(fileNames.Length> 0)
+                if (fileNames.Length > 0)
                 {
                     pbPortada.Image = Image.FromFile(fileNames[0]);
                     fotomodificada = true;
@@ -117,12 +113,14 @@ namespace GameCore
         /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if(modoedicion==false)
+            if (modoedicion == false)
             {
                 modoedicion = true;
                 pbPortada.Enabled = true;
+                pbPortada.Cursor = Cursors.Hand;
                 textBoxDescripcion.Enabled = true;
                 labelTitulo.Enabled = true;
+                labelTitulo.Cursor = Cursors.Hand;
                 lblModoEdicion.Visible = true;
                 btnCancelar.Visible = true;
                 Guardar.Visible = true;
@@ -130,7 +128,6 @@ namespace GameCore
                 btnCancelar.Visible = true;
                 labelTitulo.Visible = false;
                 tbTitulo.Visible = true;
-
 
             }
         }
@@ -141,7 +138,8 @@ namespace GameCore
         /// <param name="e"></param>
         private void boton_eliminar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Estás seguro que quieres eliminar este videojuego?") == DialogResult.OK)
+            DialogResult confirmacion = MessageBox.Show("¿Estás seguro que quieres eliminar este videojuego?", "Eliminar", MessageBoxButtons.YesNoCancel);
+            if (confirmacion == DialogResult.Yes)
             {
                 //iniciamos la operación de borrado del videojuego en la BD
                 try
@@ -156,7 +154,7 @@ namespace GameCore
                             //cargamos la anterior forma tras eliminar el videojuego
                             FormVistaVacia previousForm = (FormVistaVacia)Application.OpenForms[Application.OpenForms.Count - 2];
                             previousForm.CargarDatos();
-                            this.DialogResult= DialogResult.OK;
+                            this.DialogResult = DialogResult.OK;
                         }
                     }
                 }
@@ -231,9 +229,9 @@ namespace GameCore
                 tbTitulo.Visible = false;
             }
 
-            if(string.IsNullOrEmpty(tbTitulo.Text))
+            if (string.IsNullOrEmpty(tbTitulo.Text))
             {
-                if(FormPerfil.idIdioma== 0) 
+                if (FormPerfil.idIdioma == 0)
                 {
                     MessageBox.Show("El titulo no puede estar vacío");
                 }
@@ -248,7 +246,7 @@ namespace GameCore
             }
             else
             {
-                if(string.IsNullOrEmpty(textBoxDescripcion.Text))
+                if (string.IsNullOrEmpty(textBoxDescripcion.Text))
                 {
                     if (FormPerfil.idIdioma == 0)
                     {
@@ -326,17 +324,19 @@ namespace GameCore
                 }
             }
         }
-
+        /// <summary>
+        /// Funcion para cambiar el idioma de la aplicacion en base al idioma que haya seleccionado el usuario 
+        /// </summary>
         public void CambiarIdioma()
         {
             if (FormPerfil.idIdioma == 0)
             {
                 lblModoEdicion.Text = "Estás editando";
-                btnCancelar.Text ="Cancelar";
+                btnCancelar.Text = "Cancelar";
                 btnEditar.Text = "Editar";
                 Guardar.Text = "Guardar";
                 btnEliminar.Text = "Eliminar";
-                
+
             }
             else if (FormPerfil.idIdioma == 1)
             {
@@ -362,7 +362,7 @@ namespace GameCore
             {
                 BackColor = Color.FromArgb(64, 64, 64);
                 lblModoEdicion.ForeColor = Color.White;
-                labelTitulo.ForeColor = Color.White;     
+                labelTitulo.ForeColor = Color.White;
             }
             else
             {

@@ -17,7 +17,9 @@ namespace GameCore
     {
         private PictureBox portada;
         private Label titulo;
-
+        /// <summary>
+        /// Constructor del control personalizado
+        /// </summary>
         public ControlVideojuego()
         {
             // INICIAMOS LA IMAGEN

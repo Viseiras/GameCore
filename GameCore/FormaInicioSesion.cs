@@ -83,11 +83,6 @@ namespace GameCore
                 MessageBox.Show("El nombre de usuario que has introducido no es correcto");
             }
 
-            /* DESCOMENTAR PARA DESACTIVAR EL INICIO DE SESION
-            this.Hide();
-            FormVistaVacia formVistaVacia = new FormVistaVacia();
-            formVistaVacia.ShowDialog();
-            this.Close();*/
         }
         /// <summary>
         /// Método que al pulsar enter en el textbox de contraseña se inicie sesión.
@@ -114,7 +109,11 @@ namespace GameCore
             }
             
         }
-
+        /// <summary>
+        /// Método que sirve para ocultar los caracteres de la contraseña
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormaInicioSesion_Load(object sender, EventArgs e)
         {
             textBox_Contraseña.UseSystemPasswordChar=true;

@@ -18,10 +18,19 @@ namespace GameCore
     public partial class FormPerfil : Form
     {
         private bool fotomodificada = false;
-        public Image Foto;
-        public string rutaPortada = "";
-        public static int idIdioma =0;
+        private Image Foto;
+        private string rutaPortada = "";
+        /// <summary>
+        /// variable idioma, necesaria para ser accedida desde otras clases
+        /// </summary>
+        public static int idIdioma = 0;
+        /// <summary>
+        /// variable para saber si se tiene activado el modo oscuro
+        /// </summary>
         public static bool darkmode = false;
+        /// <summary>
+        /// Constructor de la forma perfil
+        /// </summary>
         public FormPerfil()
         {
             InitializeComponent();

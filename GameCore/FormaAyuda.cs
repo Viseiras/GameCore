@@ -15,14 +15,21 @@ namespace GameCore
     /// </summary>
     public partial class FormaAyuda : Form
     {
+        /// <summary>
+        /// Constructor de la Forma Ayuda
+        /// </summary>
         public FormaAyuda()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Boton para cerrar la ventana del tutorial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            this.DialogResult= DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

@@ -26,6 +26,9 @@ namespace GameCore
         SQLiteConnection conexion;
         static FlowLayoutPanel flp;
         ControlVideojuego control;
+        /// <summary>
+        /// Constructor de la forma vacia
+        /// </summary>
         public FormVistaVacia()
         {
             InitializeComponent();
@@ -119,17 +122,20 @@ namespace GameCore
                         {
                             if (reader.Read())
                             {
-                                byte[] avatar = (byte[])reader["avatar"];
-                                Image imagen;
-                                // Convertimos el array de bytes a imagen
-                                using (MemoryStream ms = new MemoryStream(avatar))
+                                if (reader["avatar"]!=DBNull.Value)
                                 {
-                                    //imagen = Image.FromStream(ms);
-                                    imagen = (Image)Bitmap.FromStream(ms);
+                                    byte[] avatar = (byte[])reader["avatar"];
+                                    Image imagen;
+                                    // Convertimos el array de bytes a imagen
+                                    using (MemoryStream ms = new MemoryStream(avatar))
+                                    {
+                                        //imagen = Image.FromStream(ms);
+                                        imagen = (Image)Bitmap.FromStream(ms);
 
-
+                                    }
+                                    pictureBox_ImagenPerfil.Image = imagen;
                                 }
-                                pictureBox_ImagenPerfil.Image = imagen;
+                                
                             }
                         }
                     }
@@ -195,6 +201,7 @@ namespace GameCore
             flp.Height = 200;
             flp.Width = 130;
             pb.Width = 120;
+            pb.Cursor = Cursors.Hand;
             tb.Width = 120;
             pb.Height = 160;
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -579,7 +586,9 @@ namespace GameCore
         {
             Settings_Click(null, null);
         }
-
+        /// <summary>
+        /// Método de cambiar idioma para cambiar el idioma de la app en funcion del idioma seleccionado por el usuario
+        /// </summary>
         public void CambiarIdioma()
         {
             if (FormPerfil.idIdioma == 0)

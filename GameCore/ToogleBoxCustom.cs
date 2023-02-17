@@ -20,11 +20,17 @@ namespace GameCore
         private Color onToggleColor= Color.DarkSlateBlue;
         private Color offBackColor = Color.LightBlue;
         private Color offToggleColor = Color.LightCyan;
+        /// <summary>
+        /// Iniciamos el tamaño minimo del toggle box
+        /// </summary>
         public ToogleBoxCustom()
         {
             this.MinimumSize = new Size(45, 22);
         }
-
+        /// <summary>
+        /// Esta funcion sirve para hacer más grande el toggle box desde la vista diseño
+        /// </summary>
+        /// <returns></returns>
         private GraphicsPath MoldeadoToggleBox()
         {
             int tamArco = this.Height - 1;
@@ -39,7 +45,10 @@ namespace GameCore
 
             return path;
         }
-
+        /// <summary>
+        /// Le da aspecto visual al toggle box
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
             int toggleSize = this.Height - 5;

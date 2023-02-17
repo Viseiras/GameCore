@@ -18,15 +18,13 @@ namespace GameCore
     public partial class FormaRegistro : Form
     {
         SQLiteConnection conexion;
+        /// <summary>
+        /// Constructor de la forma registro
+        /// </summary>
         public FormaRegistro()
         {
             InitializeComponent();
             
-        }
-
-        private void FormaRegistro_Load(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>

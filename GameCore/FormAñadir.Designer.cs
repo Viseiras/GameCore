@@ -110,6 +110,7 @@ namespace GameCore
             // 
             // cbDesarrolladores
             // 
+            this.cbDesarrolladores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbDesarrolladores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDesarrolladores.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDesarrolladores.FormattingEnabled = true;
@@ -128,6 +129,7 @@ namespace GameCore
             // 
             this.button_aceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.button_aceptar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_aceptar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_aceptar.ForeColor = System.Drawing.Color.White;
             this.button_aceptar.Location = new System.Drawing.Point(527, 571);
@@ -143,6 +145,7 @@ namespace GameCore
             // 
             this.button_cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.button_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_cancelar.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_cancelar.ForeColor = System.Drawing.Color.White;
             this.button_cancelar.Location = new System.Drawing.Point(412, 571);
@@ -158,6 +161,7 @@ namespace GameCore
             // 
             this.button_añadir_imagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_añadir_imagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.button_añadir_imagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_añadir_imagen.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_añadir_imagen.ForeColor = System.Drawing.Color.White;
             this.button_añadir_imagen.Location = new System.Drawing.Point(431, 410);
@@ -172,6 +176,7 @@ namespace GameCore
             // pictureBoxAnadir
             // 
             this.pictureBoxAnadir.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pictureBoxAnadir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxAnadir.Image = global::GameCore.Properties.Resources.info_drag_drop;
             this.pictureBoxAnadir.Location = new System.Drawing.Point(394, 98);
             this.pictureBoxAnadir.Margin = new System.Windows.Forms.Padding(4);

@@ -17,13 +17,12 @@ namespace GameCore
     public partial class formAñadir : Form
     {
         private SQLiteConnection conexion;
-        public Image Foto;
+        private Image Foto;
         private bool fotomodificada = false;
-        public String Titulo { set; get; }
-
-        public String Descripcion = "";
-        public string rutaPortada = "";
-
+        private string rutaPortada = "";
+        /// <summary>
+        /// Constructor de la forma añadir
+        /// </summary>
         public formAñadir()
         {
             InitializeComponent();
