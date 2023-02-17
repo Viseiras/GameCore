@@ -109,6 +109,7 @@ namespace GameCore
             if (form.ShowDialog() == DialogResult.OK)
             {
                 darkModeChanger();
+                CambiarIdioma();
             }
             try
             {
@@ -150,7 +151,9 @@ namespace GameCore
             CargarDatos();
             CambiarIdioma();
         }
-
+        /// <summary>
+        /// Método que activa el modo oscuro
+        /// </summary>
         private void darkModeChanger()
         {
             if (FormPerfil.darkmode)
@@ -221,6 +224,7 @@ namespace GameCore
         private void FormVistaVacia_Load(object sender, EventArgs e)
         {
             dgvVideojuegos.Rows.Clear();
+            CambiarIdioma();
             darkModeChanger();
             cont = 0;
             textBox_buscar.Enabled= true;
@@ -374,6 +378,7 @@ namespace GameCore
         /// <param name="e"></param>
         private void label_cerrarSesion_Click(object sender, EventArgs e)
         {
+            FormPerfil.lecturaincial = true;
             this.Hide();
             FormaInicioSesion inicioSesion = new FormaInicioSesion();
             inicioSesion.ShowDialog();
@@ -521,9 +526,11 @@ namespace GameCore
             this.FormVistaVacia_Load(null, null);
         }
 
-        /*
-         * EXPERIMENTANDO CON UNA VISTA DE DATAGRIDVIEW, ELIMINAR SI NO ACABA PUDIENDO IMPLEMENTARSE
-         */
+        /// <summary>
+        /// Método que cambia entre la pseudo vista de lista y la de colección
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_vistaLista_Click(object sender, EventArgs e)
         {
             if (dgvVideojuegos.Visible == true)
@@ -594,15 +601,14 @@ namespace GameCore
             if (FormPerfil.idIdioma == 0)
             {
                 boton_perfil_menu_strip.Text = "Perfil";
-                cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+                cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
                 boton_sistema_menu_strip.Text = "Salir del programa";
                 ajustesToolStripMenuItem.Text = "Ajustes";
                 ayudaToolStripMenuItem.Text = "Ayuda";
                 tslblexit.Text = "Esconder";
                 tslblDeplegar.Text = "Desplegar";
-                textBox_buscar.Text = "Introduce el título de un videojuego";
                 button_buscar.Text = "Buscar";
-                label_cerrarSesion.Text = "Cerrar Sesión";
+                label_cerrarSesion.Text = "Cerrar sesión";
                 btnAnadir.Text = "Añadir";
                 label_mostrarColeccion.Text = "Mostrar toda la colección";
                 label_vistaLista.Text = "Vista lista";
@@ -616,7 +622,6 @@ namespace GameCore
                 ayudaToolStripMenuItem.Text = "Ajuda";
                 tslblexit.Text = "Esconder";
                 tslblDeplegar.Text = "Implantar";
-                textBox_buscar.Text = "Insira o título de um jogo de vídeo";
                 button_buscar.Text = "Achar";
                 label_cerrarSesion.Text = "Fechar sessão";
                 btnAnadir.Text = "Adicionar";
@@ -632,7 +637,6 @@ namespace GameCore
                 ayudaToolStripMenuItem.Text = "Help";
                 tslblexit.Text = "Hide";
                 tslblDeplegar.Text = "Show";
-                textBox_buscar.Text = "Search a videogame title";
                 button_buscar.Text = "Search";
                 label_cerrarSesion.Text = "Log off";
                 btnAnadir.Text = "Add";

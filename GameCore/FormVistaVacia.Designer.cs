@@ -30,19 +30,24 @@ namespace GameCore
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVistaVacia));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsMenuCerrado = new System.Windows.Forms.ToolStrip();
             this.tslblDeplegar = new System.Windows.Forms.ToolStripLabel();
+            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.toolStrip__menuInferior = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tslblSettings = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslblexit = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.panelLateral = new System.Windows.Forms.Panel();
             this.label_vistaLista = new System.Windows.Forms.Label();
             this.label_cerrarSesion = new System.Windows.Forms.Label();
+            this.pictureBox_cerrarSesion = new System.Windows.Forms.PictureBox();
             this.label_nombreUsuario = new System.Windows.Forms.Label();
+            this.pictureBox_ImagenPerfil = new System.Windows.Forms.PictureBox();
             this.menu_VistaVacia = new System.Windows.Forms.MenuStrip();
             this.boton_perfil_menu_strip = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,11 +61,6 @@ namespace GameCore
             this.btnAnadir = new System.Windows.Forms.Button();
             this.label_mostrarColeccion = new System.Windows.Forms.Label();
             this.pictureBox_mostrarColeccion = new System.Windows.Forms.PictureBox();
-            this.pictureBox_cerrarSesion = new System.Windows.Forms.PictureBox();
-            this.pictureBox_ImagenPerfil = new System.Windows.Forms.PictureBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnRegresa = new System.Windows.Forms.ToolStripButton();
             this.dgvVideojuegos = new System.Windows.Forms.DataGridView();
             this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,10 +68,10 @@ namespace GameCore
             this.tsMenuCerrado.SuspendLayout();
             this.toolStrip__menuInferior.SuspendLayout();
             this.panelLateral.SuspendLayout();
-            this.menu_VistaVacia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mostrarColeccion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).BeginInit();
+            this.menu_VistaVacia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mostrarColeccion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVideojuegos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +98,16 @@ namespace GameCore
             this.tslblDeplegar.Text = "Desplegar";
             this.tslblDeplegar.Click += new System.EventHandler(this.desplegar_click);
             // 
+            // tsbtnRegresa
+            // 
+            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
+            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.tsbtnRegresa.Name = "tsbtnRegresa";
+            this.tsbtnRegresa.Size = new System.Drawing.Size(24, 24);
+            this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
+            // 
             // sqLiteCommand1
             // 
             this.sqLiteCommand1.CommandText = null;
@@ -122,6 +132,16 @@ namespace GameCore
             this.toolStrip__menuInferior.TabIndex = 6;
             this.toolStrip__menuInferior.Text = "Menu";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
+            // 
             // tslblSettings
             // 
             this.tslblSettings.AutoToolTip = true;
@@ -144,6 +164,17 @@ namespace GameCore
             this.tslblexit.Size = new System.Drawing.Size(64, 24);
             this.tslblexit.Text = "Esconder";
             this.tslblexit.Click += new System.EventHandler(this.esconder_click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.BackgroundImage = global::GameCore.Properties.Resources.settings;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
             // 
             // panelLateral
             // 
@@ -193,6 +224,19 @@ namespace GameCore
             this.label_cerrarSesion.Text = "Cerrar sesión";
             this.label_cerrarSesion.Click += new System.EventHandler(this.label_cerrarSesion_Click);
             // 
+            // pictureBox_cerrarSesion
+            // 
+            this.pictureBox_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_cerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cerrarSesion.Image")));
+            this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(9, 370);
+            this.pictureBox_cerrarSesion.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox_cerrarSesion.Name = "pictureBox_cerrarSesion";
+            this.pictureBox_cerrarSesion.Size = new System.Drawing.Size(44, 41);
+            this.pictureBox_cerrarSesion.TabIndex = 5;
+            this.pictureBox_cerrarSesion.TabStop = false;
+            this.pictureBox_cerrarSesion.Click += new System.EventHandler(this.pictureBox_cerrarSesion_Click);
+            // 
             // label_nombreUsuario
             // 
             this.label_nombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -209,6 +253,18 @@ namespace GameCore
             this.label_nombreUsuario.Text = "NombreUsuario";
             this.label_nombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_nombreUsuario.Click += new System.EventHandler(this.label_nombreUsuario_Click);
+            // 
+            // pictureBox_ImagenPerfil
+            // 
+            this.pictureBox_ImagenPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_ImagenPerfil.Image = global::GameCore.Properties.Resources.foto_perfil_vacia;
+            this.pictureBox_ImagenPerfil.Location = new System.Drawing.Point(28, 22);
+            this.pictureBox_ImagenPerfil.Name = "pictureBox_ImagenPerfil";
+            this.pictureBox_ImagenPerfil.Size = new System.Drawing.Size(112, 120);
+            this.pictureBox_ImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_ImagenPerfil.TabIndex = 3;
+            this.pictureBox_ImagenPerfil.TabStop = false;
+            this.pictureBox_ImagenPerfil.Click += new System.EventHandler(this.Settings_Click);
             // 
             // menu_VistaVacia
             // 
@@ -282,7 +338,6 @@ namespace GameCore
             this.textBox_buscar.Name = "textBox_buscar";
             this.textBox_buscar.Size = new System.Drawing.Size(246, 23);
             this.textBox_buscar.TabIndex = 2;
-            this.textBox_buscar.Text = "Introduce el título de un videojuego";
             this.textBox_buscar.TextChanged += new System.EventHandler(this.textBox_buscar_TextChanged);
             this.textBox_buscar.Enter += new System.EventHandler(this.textBox_buscar_Enter);
             this.textBox_buscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_buscar_KeyDown);
@@ -360,62 +415,6 @@ namespace GameCore
             this.pictureBox_mostrarColeccion.TabStop = false;
             this.pictureBox_mostrarColeccion.Click += new System.EventHandler(this.pictureBox_mostrarColeccion_Click);
             // 
-            // pictureBox_cerrarSesion
-            // 
-            this.pictureBox_cerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBox_cerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_cerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cerrarSesion.Image")));
-            this.pictureBox_cerrarSesion.Location = new System.Drawing.Point(9, 370);
-            this.pictureBox_cerrarSesion.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox_cerrarSesion.Name = "pictureBox_cerrarSesion";
-            this.pictureBox_cerrarSesion.Size = new System.Drawing.Size(44, 41);
-            this.pictureBox_cerrarSesion.TabIndex = 5;
-            this.pictureBox_cerrarSesion.TabStop = false;
-            this.pictureBox_cerrarSesion.Click += new System.EventHandler(this.pictureBox_cerrarSesion_Click);
-            // 
-            // pictureBox_ImagenPerfil
-            // 
-            this.pictureBox_ImagenPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_ImagenPerfil.Image = global::GameCore.Properties.Resources.foto_perfil_vacia;
-            this.pictureBox_ImagenPerfil.Location = new System.Drawing.Point(28, 22);
-            this.pictureBox_ImagenPerfil.Name = "pictureBox_ImagenPerfil";
-            this.pictureBox_ImagenPerfil.Size = new System.Drawing.Size(112, 120);
-            this.pictureBox_ImagenPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_ImagenPerfil.TabIndex = 3;
-            this.pictureBox_ImagenPerfil.TabStop = false;
-            this.pictureBox_ImagenPerfil.Click += new System.EventHandler(this.Settings_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::GameCore.Properties.Resources.settings;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.BackgroundImage = global::GameCore.Properties.Resources.settings;
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::GameCore.Properties.Resources.hidepanel;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.esconder_click);
-            // 
-            // tsbtnRegresa
-            // 
-            this.tsbtnRegresa.BackColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnRegresa.Image = global::GameCore.Properties.Resources.showpanel;
-            this.tsbtnRegresa.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.tsbtnRegresa.Name = "tsbtnRegresa";
-            this.tsbtnRegresa.Size = new System.Drawing.Size(24, 24);
-            this.tsbtnRegresa.Click += new System.EventHandler(this.desplegar_click);
-            // 
             // dgvVideojuegos
             // 
             this.dgvVideojuegos.AllowUserToAddRows = false;
@@ -442,8 +441,8 @@ namespace GameCore
             // Titulo
             // 
             this.Titulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.DefaultCellStyle = dataGridViewCellStyle1;
             this.Titulo.HeaderText = "Titulo";
             this.Titulo.MinimumWidth = 6;
             this.Titulo.Name = "Titulo";
@@ -452,8 +451,8 @@ namespace GameCore
             // Descripcion
             // 
             this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle2;
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.MinimumWidth = 6;
             this.Descripcion.Name = "Descripcion";
@@ -466,6 +465,7 @@ namespace GameCore
             this.Portada.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Portada.MinimumWidth = 6;
             this.Portada.Name = "Portada";
+            this.Portada.ReadOnly = true;
             // 
             // FormVistaVacia
             // 
@@ -497,11 +497,11 @@ namespace GameCore
             this.toolStrip__menuInferior.PerformLayout();
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).EndInit();
             this.menu_VistaVacia.ResumeLayout(false);
             this.menu_VistaVacia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mostrarColeccion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cerrarSesion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ImagenPerfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVideojuegos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -21,6 +21,10 @@ namespace GameCore
         private Image Foto;
         private string rutaPortada = "";
         /// <summary>
+        /// variable lecturainciial que comprueba si se ha entrado a esta vista, se usa para hacer una lectura de los campos guardados
+        /// </summary>
+        public static bool lecturaincial = true;
+        /// <summary>
         /// variable idioma, necesaria para ser accedida desde otras clases
         /// </summary>
         public static int idIdioma = 0;
@@ -154,6 +158,25 @@ namespace GameCore
         /// <param name="e"></param>
         private void boton_guardar_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                {
+                    conexion.Open();
+
+                    using (SQLiteCommand command = new SQLiteCommand("UPDATE usuarios SET darkmode = @darkmode, idioma = @idioma WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                    {
+                        command.Parameters.AddWithValue("@darkmode", darkmode);
+                        command.Parameters.AddWithValue("@idioma", idIdioma);
+                        command.ExecuteNonQuery();
+                    }             }
+            }
+            catch (SQLiteException ex)
+            {
+                // Handle the exception here
+                MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+            }
             DialogResult = DialogResult.OK;
         }
 
@@ -206,25 +229,22 @@ namespace GameCore
                     using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
                     {
                         conexion.Open();
-                        if(fotomodificada)
+                        byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
+                        using (SQLiteCommand command = new SQLiteCommand("UPDATE usuarios SET avatar = @imagen WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
                         {
-                            byte[] portada = System.IO.File.ReadAllBytes(rutaPortada);
-                            using (SQLiteCommand command = new SQLiteCommand("UPDATE usuarios SET avatar = @imagen WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                            command.Parameters.AddWithValue("@imagen", portada);
+                            command.ExecuteNonQuery();
+                            if (FormPerfil.idIdioma == 0)
                             {
-                                command.Parameters.AddWithValue("@imagen", portada);
-                                command.ExecuteNonQuery();
-                                if (FormPerfil.idIdioma == 0)
-                                {
-                                    MessageBox.Show("Foto de perfil cambiada");
-                                }
-                                else if (FormPerfil.idIdioma == 1)
-                                {
-                                    MessageBox.Show("Foto de perfil alterada");
-                                }
-                                else if (FormPerfil.idIdioma == 2)
-                                {
-                                    MessageBox.Show("Profile picture changed");
-                                }
+                                MessageBox.Show("Foto de perfil cambiada");
+                            }
+                            else if (FormPerfil.idIdioma == 1)
+                            {
+                                MessageBox.Show("Foto de perfil alterada");
+                            }
+                            else if (FormPerfil.idIdioma == 2)
+                            {
+                                MessageBox.Show("Profile picture changed");
                             }
                         }
                     }
@@ -232,7 +252,7 @@ namespace GameCore
                 catch (SQLiteException ex)
                 {
                     // Handle the exception here
-                    MessageBox.Show("Erro al acceder a la base de datos: " + ex.Message);
+                    MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
                 }
             }
 
@@ -252,7 +272,45 @@ namespace GameCore
                 toogleBoxCustomDarkMode.Checked = true;
                 darkModeChanger();
             }
+            if(lecturaincial==true)
+            {
+                try
+                {
+                    using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
+                    {
+                        conexion.Open();
 
+                        using (SQLiteCommand command = new SQLiteCommand("SELECT darkmode, idioma FROM usuarios WHERE nombre_usuario = \"" + FormaInicioSesion.nombreUsuario + "\"", conexion))
+                        {
+                            using (SQLiteDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    int idarkmode = reader.GetInt32(0);
+                                    int iIdioma = reader.GetInt32(1);
+                                    idIdioma = iIdioma;
+                                    if (idarkmode==0)
+                                    {
+                                        darkmode = false;
+                                    }
+                                    else if (idarkmode == 1)
+                                    {
+                                        darkmode = true;
+                                    }
+                                    lecturaincial = false;
+                                    this.DialogResult = DialogResult.OK;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (SQLiteException ex)
+                {
+                    // Handle the exception here
+                    MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
+                }
+            }
+           
             try
             {
                 using (SQLiteConnection conexion = new SQLiteConnection(@"Data Source=.\..\..\BaseDeDatos\gamecore.db"))
@@ -290,12 +348,20 @@ namespace GameCore
                 MessageBox.Show("Error al acceder a la base de datos: " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Método que devuelve la DialogResult.Cancel al pulsar el label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_miColeccion_Click(object sender, EventArgs e)
         {
             this.DialogResult= DialogResult.Cancel;
         }
-
+        /// <summary>
+        /// Método que lee el idioma seleccionado en el ComboBox al cambiar el indice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void idiomaCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             CambiarIdioma();

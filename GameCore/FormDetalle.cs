@@ -100,7 +100,11 @@ namespace GameCore
                 }
             }
         }
-
+        /// <summary>
+        /// Método que recoge la foto del Drag Drop y la visualiza
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pbPortada_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
@@ -355,7 +359,9 @@ namespace GameCore
                 btnEliminar.Text = "Delete";
             }
         }
-
+        /// <summary>
+        /// Método que cambia la vista a modo oscuro
+        /// </summary>
         private void darkModeChanger()
         {
             if (FormPerfil.darkmode)

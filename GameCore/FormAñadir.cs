@@ -22,6 +22,7 @@ namespace GameCore
         private string rutaPortada = "";
         /// <summary>
         /// Constructor de la forma añadir
+        /// Constructor de la forma añadir
         /// </summary>
         public formAñadir()
         {
@@ -99,13 +100,21 @@ namespace GameCore
                 }
             }
         }
-
+        /// <summary>
+        /// Método drag and drop carga la imagen que se encuentra en la pictureBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxAnadir_DragEnter(object sender, DragEventArgs e)
         {
             fotomodificada = true;
             e.Effect = DragDropEffects.Copy;    
         }
-
+        /// <summary>
+        /// Método que da inserta toda la infromación en la base de datos al aceptar, además hace comprobaciones para que los campos no estén vacíos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_aceptar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbTitulo.Text))
@@ -170,15 +179,15 @@ namespace GameCore
                                         command.ExecuteNonQuery();
                                         if (FormPerfil.idIdioma == 0)
                                         {
-                                            MessageBox.Show("Juego insertado en la base de datos");
+                                            MessageBox.Show("Juego añadido a tu colección");
                                         }
                                         else if (FormPerfil.idIdioma == 1)
                                         {
-                                            MessageBox.Show("Jogo inserido no banco de dados");
+                                            MessageBox.Show("Jogo adicionado à sua coleção");
                                         }
                                         else if (FormPerfil.idIdioma == 2)
                                         {
-                                            MessageBox.Show("Game inserted into the database");
+                                            MessageBox.Show("Game inserted into your colection");
                                         }
                                         this.DialogResult = DialogResult.OK;
                                     }
@@ -235,12 +244,20 @@ namespace GameCore
                 }
             }  
         }
-
+        /// <summary>
+        /// Método que devuelve DialogResult.Cancel y cierra la vista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_cancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
+        /// <summary>
+        /// Método que realiza un OpenFileDialog que selecciona una foto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_añadir_imagenClick(object sender, EventArgs e)
         {
             //Creamos el objeto OpenFileDialog para abrir el explorador de archivos con su filtro para que sean esos 4 tipos de imagenes (los gif se quedan con el primer frame)
@@ -294,7 +311,9 @@ namespace GameCore
                 button_aceptar.Text = "Accept";
             }
         }
-
+        /// <summary>
+        /// Método que convierte la vista a modo oscuro
+        /// </summary>
         private void darkModeChanger()
         {
             if (FormPerfil.darkmode)

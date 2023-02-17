@@ -64,6 +64,11 @@ namespace GameCore
                 //compruebo si la contraseña introducida es correcta
                 if (MetodosSqlite.CompruebaContraseña(nombreUsuario).Equals(contraseña))
                 {
+                    FormPerfil fp = new FormPerfil();
+                    if(fp.ShowDialog()==DialogResult.OK)
+                    {
+
+                    }
                     //vamos a la forma de vista vacia
                     MetodosSqlite.GetPkUsuario();
                     this.Hide();
