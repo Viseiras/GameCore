@@ -1,5 +1,9 @@
 Nota para Miguel: si te da problemas al abrir el proyecto con visual studio utiliza mejor el fichero .zip pasado que hemos adjuntado por Classroom, por lo visto ha habido algún conflicto con GitHub.
 
+LOS USUARIOS PARA INICIAR SESIÓN EN LA APP SON:
+nombre usuario: samuel, contraseña: admin  -- esta cuenta tiene ya datos insertados.
+nombre usuario: usuario, contraseña: admin -- esta cuenta no tiene ningún dato insertado.
+
 # Game Core
 
 Game Core es una aplicación de gestión de videojuegos diseñada para que los usuarios puedan organizar su colección de juegos de manera eficiente. Con Game Core, 
