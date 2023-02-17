@@ -1,4 +1,5 @@
-Nota para Miguel: si te da problemas al abrir el proyecto con visual studio utiliza mejor el fichero .zip pasado que hemos adjuntado por Classroom, por lo visto ha habido algún conflicto con GitHub.
+# Nota para Miguel: 
+si te da problemas al abrir el proyecto con visual studio utiliza mejor el fichero .zip pasado que hemos adjuntado por Classroom, por lo visto ha habido algún conflicto con GitHub.
 
 LOS USUARIOS PARA INICIAR SESIÓN EN LA APP SON:
 nombre usuario: samuel, contraseña: admin  -- esta cuenta tiene ya datos insertados.
